@@ -1,32 +1,98 @@
 function Navbar() {
   return (
-    <header className="shadow-sm sticky top-0 z-20 bg-white">
-      <div className="max-w-6xl mx-auto flex items-center justify-between py-3 px-4">
-        <div className="flex items-center gap-2">
-          <div className="h-10 w-10 rounded-full bg-amber-600 flex items-center justify-center text-white font-bold">
-            SMK
+    <header className="sticky top-0 z-20 bg-white">
+      {/* Top Announcement Bar */}
+      <div className="bg-[#8B4513] text-white py-2">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+          <button className="text-white hover:text-gray-200">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div className="flex items-center gap-2 text-sm">
+            <span>Welcome Offer Coupon Code: <strong>WELCOME10</strong></span>
           </div>
-          <div className="leading-tight">
-            <p className="font-semibold text-sm">Sattur Mittai Kadai</p>
-            <p className="text-xs text-gray-500">Since 1914</p>
-          </div>
+          <button className="text-white hover:text-gray-200">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
+      </div>
 
-        <nav className="hidden md:flex gap-6 text-sm font-medium text-gray-700">
-          <a href="#home" className="hover:text-amber-700">Home</a>
-          <a href="#savouries" className="hover:text-amber-700">Savouries</a>
-          <a href="#sweets" className="hover:text-amber-700">Sweets</a>
-          <a href="#chikki" className="hover:text-amber-700">Chikki</a>
-          <a href="#about" className="hover:text-amber-700">Our Story</a>
-        </nav>
+      {/* Main Navbar */}
+      <div className="border-b">
+        <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-4">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <div className="w-16 h-16 bg-[#8B4513] rounded-full flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C11.5 2 11 2.19 10.59 2.59L2.59 10.59C1.8 11.37 1.8 12.63 2.59 13.41L10.59 21.41C11.37 22.2 12.63 22.2 13.41 21.41L21.41 13.41C22.2 12.63 22.2 11.37 21.41 10.59L13.41 2.59C13 2.19 12.5 2 12 2M12 4L20 12L12 20L4 12L12 4Z"/>
+                </svg>
+              </div>
+              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-12 h-6 bg-white rounded-t-full border-2 border-[#8B4513]">
+                <div className="w-full h-full flex items-end justify-center">
+                  <div className="w-2 h-2 bg-[#8B4513] rounded-full mb-1"></div>
+                </div>
+              </div>
+            </div>
+            <div className="leading-tight">
+              <p className="font-bold text-base">M S Shanmugandar</p>
+              <p className="text-xl font-bold text-[#8B4513]">Bakery</p>
+            </div>
+          </div>
 
-        <div className="flex items-center gap-3 text-sm">
-          <button className="hidden sm:inline px-3 py-1 border rounded-full text-gray-700 hover:border-amber-600">
-            Login
-          </button>
-          <button className="px-3 py-1.5 rounded-full bg-amber-600 text-white font-medium hover:bg-amber-700">
-            Cart (0)
-          </button>
+          {/* Navigation */}
+          <nav className="hidden lg:flex gap-8 text-sm font-medium">
+            <a href="#savouries" className="hover:text-[#FF6B35] transition-colors flex items-center gap-1">
+              Savouries <span className="text-xs">▼</span>
+            </a>
+            <a href="#sweets" className="text-[#FF6B35] border-b-2 border-[#FF6B35] pb-1 flex items-center gap-1">
+              Sweets <span className="text-xs">▼</span>
+            </a>
+            <a href="#bakery" className="hover:text-[#FF6B35] transition-colors flex items-center gap-1">
+              Bakery <span className="text-xs">▼</span>
+            </a>
+            <a href="#chikki" className="hover:text-[#FF6B35] transition-colors flex items-center gap-1">
+              Chikki <span className="text-xs">▼</span>
+            </a>
+            <a href="#kitchen-specials" className="hover:text-[#FF6B35] transition-colors flex items-center gap-1">
+              Kitchen Specials <span className="text-xs">▼</span>
+            </a>
+            <a href="#combo" className="hover:text-[#FF6B35] transition-colors flex items-center gap-1">
+              Combo <span className="text-xs">▼</span>
+            </a>
+            <a href="#bulk-enquiry" className="hover:text-[#FF6B35] transition-colors">
+              Bulk Enquiry
+            </a>
+          </nav>
+
+          {/* Right Icons */}
+          <div className="flex items-center gap-4">
+            <button className="hover:text-[#FF6B35] transition-colors">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+            <button className="hover:text-[#FF6B35] transition-colors">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </button>
+            <button className="hover:text-[#FF6B35] transition-colors relative">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">0</span>
+            </button>
+            <button className="hover:text-[#FF6B35] transition-colors relative">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">0</span>
+            </button>
+          </div>
         </div>
       </div>
     </header>
