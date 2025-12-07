@@ -21,9 +21,14 @@ function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3 text-sm">
-          <button className="hidden sm:inline px-3 py-1 border rounded-full text-gray-700 hover:border-amber-600">
+          {/* Login Button */}
+          <a
+            href="/login"
+            className="hidden sm:inline px-3 py-1 border rounded-full text-gray-700 hover:border-amber-600"
+          >
             Login
-          </button>
+          </a>
+
           <button className="px-3 py-1.5 rounded-full bg-amber-600 text-white font-medium hover:bg-amber-700">
             Cart (0)
           </button>
