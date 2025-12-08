@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import cakeImg from "../assets/images.jpg";
+import chikkiImg from "../assets/download.jpg";
 
 function Navbar({ onHomeClick }) {
   const announcements = [
@@ -169,15 +171,181 @@ function Navbar({ onHomeClick }) {
             <a href="#sweets" className="relative group text-[#FF6B35] pb-1 flex items-center gap-1">
               Sweets ▼
               <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FF6B35] animate-pulse"></span>
-            </a>
-            <a href="#bakery" className="relative group hover:text-[#FF6B35] transition-colors flex items-center gap-1">
-              Bakery ▼
-              <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#chikki" className="relative group hover:text-[#FF6B35] transition-colors flex items-center gap-1">
-              Chikki ▼
-              <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
-            </a>
+            </a>           
+
+
+  {/* BAKERY DROPDOWN */}
+
+          
+<div className="relative group cursor-pointer">
+  {/* Navbar Link */}
+  <span className="flex items-center gap-1 text-[#8B4513] hover:text-[#C55A27] transition-colors">
+    Bakery
+    <span className="transition-transform duration-300 group-hover:rotate-180">▼</span>
+  </span>
+
+  {/* Dropdown Overlay */}
+  <div
+    className="
+      fixed left-0 top-[170px] w-screen h-[50vh]
+      bg-white border-b border-[#E5C8A6]
+      shadow-md z-50
+      opacity-0 invisible translate-y-5 transition-all duration-500 ease-out
+      group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+    <div className="flex h-full px-50 py-10">
+      {/* LEFT SECTION */}
+      <div className="w-2/3 flex flex-col justify-center gap-10 pr-10">
+        <div className="grid grid-cols-2 gap-15">
+          {/* Cakes */}
+          <div>
+            <h3 className="text-[#8B4513] font-semibold text-sm tracking-wider mb-4">
+              CAKES
+            </h3>
+            <ul className="space-y-3">
+              <li className="relative inline-block cursor-pointer hover:text-[#C55A27] transition group/item">
+                Rich Plum Cake
+                <span className="absolute left-0 -bottom-[2px] bg-[#C55A27] h-[2px] w-0 group-hover/item:w-full transition-all duration-300"></span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Cookies */}
+          <div>
+            <h3 className="text-[#8B4513] font-semibold text-sm tracking-wider mb-4">
+              COOKIES
+            </h3>
+           <ul className="space-y-3">
+  {["Coconut Cookies", "Vanilla Cookies", "Coin Biscuits", "Rusk"].map((item) => (
+    <li key={item} className="block cursor-pointer group/item">
+      <span className="relative inline-block hover:text-[#C55A27] transition">
+
+        {item}
+
+        {/* underline only under text */}
+        <span
+          className="
+            absolute left-0 -bottom-[2px] h-[2px] bg-[#C55A27]
+            w-full origin-left 
+            scale-x-0 group-hover/item:scale-x-100
+            transition-transform duration-300
+          "
+        ></span>
+
+      </span>
+    </li>
+  ))}
+      </ul>
+    </div>
+  </div>
+</div>
+
+    {/* RIGHT IMAGE */}
+<div className="w-1/4 flex items-center justify-end">
+  <img
+    src={cakeImg}
+    alt="Rich Plum Cake"
+    className="w-[300px] h-[300px] object-cover rounded-full border border-[#E5C8A6]"
+  />
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+
+            {/* CHIKKI DROPDOWN */}
+
+
+
+<div className="relative group cursor-pointer">
+  {/* Navbar Link */}
+  <a href="#chikki" className="relative flex items-center gap-1 text-[#8B4513] hover:text-[#FF6B35] transition-colors">
+    Chikki
+    <span className="transition-transform duration-300 group-hover:rotate-180">▼</span>
+    <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
+  </a>
+
+  {/* Dropdown Overlay */}
+  <div
+    className="
+      fixed left-0 top-[170px] w-screen h-[50vh]
+      bg-white border-b border-[#E5C8A6]
+      shadow-md z-50
+      opacity-0 invisible translate-y-5 transition-all duration-500 ease-out
+      group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+    "
+  >
+    <div className="flex h-full px-50 py-10">
+      {/* LEFT SECTION */}
+      <div className="w-2/3 flex flex-col justify-center gap-10 pr-10">
+        <div className="grid grid-cols-2 gap-15">
+          <div>
+            <h3 className="text-[#8B4513] font-semibold text-sm tracking-wider mb-4">
+              CHIKKI BITES
+            </h3>
+             <ul className="space-y-3">
+              {["Pori Urundai Smashed", "Peanut Chikki Bites", "Black Sesame Chikki Bites", "Groundnut Chikki Balls", "Kamarakat/ Kamarkattu"].map((item) => (
+                <li key={item} className="block cursor-pointer group/item">
+                  <span className="relative inline-block hover:text-[#C55A27] transition">
+                    {item}
+                    {/* underline only under text */}
+                    <span
+                      className="
+                        absolute left-0 -bottom-[2px] h-[2px] bg-[#C55A27]
+                        w-full origin-left 
+                        scale-x-0 group-hover/item:scale-x-100
+                        transition-transform duration-300
+                      "
+                    ></span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Cookies */}
+          <div>
+            <h3 className="text-[#8B4513] font-semibold text-sm tracking-wider mb-4">
+              CHIKKI BARS
+            </h3>
+            <ul className="space-y-3">
+              {["Groundnut Chikki Ban", "Koko Peanut Chikki Ban", "White Sesame Chikki Bar", "Black Sesame Chikki Bar"].map((item) => (
+                <li key={item} className="block cursor-pointer group/item">
+                  <span className="relative inline-block hover:text-[#C55A27] transition">
+                    {item}
+                    {/* underline only under text */}
+                    <span
+                      className="
+                        absolute left-0 -bottom-[2px] h-[2px] bg-[#C55A27]
+                        w-full origin-left 
+                        scale-x-0 group-hover/item:scale-x-100
+                        transition-transform duration-300
+                      "
+                    ></span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* RIGHT IMAGE */}
+      <div className="w-1/4 flex items-center justify-end">
+        <img
+          src={chikkiImg}
+          alt="chikki"
+          className="w-[300px] h-[300px] object-cover rounded-full border border-[#E5C8A6]"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
             <a href="#kitchen-specials" className="relative group hover:text-[#FF6B35] transition-colors flex items-center gap-1">
               Kitchen Specials ▼
               <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
