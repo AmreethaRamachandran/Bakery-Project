@@ -106,14 +106,6 @@ function BestSellers() {
         </svg>
       </div>
 
-      {/* Snowflakes */}
-      <div className="absolute left-10 top-20 text-2xl text-blue-300 animate-pulse">❄️</div>
-      <div className="absolute right-20 top-40 text-xl text-blue-300 animate-pulse">❄️</div>
-      <div className="absolute left-1/4 top-60 text-lg text-blue-300 animate-pulse">❄️</div>
-      <div className="absolute right-1/3 top-80 text-2xl text-blue-300 animate-pulse">❄️</div>
-      <div className="absolute left-1/2 bottom-40 text-xl text-blue-300 animate-pulse">❄️</div>
-      <div className="absolute right-10 bottom-60 text-lg text-blue-300 animate-pulse">❄️</div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="mb-12">
@@ -159,21 +151,7 @@ function BestSellers() {
                     </svg>
                   </button>
                 </div>
-
-                {/* Snowflakes on product cards */}
-                <div className="absolute top-4 left-4 text-xl text-white animate-pulse">❄️</div>
-                {product.id === 2 && (
-                  <>
-                    <div className="absolute bottom-4 left-3 text-lg text-blue-200 animate-pulse">❄️</div>
-                    <div className="absolute top-1/2 right-3 text-sm text-blue-200 animate-pulse">❄️</div>
-                  </>
-                )}
-                {product.id === 3 && (
-                  <div className="absolute top-1/3 right-4 text-lg text-white animate-pulse">❄️</div>
-                )}
-              </div>
-
-              {/* Product Info */}
+              </div>              {/* Product Info */}
               <div className="p-5 text-gray-800">
                 <h3 className="text-lg font-bold mb-2 text-gray-900">{product.name}</h3>
                 

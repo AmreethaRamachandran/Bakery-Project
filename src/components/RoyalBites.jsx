@@ -90,32 +90,6 @@ function RoyalBites() {
 
   return (
     <section className="py-16 px-4 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden">
-      {/* Snowflakes */}
-      <div className="absolute left-20 top-10 text-2xl text-blue-400 animate-pulse">❄️</div>
-      <div className="absolute right-1/4 top-32 text-xl text-blue-400 animate-pulse">❄️</div>
-      <div className="absolute left-1/3 bottom-40 text-lg text-blue-400 animate-pulse">❄️</div>
-      <div className="absolute right-20 bottom-60 text-xl text-blue-400 animate-pulse">❄️</div>
-
-      {/* Santa decoration */}
-      <div className="absolute right-16 top-32 text-5xl animate-bounce">🎅</div>
-
-      {/* Feel the song button */}
-      <div className="absolute top-8 right-8">
-        <button className="bg-white text-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-gray-100 transition-colors shadow-md border border-gray-300">
-          Feel the song
-        </button>
-      </div>
-
-      {/* Mute icon */}
-      <div className="absolute top-8 right-44">
-        <button className="bg-white text-gray-800 p-2 rounded-full shadow-md border border-gray-300 hover:bg-gray-100 transition-colors">
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-          </svg>
-        </button>
-      </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -148,9 +122,6 @@ function RoyalBites() {
                   View More
                 </button>
               </div>
-              {/* Decorative snowflakes on card */}
-              <div className="absolute top-4 left-4 text-lg text-white animate-pulse">❄️</div>
-              <div className="absolute bottom-6 right-4 text-sm text-white animate-pulse">❄️</div>
             </div>
 
             {/* Product Cards */}
@@ -177,23 +148,7 @@ function RoyalBites() {
                       </>
                     )}
 
-                    {index === 2 && (
-                      <>
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl text-blue-400 animate-pulse">❄️</div>
-                      </>
-                    )}
 
-                    {index === 3 && (
-                      <>
-                        <div className="absolute top-3 right-3 text-xl text-blue-400 animate-pulse">❄️</div>
-                      </>
-                    )}
-
-                    {index === 4 && (
-                      <>
-                        <div className="absolute top-3 left-3 text-xl text-blue-400 animate-pulse">❄️</div>
-                      </>
-                    )}
                   </div>
 
                   {/* Product Info */}

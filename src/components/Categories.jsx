@@ -54,19 +54,6 @@ function Categories() {
         </svg>
       </div>
 
-      {/* Santa Claus decoration */}
-      <div className="absolute right-8 top-32 text-6xl animate-bounce">
-        🎅
-      </div>
-
-      {/* Snowflakes */}
-      <div className="absolute left-1/4 top-10 text-3xl text-blue-300 animate-pulse">
-        ❄️
-      </div>
-      <div className="absolute right-1/4 top-1/3 text-2xl text-blue-300 animate-pulse">
-        ❄️
-      </div>
-
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -95,11 +82,6 @@ function Categories() {
               </h3>
             </div>
           ))}
-        </div>
-
-        {/* Text at bottom right */}
-        <div className="text-right mt-8">
-          <p className="text-sm text-gray-600 italic">Feel the song</p>
         </div>
       </div>
 

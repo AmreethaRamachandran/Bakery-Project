@@ -52,9 +52,9 @@ function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative overflow-hidden">
+    <section id="home" className="relative overflow-hidden h-[500px] md:h-[600px] isolate">
       {/* Carousel Container */}
-      <div className="relative h-[500px] md:h-[600px]">
+      <div className="relative h-full">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -101,29 +101,29 @@ function HeroSection() {
             </div>
           </div>
         ))}
+
+        {/* Previous Button */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all"
+          aria-label="Previous slide"
+        >
+          <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        {/* Next Button */}
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all"
+          aria-label="Next slide"
+        >
+          <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
-
-      {/* Previous Button */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all"
-        aria-label="Previous slide"
-      >
-        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
-      {/* Next Button */}
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all"
-        aria-label="Next slide"
-      >
-        <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
 
       {/* Dots Navigation */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">

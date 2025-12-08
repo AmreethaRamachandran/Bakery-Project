@@ -1,18 +1,52 @@
+import { useState } from 'react';
+
 function Navbar() {
+  const announcements = [
+    { text: 'Welcome Offer Coupon Code:', code: 'WELCOME10' },
+    { text: 'Free Delivery on Orders Above:', code: '₹500' },
+    { text: 'Special Discount Today:', code: 'SAVE20' },
+    { text: 'Fresh Baked Daily:', code: 'QUALITY ASSURED' }
+  ];
+
+  const [currentAnnouncement, setCurrentAnnouncement] = useState(0);
+
+  const handlePrevious = () => {
+    setCurrentAnnouncement((prev) => 
+      prev === 0 ? announcements.length - 1 : prev - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentAnnouncement((prev) => 
+      prev === announcements.length - 1 ? 0 : prev + 1
+    );
+  };
+
   return (
     <header className="sticky top-0 z-20 bg-white">
       {/* Top Announcement Bar */}
-      <div className="bg-[#8B4513] text-white py-2">
+      <div className="bg-[#8B4513] text-white py-2 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-          <button className="text-white hover:text-gray-200">
+          <button 
+            onClick={handlePrevious}
+            className="text-white hover:text-gray-200 hover:scale-110 transition-all duration-300"
+          >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <div className="flex items-center gap-2 text-sm">
-            <span>Welcome Offer Coupon Code: <strong>WELCOME10</strong></span>
+          <div className="flex items-center gap-2 text-sm relative">
+            <span 
+              key={currentAnnouncement}
+              className="animate-[slideIn_0.5s_ease-out]"
+            >
+              {announcements[currentAnnouncement].text} <strong>{announcements[currentAnnouncement].code}</strong>
+            </span>
           </div>
-          <button className="text-white hover:text-gray-200">
+          <button 
+            onClick={handleNext}
+            className="text-white hover:text-gray-200 hover:scale-110 transition-all duration-300"
+          >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

@@ -140,21 +140,6 @@ function SavoryTreasures() {
         </svg>
       </div>
 
-      {/* Snowflakes */}
-      <div className="absolute left-20 top-10 text-2xl text-blue-400 animate-pulse">❄️</div>
-      <div className="absolute right-1/4 top-32 text-xl text-blue-400 animate-pulse">❄️</div>
-      <div className="absolute left-1/3 bottom-40 text-lg text-blue-400 animate-pulse">❄️</div>
-
-      {/* Santa and decorations */}
-      <div className="absolute right-16 top-32 text-5xl animate-bounce">🎅</div>
-
-      {/* Feel the song button */}
-      <div className="absolute top-8 right-8">
-        <button className="bg-white text-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-gray-100 transition-colors shadow-md border border-gray-300">
-          Feel the song
-        </button>
-      </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -200,9 +185,6 @@ function SavoryTreasures() {
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
-                    
-                    {/* Snowflakes on product cards */}
-                    <div className="absolute top-4 left-4 text-xl text-white animate-pulse">❄️</div>
                   </div>
 
                   {/* Product Info */}

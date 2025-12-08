@@ -28,16 +28,6 @@ function Footer() {
         </svg>
       </div>
 
-      {/* Snowflakes */}
-      <div className="absolute left-20 top-10 text-2xl text-blue-400 animate-pulse">❄️</div>
-      <div className="absolute right-1/4 top-32 text-xl text-blue-400 animate-pulse">❄️</div>
-      <div className="absolute left-1/3 bottom-40 text-lg text-blue-400 animate-pulse">❄️</div>
-      <div className="absolute right-20 top-20 text-2xl text-blue-400 animate-pulse">❄️</div>
-
-      {/* Santa and decorations */}
-      <div className="absolute right-16 top-32 text-5xl animate-bounce">🎅</div>
-      <div className="absolute right-32 bottom-32 text-4xl">🔕</div>
-
       <div className="max-w-7xl mx-auto px-4 py-12 relative z-10">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
@@ -125,13 +115,6 @@ function Footer() {
                   </svg>
                 </a>
               </div>
-            </div>
-            
-            {/* Feel the song button */}
-            <div className="mt-6">
-              <button className="bg-white px-4 py-2 rounded-lg text-sm hover:bg-gray-100 transition-colors shadow-md">
-                Feel the song
-              </button>
             </div>
           </div>
         </div>
