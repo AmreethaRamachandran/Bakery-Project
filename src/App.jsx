@@ -16,6 +16,7 @@ import OurJourney from "./components/OurJourney";
 import Footer from "./components/Footer";
 import LoginPage from "./components/LoginPage"; 
 import SignupPage from "./components/SignupPage";
+import ComboPage from "./components/ComboPage";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("login"); // Start with login page
@@ -39,6 +40,23 @@ function App() {
     setCurrentPage("login");
   };
 
+  const handleCategoryClick = (categoryName) => {
+    if (categoryName === 'Combo') {
+      window.scrollTo(0, 0);
+      setCurrentPage("combo");
+    }
+  };
+
+  const handleBackToHome = () => {
+    window.scrollTo(0, 0);
+    setCurrentPage("home");
+  };
+
+  const handleNavComboClick = () => {
+    window.scrollTo(0, 0);
+    setCurrentPage("combo");
+  };
+
   // Show login page first
   if (currentPage === "login") {
     return <LoginPage onLogin={handleLogin} onSignup={handleSignup} />;
@@ -49,12 +67,23 @@ function App() {
     return <SignupPage onBackToLogin={handleBackToLogin} />;
   }
 
+  // Show combo page
+  if (currentPage === "combo") {
+    return (
+      <div className="font-sans">
+        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} />
+        <ComboPage onBack={handleBackToHome} />
+        <Footer />
+      </div>
+    );
+  }
+
   // Show home page after login
   return (
     <div className="font-sans">
-      <Navbar onLogout={handleLogout} isLoggedIn={isLoggedIn} />
+      <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} />
       <HeroSection />
-      <Categories />
+      <Categories onCategoryClick={handleCategoryClick} />
       <BestSellers />
       <SavoryTreasures />
       <SweetLegacy />

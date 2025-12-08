@@ -1,4 +1,4 @@
-function Categories() {
+function Categories({ onCategoryClick }) {
   const categories = [
     {
       id: 1,
@@ -58,13 +58,17 @@ function Categories() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-sm text-gray-600 mb-2 tracking-wide">Shop Collections</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#FF6B35]">Categories</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#FF6B35] font-serif italic tracking-wide">Categories</h2>
         </div>
 
         {/* Categories Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-10">
           {categories.map((category) => (
-            <div key={category.id} className="flex flex-col items-center group cursor-pointer">
+            <div 
+              key={category.id} 
+              className="flex flex-col items-center group cursor-pointer"
+              onClick={() => onCategoryClick && onCategoryClick(category.name)}
+            >
               {/* Circle Image Container */}
               <div className={`w-40 h-40 md:w-48 md:h-48 rounded-full ${category.bgColor} p-4 shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl overflow-hidden`}>
                 <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center">

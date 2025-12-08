@@ -6,25 +6,28 @@ function HeroSection() {
   const slides = [
     {
       id: 1,
-      title: "Taste and Quality Carried Over Generations",
-      subtitle: "Traditional Indian Sweets & Snacks",
-      description: "Crispy kaara sevu, authentic chikkis and delightful sweets delivered fresh from Sattur to your doorstep.",
+      title: "Welcome Offer - 10% OFF",
+      subtitle: "NEW CUSTOMER SPECIAL",
+      description: "Get 10% discount on your first order. Use code: WELCOME10 at checkout. Valid on all products!",
+      badge: "LIMITED TIME",
       image: "https://images.unsplash.com/photo-1606312619070-d48b4ade4787?w=800&h=600&fit=crop",
       bgColor: "from-amber-50 via-amber-100 to-orange-50"
     },
     {
       id: 2,
-      title: "Fresh Bakery Delights Every Day",
-      subtitle: "Handcrafted with Love",
-      description: "Explore our wide range of freshly baked goods, made with the finest ingredients and traditional recipes.",
+      title: "Free Delivery on Orders ₹500+",
+      subtitle: "SAVE MORE TODAY",
+      description: "Shop for ₹500 or more and enjoy free home delivery. Fresh bakery items delivered right to your doorstep!",
+      badge: "EVERYDAY OFFER",
       image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=600&fit=crop",
       bgColor: "from-orange-50 via-pink-50 to-red-50"
     },
     {
       id: 3,
-      title: "Celebrate with Our Special Sweets",
-      subtitle: "Perfect for Every Occasion",
-      description: "Make your celebrations memorable with our authentic Indian sweets and savories.",
+      title: "Special Discount - Save 20%",
+      subtitle: "TODAY'S BEST DEAL",
+      description: "Get flat 20% off on selected combo packs and festive special items. Use code: SAVE20. Hurry, limited stock!",
+      badge: "HOT DEAL",
       image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&h=600&fit=crop",
       bgColor: "from-yellow-50 via-amber-50 to-orange-50"
     }
@@ -67,22 +70,33 @@ function HeroSection() {
                 <div className="grid md:grid-cols-2 gap-10 items-center h-full py-12">
                   {/* Text Content */}
                   <div className="space-y-6">
+                    {/* Badge */}
+                    <div className="inline-block">
+                      <span className="px-4 py-2 bg-[#FF6B35] text-white text-xs font-bold rounded-full uppercase tracking-wider shadow-lg animate-pulse">
+                        {slide.badge}
+                      </span>
+                    </div>
+                    
                     <p className="text-sm font-semibold text-amber-700 tracking-wide uppercase">
                       {slide.subtitle}
                     </p>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#8B4513] leading-tight drop-shadow-sm">
                       {slide.title}
                     </h1>
-                    <p className="text-gray-600 text-base md:text-lg">
+                    <p className="text-gray-700 text-lg md:text-xl font-medium leading-relaxed">
                       {slide.description}
                     </p>
-                    <div className="flex flex-wrap gap-4 pt-4">
-                      <button className="px-6 py-3 rounded-full bg-[#8B4513] text-white font-semibold hover:bg-[#6B3410] transition-colors">
-                        Shop Now
-                      </button>
-                      <button className="px-6 py-3 rounded-full border-2 border-[#8B4513] text-[#8B4513] font-semibold hover:bg-[#8B4513] hover:text-white transition-colors">
-                        View Menu
-                      </button>
+                    
+                    {/* Promotional Elements */}
+                    <div className="flex items-center gap-3 pt-4">
+                      <div className="flex items-center gap-2 text-[#FF6B35]">
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <span className="font-bold text-lg">Exclusive Offer</span>
+                      </div>
+                      <div className="h-6 w-px bg-gray-300"></div>
+                      <span className="text-gray-600 font-semibold">Limited Period Only</span>
                     </div>
                   </div>
 
