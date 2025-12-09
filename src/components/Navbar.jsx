@@ -138,25 +138,14 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
           {/* Logo */}
           <button 
             onClick={() => onHomeClick && onHomeClick()}
-            className="flex items-center gap-3 group cursor-pointer"
+            className="flex items-center gap-2 group cursor-pointer"
           >
-            <div className="relative transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#8B4513] to-[#6B3410] rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-                <svg className="w-10 h-10 text-white transform transition-transform group-hover:rotate-180 duration-700" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C11.5 2 11 2.19 10.59 2.59L2.59 10.59C1.8 11.37 1.8 12.63 2.59 13.41L10.59 21.41C11.37 22.2 12.63 22.2 13.41 21.41L21.41 13.41C22.2 12.63 22.2 11.37 21.41 10.59L13.41 2.59C13 2.19 12.5 2 12 2M12 4L20 12L12 20L4 12L12 4Z"/>
-                </svg>
+            <div className="relative transform transition-all duration-500 group-hover:scale-105">
+              <div className="flex flex-col items-start">
+                <span className="text-4xl font-black text-white leading-none block" style={{fontFamily: 'Impact, "Franklin Gothic Bold", sans-serif', WebkitTextStroke: '3px #B91C50', textShadow: '0 0 0 #B91C50', letterSpacing: '2px'}}>from</span>
+                <span className="text-4xl font-black text-white leading-none block" style={{fontFamily: 'Impact, "Franklin Gothic Bold", sans-serif', WebkitTextStroke: '3px #B91C50', textShadow: '0 0 0 #B91C50', letterSpacing: '2px'}}>karaikudi</span>
+                <span className="text-xs text-[#8B4513] tracking-wide mt-1 font-semibold">Authentic Traditional Delights</span>
               </div>
-              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-12 h-6 bg-white rounded-t-full border-2 border-[#8B4513] transition-all group-hover:border-[#FF6B35]">
-                <div className="w-full h-full flex items-end justify-center">
-                  <div className="w-2 h-2 bg-[#8B4513] rounded-full mb-1 animate-pulse"></div>
-                </div>
-              </div>
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-full bg-[#FF6B35] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
-            </div>
-            <div className="leading-tight">
-              <p className="font-bold text-base group-hover:text-[#FF6B35] transition-colors">M S Shanmugandar</p>
-              <p className="text-xl font-bold text-[#8B4513] group-hover:text-[#FF6B35] transition-colors">Bakery</p>
             </div>
           </button>
 
