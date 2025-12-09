@@ -274,6 +274,7 @@ function Navbar({ onHomeClick }) {
               </div>
             </div>
 
+
             <button 
               onClick={(e) => {
                 e.preventDefault();
