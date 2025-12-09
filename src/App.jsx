@@ -17,6 +17,9 @@ import Footer from "./components/Footer";
 import LoginPage from "./components/LoginPage"; 
 import SignupPage from "./components/SignupPage";
 import ComboPage from "./components/ComboPage";
+import Savouries from "./components/Savouries";
+import Sweets from "./components/Sweets";
+import KitchenSpecials from "./components/KitchenSpecials";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("login"); // Start with login page
@@ -57,6 +60,21 @@ function App() {
     setCurrentPage("combo");
   };
 
+  const handleNavSavouriesClick = () => {
+    window.scrollTo(0, 0);
+    setCurrentPage("savouries");
+  };
+
+  const handleNavSweetsClick = () => {
+    window.scrollTo(0, 0);
+    setCurrentPage("sweets");
+  };
+
+  const handleNavKitchenSpecialsClick = () => {
+    window.scrollTo(0, 0);
+    setCurrentPage("kitchenSpecials");
+  };
+
   // Show login page first
   if (currentPage === "login") {
     return <LoginPage onLogin={handleLogin} onSignup={handleSignup} />;
@@ -67,11 +85,44 @@ function App() {
     return <SignupPage onBackToLogin={handleBackToLogin} />;
   }
 
+  // Show savouries page
+  if (currentPage === "savouries") {
+    return (
+      <div className="font-sans">
+        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
+        <Savouries onBack={handleBackToHome} />
+        <Footer />
+      </div>
+    );
+  }
+
+  // Show sweets page
+  if (currentPage === "sweets") {
+    return (
+      <div className="font-sans">
+        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
+        <Sweets onBack={handleBackToHome} />
+        <Footer />
+      </div>
+    );
+  }
+
+  // Show kitchen specials page
+  if (currentPage === "kitchenSpecials") {
+    return (
+      <div className="font-sans">
+        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
+        <KitchenSpecials onBack={handleBackToHome} />
+        <Footer />
+      </div>
+    );
+  }
+
   // Show combo page
   if (currentPage === "combo") {
     return (
       <div className="font-sans">
-        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} />
+        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
         <ComboPage onBack={handleBackToHome} />
         <Footer />
       </div>
@@ -81,7 +132,7 @@ function App() {
   // Show home page after login
   return (
     <div className="font-sans">
-      <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} />
+      <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
       <HeroSection />
       <Categories onCategoryClick={handleCategoryClick} />
       <BestSellers />

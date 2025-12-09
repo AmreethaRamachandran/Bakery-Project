@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Navbar({ onHomeClick }) {
+function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, onKitchenSpecialsClick, currentPage = 'home' }) {
   const announcements = [
     { text: 'Welcome Offer Coupon Code:', code: 'WELCOME10' },
     { text: 'Free Delivery on Orders Above:', code: '₹500' },
@@ -164,10 +164,20 @@ function Navbar({ onHomeClick }) {
           <nav className="hidden lg:flex gap-8 text-sm font-medium">
             {/* Savouries Dropdown */}
             <div className="relative group">
-              <a href="#savouries" className="hover:text-[#FF6B35] transition-colors flex items-center gap-1">
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onSavouriesClick) onSavouriesClick();
+                }}
+                className={`transition-colors flex items-center gap-1 ${currentPage === 'savouries' ? 'text-[#FF6B35] pb-1' : 'hover:text-[#FF6B35]'}`}
+              >
                 Savouries ▼
-                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
-              </a>
+                {currentPage === 'savouries' ? (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FF6B35] animate-pulse"></span>
+                ) : (
+                  <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
+                )}
+              </button>
               
               {/* Dropdown Menu */}
               <div className="absolute top-full left-0 mt-2 w-[500px] bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] border border-gray-100">
@@ -215,20 +225,28 @@ function Navbar({ onHomeClick }) {
 
             {/* Sweets Dropdown */}
             <div className="relative group">
-              <a href="#sweets" className="text-[#FF6B35] pb-1 flex items-center gap-1">
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onSweetsClick) onSweetsClick();
+                }}
+                className={`transition-colors flex items-center gap-1 ${currentPage === 'sweets' ? 'text-[#FF6B35] pb-1' : 'hover:text-[#FF6B35]'}`}
+              >
                 Sweets ▼
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FF6B35] animate-pulse"></span>
-              </a>
+                {currentPage === 'sweets' ? (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FF6B35] animate-pulse"></span>
+                ) : null}
+              </button>
               
               {/* Dropdown Menu */}
-              <div className="absolute top-full left-0 mt-2 w-[400px] bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] border border-gray-100">
-                <div className="grid grid-cols-3 gap-6 p-6">
+              <div className="absolute top-full left-0 mt-2 w-[500px] bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] border border-gray-100">
+                <div className="grid grid-cols-3 gap-8 p-6">
                   {/* ATHIRASAM Column */}
                   <div>
                     <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">ATHIRASAM</h3>
                     <ul className="space-y-2">
                       <li><a href="#athirasam" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Athirasam</a></li>
-                      <li><a href="#nei-athirasam" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Nei Athirasam</a></li>
+                      <li><a href="#periya-athirasam" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Periya Athirasam</a></li>
                     </ul>
                   </div>
 
@@ -236,9 +254,7 @@ function Navbar({ onHomeClick }) {
                   <div>
                     <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">LADDU</h3>
                     <ul className="space-y-2">
-                      <li><a href="#boondi-laddu" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Boondi Laddu</a></li>
                       <li><a href="#rava-laddu" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Rava Laddu</a></li>
-                      <li><a href="#besan-laddu" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Besan Laddu</a></li>
                     </ul>
                   </div>
 
@@ -246,9 +262,8 @@ function Navbar({ onHomeClick }) {
                   <div>
                     <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">URUNDAI</h3>
                     <ul className="space-y-2">
-                      <li><a href="#pori-urundai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Pori Urundai</a></li>
-                      <li><a href="#ellu-urundai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Ellu Urundai</a></li>
-                      <li><a href="#kadalai-urundai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Kadalai Urundai</a></li>
+                      <li><a href="#ulundhamavurundai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Ulundhamavurundai</a></li>
+                      <li><a href="#mavurundai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Mavurundai</a></li>
                     </ul>
                   </div>
                 </div>
@@ -257,10 +272,20 @@ function Navbar({ onHomeClick }) {
 
             {/* Kitchen Specials Dropdown */}
             <div className="relative group">
-              <a href="#kitchen-specials" className="hover:text-[#FF6B35] transition-colors flex items-center gap-1">
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onKitchenSpecialsClick) onKitchenSpecialsClick();
+                }}
+                className={`transition-colors flex items-center gap-1 ${currentPage === 'kitchenSpecials' ? 'text-[#FF6B35] pb-1' : 'hover:text-[#FF6B35]'}`}
+              >
                 Kitchen Specials ▼
-                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
-              </a>
+                {currentPage === 'kitchenSpecials' ? (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FF6B35] animate-pulse"></span>
+                ) : (
+                  <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
+                )}
+              </button>
               
               {/* Dropdown Menu */}
               <div className="absolute top-full left-0 mt-2 w-[200px] bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] border border-gray-100">
@@ -280,12 +305,16 @@ function Navbar({ onHomeClick }) {
                 e.preventDefault();
                 if (onComboClick) onComboClick();
               }}
-              className="relative group hover:text-[#FF6B35] transition-colors flex items-center gap-1"
+              className={`relative group transition-colors flex items-center gap-1 ${currentPage === 'combo' ? 'text-[#FF6B35] pb-1' : 'hover:text-[#FF6B35]'}`}
             >
               Combo ▼
-              <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
+              {currentPage === 'combo' ? (
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FF6B35] animate-pulse"></span>
+              ) : (
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
+              )}
             </button>
-            <a href="#bulk-enquiry" className="relative group hover:text-[#FF6B35] transition-colors">
+            <a href="#bulk-enquiry" className={`relative group transition-colors ${currentPage === 'home' ? 'hover:text-[#FF6B35]' : 'hover:text-[#FF6B35]'}`}>
               Bulk Enquiry
               <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
             </a>

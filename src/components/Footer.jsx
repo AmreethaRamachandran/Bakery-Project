@@ -35,12 +35,23 @@ function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Savouries</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#sev" className="hover:text-[#8B4513] transition-colors">Sev</a></li>
-              <li><a href="#seeval" className="hover:text-[#8B4513] transition-colors">Seeval</a></li>
+              <li><a href="#thenkuzhal-murukku" className="hover:text-[#8B4513] transition-colors">Thenkuzhal Murukku</a></li>
+              <li><a href="#butter-murukku" className="hover:text-[#8B4513] transition-colors">Butter Murukku</a></li>
+              <li><a href="#4-suthu-murukku" className="hover:text-[#8B4513] transition-colors">4 Suthu Murukku</a></li>
+              <li><a href="#5-suthu-murukku" className="hover:text-[#8B4513] transition-colors">5 Suthu Murukku</a></li>
+              <li><a href="#7-suthu-murukku" className="hover:text-[#8B4513] transition-colors">7 Suthu Murukku</a></li>
+              <li><a href="#9-suthu-murukku" className="hover:text-[#8B4513] transition-colors">9 Suthu Murukku</a></li>
+              <li><a href="#11-suthu-murukku" className="hover:text-[#8B4513] transition-colors">11 Suthu Murukku</a></li>
+              <li><a href="#mini-thenkuzhal" className="hover:text-[#8B4513] transition-colors">Mini Thenkuzhal</a></li>
+              <li><a href="#kaara-murukku" className="hover:text-[#8B4513] transition-colors">Kaara Murukku</a></li>
+              <li><a href="#tire-murukku" className="hover:text-[#8B4513] transition-colors">Tire Murukku</a></li>
+              <li><a href="#mini-kai-murukku" className="hover:text-[#8B4513] transition-colors">Mini Kai Murukku</a></li>
+              <li><a href="#urundai-seedai" className="hover:text-[#8B4513] transition-colors">Urundai Seedai</a></li>
+              <li><a href="#chinna-seedai" className="hover:text-[#8B4513] transition-colors">Chinna Seedai</a></li>
+              <li><a href="#seepu-seedai" className="hover:text-[#8B4513] transition-colors">Seepu Seedai</a></li>
+              <li><a href="#inippu-seedai" className="hover:text-[#8B4513] transition-colors">Inippu Seedai</a></li>
               <li><a href="#mixture" className="hover:text-[#8B4513] transition-colors">Mixture</a></li>
-              <li><a href="#murukku" className="hover:text-[#8B4513] transition-colors">Murukku</a></li>
-              <li><a href="#fried-nuts" className="hover:text-[#8B4513] transition-colors">Fried Nuts</a></li>
-              <li><a href="#chips" className="hover:text-[#8B4513] transition-colors">Chips</a></li>
+              <li><a href="#kara-boondhi" className="hover:text-[#8B4513] transition-colors">Kara Boondhi</a></li>
             </ul>
           </div>
 
@@ -48,13 +59,11 @@ function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Sweets</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#mittai" className="hover:text-[#8B4513] transition-colors">Mittai</a></li>
-              <li><a href="#laddu" className="hover:text-[#8B4513] transition-colors">Laddu</a></li>
-              <li><a href="#mysore-pak" className="hover:text-[#8B4513] transition-colors">Mysore Pak</a></li>
-              <li><a href="#badhusha" className="hover:text-[#8B4513] transition-colors">Badhusha</a></li>
-              <li><a href="#jangeri" className="hover:text-[#8B4513] transition-colors">Jangeri</a></li>
-              <li><a href="#halwa" className="hover:text-[#8B4513] transition-colors">Halwa</a></li>
-              <li><a href="#special-sweets" className="hover:text-[#8B4513] transition-colors">Special Sweets</a></li>
+              <li><a href="#athirasam" className="hover:text-[#8B4513] transition-colors">Athirasam</a></li>
+              <li><a href="#periya-athirasam" className="hover:text-[#8B4513] transition-colors">Periya Athirasam</a></li>
+              <li><a href="#rava-laddu" className="hover:text-[#8B4513] transition-colors">Rava Laddu</a></li>
+              <li><a href="#ulundhamavurundai" className="hover:text-[#8B4513] transition-colors">Ulundhamavurundai</a></li>
+              <li><a href="#mavurundai" className="hover:text-[#8B4513] transition-colors">Mavurundai</a></li>
             </ul>
           </div>
 

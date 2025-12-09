@@ -4,9 +4,6 @@ function ComboPage({ onBack }) {
   const [activeCategory, setActiveCategory] = useState('All');
 
   const categories = [
-    { name: 'Savouries', count: 22, bgColor: 'bg-gradient-to-br from-amber-100 to-amber-200' },
-    { name: 'Sweets', count: 20, bgColor: 'bg-gradient-to-br from-pink-100 to-pink-200' },
-    { name: 'Kitchen Specials', count: 5, bgColor: 'bg-gradient-to-br from-red-100 to-red-200' },
     { name: 'Combo', count: 2, bgColor: 'bg-gradient-to-br from-purple-100 to-purple-200' }
   ];
 
@@ -190,7 +187,7 @@ function ComboPage({ onBack }) {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Savouries Card */}
             <div className="group cursor-pointer relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 h-64">
               <img
@@ -201,7 +198,7 @@ function ComboPage({ onBack }) {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <h3 className="text-white text-3xl font-bold drop-shadow-lg transition-transform duration-300 group-hover:-translate-y-3">Savouries</h3>
-                <p className="text-white text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">22 Items</p>
+                <p className="text-white text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">17 Items</p>
               </div>
             </div>
 
@@ -215,21 +212,7 @@ function ComboPage({ onBack }) {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <h3 className="text-white text-3xl font-bold drop-shadow-lg transition-transform duration-300 group-hover:-translate-y-3">Sweets</h3>
-                <p className="text-white text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">20 Items</p>
-              </div>
-            </div>
-
-            {/* Chikki Card */}
-            <div className="group cursor-pointer relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 h-64">
-              <img
-                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600"
-                alt="Chikki"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <h3 className="text-white text-3xl font-bold drop-shadow-lg transition-transform duration-300 group-hover:-translate-y-3">Chikki</h3>
-                <p className="text-white text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">13 Items</p>
+                <p className="text-white text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">5 Items</p>
               </div>
             </div>
 
@@ -243,7 +226,7 @@ function ComboPage({ onBack }) {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <h3 className="text-white text-3xl font-bold drop-shadow-lg transition-transform duration-300 group-hover:-translate-y-3">Kitchen Specials</h3>
-                <p className="text-white text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">5 Items</p>
+                <p className="text-white text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">3 Items</p>
               </div>
             </div>
           </div>
