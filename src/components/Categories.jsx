@@ -8,14 +8,14 @@ function Categories({ onCategoryClick }) {
     },
     {
       id: 2,
-      name: "Sev",
+      name: "Murukku",
       image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=400&fit=crop",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
       id: 3,
-      name: "Bakery",
-      image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=400&fit=crop",
+      name: "Special Sweets",
+      image: "https://images.unsplash.com/photo-1610564558002-e245a7661b0d?w=400&h=400&fit=crop",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
@@ -32,8 +32,8 @@ function Categories({ onCategoryClick }) {
     },
     {
       id: 6,
-      name: "Special Sweets",
-      image: "https://images.unsplash.com/photo-1610564558002-e245a7661b0d?w=400&h=400&fit=crop",
+      name: "Sweets",
+      image: "https://images.unsplash.com/photo-1626074353765-517a681e40be?w=400&h=400&fit=crop",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     }
   ];

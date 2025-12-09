@@ -6,8 +6,6 @@ function ComboPage({ onBack }) {
   const categories = [
     { name: 'Savouries', count: 22, bgColor: 'bg-gradient-to-br from-amber-100 to-amber-200' },
     { name: 'Sweets', count: 20, bgColor: 'bg-gradient-to-br from-pink-100 to-pink-200' },
-    { name: 'Bakery', count: 5, bgColor: 'bg-gradient-to-br from-orange-100 to-orange-200' },
-    { name: 'Chikki', count: 13, bgColor: 'bg-gradient-to-br from-yellow-100 to-yellow-200' },
     { name: 'Kitchen Specials', count: 5, bgColor: 'bg-gradient-to-br from-red-100 to-red-200' },
     { name: 'Combo', count: 2, bgColor: 'bg-gradient-to-br from-purple-100 to-purple-200' }
   ];

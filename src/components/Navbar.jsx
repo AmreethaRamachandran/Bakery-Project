@@ -58,10 +58,10 @@ function Navbar({ onHomeClick }) {
       </div>
 
       {/* Main Navbar */}
-      <div className="border-b relative overflow-hidden">
+      <div className="border-b relative overflow-visible">
         {/* Decorative Background Elements */}
-        <div className="absolute left-0 top-0 w-64 h-full bg-gradient-to-r from-[#FF6B35]/5 to-transparent pointer-events-none"></div>
-        <div className="absolute right-0 top-0 w-64 h-full bg-gradient-to-l from-[#8B4513]/5 to-transparent pointer-events-none"></div>
+        <div className="absolute left-0 top-0 w-64 h-full bg-gradient-to-r from-[#FF6B35]/5 to-transparent pointer-events-none overflow-hidden"></div>
+        <div className="absolute right-0 top-0 w-64 h-full bg-gradient-to-l from-[#8B4513]/5 to-transparent pointer-events-none overflow-hidden"></div>
         
         {/* Left Side - Animated Bakery Scene */}
         <div className="absolute left-2 top-1/2 -translate-y-1/2 hidden xl:block">
@@ -162,26 +162,118 @@ function Navbar({ onHomeClick }) {
 
           {/* Navigation */}
           <nav className="hidden lg:flex gap-8 text-sm font-medium">
-            <a href="#savouries" className="relative group hover:text-[#FF6B35] transition-colors flex items-center gap-1">
-              Savouries ▼
-              <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#sweets" className="relative group text-[#FF6B35] pb-1 flex items-center gap-1">
-              Sweets ▼
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FF6B35] animate-pulse"></span>
-            </a>
-            <a href="#bakery" className="relative group hover:text-[#FF6B35] transition-colors flex items-center gap-1">
-              Bakery ▼
-              <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#chikki" className="relative group hover:text-[#FF6B35] transition-colors flex items-center gap-1">
-              Chikki ▼
-              <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a href="#kitchen-specials" className="relative group hover:text-[#FF6B35] transition-colors flex items-center gap-1">
-              Kitchen Specials ▼
-              <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
-            </a>
+            {/* Savouries Dropdown */}
+            <div className="relative group">
+              <a href="#savouries" className="hover:text-[#FF6B35] transition-colors flex items-center gap-1">
+                Savouries ▼
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
+              </a>
+              
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 mt-2 w-[500px] bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] border border-gray-100">
+                <div className="grid grid-cols-3 gap-6 p-6">
+                  {/* MURUKKU Column */}
+                  <div>
+                    <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">MURUKKU</h3>
+                    <ul className="space-y-2">
+                      <li><a href="#thenkuzhal-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Thenkuzhal Murukku</a></li>
+                      <li><a href="#butter-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Butter Murukku</a></li>
+                      <li><a href="#4-suthu-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">4 Suthu Murukku</a></li>
+                      <li><a href="#5-suthu-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">5 Suthu Murukku</a></li>
+                      <li><a href="#7-suthu-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">7 Suthu Murukku</a></li>
+                      <li><a href="#9-suthu-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">9 Suthu Murukku</a></li>
+                      <li><a href="#11-suthu-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">11 Suthu Murukku</a></li>
+                      <li><a href="#mini-thenkuzhal" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Mini Thenkuzhal</a></li>
+                      <li><a href="#kaara-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Kaara Murukku</a></li>
+                      <li><a href="#tire-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Tire Murukku</a></li>
+                      <li><a href="#mini-kai-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Mini Kai Murukku</a></li>
+                    </ul>
+                  </div>
+
+                  {/* SEEDAI Column */}
+                  <div>
+                    <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">SEEDAI</h3>
+                    <ul className="space-y-2">
+                      <li><a href="#urundai-seedai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Urundai Seedai</a></li>
+                      <li><a href="#chinna-seedai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Chinna Seedai</a></li>
+                      <li><a href="#seepu-seedai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Seepu Seedai</a></li>
+                      <li><a href="#inippu-seedai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Inippu Seedai</a></li>
+                    </ul>
+                  </div>
+
+                  {/* MIXTURE Column */}
+                  <div>
+                    <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">MIXTURE</h3>
+                    <ul className="space-y-2">
+                      <li><a href="#mixture" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Mixture</a></li>
+                      <li><a href="#kara-boondhi" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Kara Boondhi</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Sweets Dropdown */}
+            <div className="relative group">
+              <a href="#sweets" className="text-[#FF6B35] pb-1 flex items-center gap-1">
+                Sweets ▼
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FF6B35] animate-pulse"></span>
+              </a>
+              
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 mt-2 w-[400px] bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] border border-gray-100">
+                <div className="grid grid-cols-3 gap-6 p-6">
+                  {/* ATHIRASAM Column */}
+                  <div>
+                    <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">ATHIRASAM</h3>
+                    <ul className="space-y-2">
+                      <li><a href="#athirasam" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Athirasam</a></li>
+                      <li><a href="#nei-athirasam" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Nei Athirasam</a></li>
+                    </ul>
+                  </div>
+
+                  {/* LADDU Column */}
+                  <div>
+                    <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">LADDU</h3>
+                    <ul className="space-y-2">
+                      <li><a href="#boondi-laddu" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Boondi Laddu</a></li>
+                      <li><a href="#rava-laddu" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Rava Laddu</a></li>
+                      <li><a href="#besan-laddu" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Besan Laddu</a></li>
+                    </ul>
+                  </div>
+
+                  {/* URUNDAI Column */}
+                  <div>
+                    <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">URUNDAI</h3>
+                    <ul className="space-y-2">
+                      <li><a href="#pori-urundai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Pori Urundai</a></li>
+                      <li><a href="#ellu-urundai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Ellu Urundai</a></li>
+                      <li><a href="#kadalai-urundai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Kadalai Urundai</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Kitchen Specials Dropdown */}
+            <div className="relative group">
+              <a href="#kitchen-specials" className="hover:text-[#FF6B35] transition-colors flex items-center gap-1">
+                Kitchen Specials ▼
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
+              </a>
+              
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 mt-2 w-[200px] bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] border border-gray-100">
+                <div className="p-6">
+                  <ul className="space-y-2">
+                    <li><a href="#manakolam" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Manakolam</a></li>
+                    <li><a href="#thattai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Thattai</a></li>
+                    <li><a href="#ribbon-pakkoda" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Ribbon Pakkoda</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             <button 
               onClick={(e) => {
                 e.preventDefault();
