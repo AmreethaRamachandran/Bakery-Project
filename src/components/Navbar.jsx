@@ -12,6 +12,8 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
   const [showSearch, setShowSearch] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showWishlist, setShowWishlist] = useState(false);
+  // NEW STATE: State to control the Bulk Enquiry Drawer
+  const [showBulkEnquiry, setShowBulkEnquiry] = useState(false);
 
   const handlePrevious = () => {
     setCurrentAnnouncement((prev) => 
@@ -23,6 +25,15 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
     setCurrentAnnouncement((prev) => 
       prev === announcements.length - 1 ? 0 : prev + 1
     );
+  };
+
+  // Function to close all drawers/modals
+  const closeAllDrawers = () => {
+    setShowSearch(false);
+    setShowCart(false);
+    setShowWishlist(false);
+    // NEW: Close Bulk Enquiry drawer
+    setShowBulkEnquiry(false);
   };
 
   return (
@@ -303,17 +314,25 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
                 <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
               )}
             </button>
-            <a href="#bulk-enquiry" className={`relative group transition-colors ${currentPage === 'home' ? 'hover:text-[#FF6B35]' : 'hover:text-[#FF6B35]'}`}>
+            
+            {/* BULK ENQUIRY LINK - NOW OPENS DRAWER */}
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                setShowBulkEnquiry(true); // Open the Bulk Enquiry Drawer
+              }}
+              className={`relative group transition-colors ${currentPage === 'home' ? 'hover:text-[#FF6B35]' : 'hover:text-[#FF6B35]'}`}
+            >
               Bulk Enquiry
               <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
-            </a>
+            </button>
           </nav>
 
           {/* Right Icons */}
           <div className="flex items-center gap-4">
             {/* 🔍 Search */}
             <button
-              onClick={() => setShowSearch(true)}
+              onClick={() => {closeAllDrawers(); setShowSearch(true);}}
               className="relative group hover:text-[#FF6B35] transition-all duration-300 transform hover:scale-110"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -332,7 +351,7 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
 
             {/* ❤️ Wishlist */}
             <button
-              onClick={() => setShowWishlist(true)}
+              onClick={() => {closeAllDrawers(); setShowWishlist(true);}}
               className="relative group hover:text-[#FF6B35] transition-all duration-300 transform hover:scale-110"
             >
               <svg className="w-5 h-5 group-hover:fill-[#FF6B35] transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -344,7 +363,7 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
 
             {/* 🛒 Cart */}
             <button
-              onClick={() => setShowCart(true)}
+              onClick={() => {closeAllDrawers(); setShowCart(true);}}
               className="relative group hover:text-[#FF6B35] transition-all duration-300 transform hover:scale-110"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -421,14 +440,99 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
         </div>
       </div>
 
+      {/* NEW: Bulk Enquiry Drawer */}
+      <div className={`fixed top-0 right-0 h-full w-[90%] sm:w-[600px] bg-white shadow-xl transition-transform duration-300 z-[60] ${showBulkEnquiry ? "translate-x-0" : "translate-x-full"}`}>
+        <div className="flex flex-col h-full">
+          <div className="px-6 py-6 border-b border-gray-200 flex justify-between items-center bg-[#8B4513]">
+            <h2 className="text-xl font-bold text-white tracking-wider">Bulk Enquiry</h2>
+            <button onClick={() => setShowBulkEnquiry(false)} className="text-white hover:text-gray-200 text-2xl font-bold">&times;</button>
+          </div>
+          <div className="flex-grow p-6 overflow-y-auto">
+            <p className="text-gray-700 mb-6">Planning a large order for an event or business? Fill out the form below and our team will get back to you with a special quote!</p>
+            
+            <form className="space-y-4">
+              <div>
+                <label htmlFor="bulkName" className="block text-sm font-medium text-gray-700">Full Name</label>
+                <input
+                  type="text"
+                  id="bulkName"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-[#FF6B35] focus:border-[#FF6B35]"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="bulkEmail" className="block text-sm font-medium text-gray-700">Email Address</label>
+                <input
+                  type="email"
+                  id="bulkEmail"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-[#FF6B35] focus:border-[#FF6B35]"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="bulkPhone" className="block text-sm font-medium text-gray-700">Phone Number</label>
+                <input
+                  type="tel"
+                  id="bulkPhone"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-[#FF6B35] focus:border-[#FF6B35]"
+                  placeholder="+91-XXXXXXXXXX"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="bulkProduct" className="block text-sm font-medium text-gray-700">Product(s) of Interest</label>
+                <input
+                  type="text"
+                  id="bulkProduct"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-[#FF6B35] focus:border-[#FF6B35]"
+                  placeholder="e.g., 50kg Murukku, 100 boxes Athirasam"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="bulkQuantity" className="block text-sm font-medium text-gray-700">Required Quantity (Approx)</label>
+                <input
+                  type="text"
+                  id="bulkQuantity"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-[#FF6B35] focus:border-[#FF6B35]"
+                  placeholder="e.g., 50 kg or 1000 units"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="bulkDetails" className="block text-sm font-medium text-gray-700">Additional Details / Event Date</label>
+                <textarea
+                  id="bulkDetails"
+                  rows="3"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-[#FF6B35] focus:border-[#FF6B35]"
+                  placeholder="Tell us more about your requirement..."
+                ></textarea>
+              </div>
+
+              <div className="pt-4">
+                <button
+                  type="submit"
+                  className="w-full bg-[#FF6B35] text-white py-3 rounded-md font-semibold text-lg hover:bg-[#ff855e] transition-colors shadow-lg"
+                >
+                  Submit Bulk Enquiry
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
       {/* Overlay */}
-      {(showSearch || showCart || showWishlist) && (
+      {(showSearch || showCart || showWishlist || showBulkEnquiry) && (
         <div
-          onClick={() => {
-            setShowSearch(false);
-            setShowCart(false);
-            setShowWishlist(false);
-          }}
+          onClick={closeAllDrawers}
           className="fixed inset-0 bg-black/50 z-[50]"
         ></div>
       )}
