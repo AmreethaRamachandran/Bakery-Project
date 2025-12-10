@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-function Savouries({ onBack }) {
-  const [activeCategory, setActiveCategory] = useState('All');
+function Savouries({ onBack, initialCategory = 'All' }) {
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
 
   const categories = [
     { name: 'Murukku', count: 11, bgColor: 'bg-gradient-to-br from-amber-100 to-amber-200' },
@@ -214,7 +214,7 @@ function Savouries({ onBack }) {
       {/* Category Banner Image - Full Width */}
       <div className="relative h-64 md:h-80 mb-12 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1599909533730-f9ff6c7b8b7e?w=1200"
+          src="/src/images/savouries.jpg"
           alt="Savouries"
           className="w-full h-full object-cover"
         />

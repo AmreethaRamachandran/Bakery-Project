@@ -73,7 +73,7 @@ function KitchenSpecials({ onBack }) {
       {/* Category Banner Image - Full Width */}
       <div className="relative h-64 md:h-80 mb-12 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1608797178974-15b35a64ede9?w=1200"
+          src="/src/images/kitchen specialls.png"
           alt="Kitchen Specials"
           className="w-full h-full object-cover"
         />

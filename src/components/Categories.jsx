@@ -3,38 +3,35 @@ function Categories({ onCategoryClick }) {
     {
       id: 1,
       name: "Combo",
-      image: "https://images.unsplash.com/photo-1589227365533-cee530ff6e15?w=400&h=400&fit=crop",
-      bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
+      image: "/src/images/combo image.jpg",
+      bgColor: "bg-gradient-to-br from-amber-200 to-orange-200",
+      imageScale: '1.2',
+      imagePosition: '58% 50%'
     },
     {
       id: 2,
       name: "Murukku",
-      image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=400&fit=crop",
+      image: "/src/images/murukku.jpg",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
       id: 3,
-      name: "Special Sweets",
-      image: "https://images.unsplash.com/photo-1610564558002-e245a7661b0d?w=400&h=400&fit=crop",
+      name: "Specials",
+      image: "/src/images/ribbon-pakoda-521211.webp",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
       id: 4,
       name: "Mixture",
-      image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=400&fit=crop",
+      image: "/src/images/Keezha_Eral_Mixture_1200x1200.jpg",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
       id: 5,
       name: "Laddu",
-      image: "https://images.unsplash.com/photo-1626074353765-517a681e40be?w=400&h=400&fit=crop",
-      bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
-    },
-    {
-      id: 6,
-      name: "Sweets",
-      image: "https://images.unsplash.com/photo-1626074353765-517a681e40be?w=400&h=400&fit=crop",
-      bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
+      image: "/src/images/laddoos.jpg",
+      bgColor: "bg-gradient-to-br from-amber-200 to-orange-200",
+      imagePosition: 'center 40%'
     }
   ];
 
@@ -62,7 +59,7 @@ function Categories({ onCategoryClick }) {
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 justify-items-center">
           {categories.map((category) => (
             <div 
               key={category.id} 
@@ -76,6 +73,10 @@ function Categories({ onCategoryClick }) {
                     src={category.image}
                     alt={category.name}
                     className="w-full h-full object-cover"
+                    style={{
+                      objectPosition: category.imagePosition || '62% 60%',
+                      transform: category.imageScale ? `scale(${category.imageScale})` : 'none'
+                    }}
                   />
                 </div>
               </div>

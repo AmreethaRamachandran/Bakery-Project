@@ -68,10 +68,14 @@ function CustomerLove() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 relative overflow-hidden">
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-[#FF6B35] opacity-5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#8B4513] opacity-5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#FF6B35] to-[#FFA500] opacity-10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#8B4513] to-[#D2691E] opacity-10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
+        <div className="absolute top-20 left-10 w-20 h-20 border-2 border-[#FF6B35] opacity-20 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-32 right-16 w-16 h-16 border-2 border-[#8B4513] opacity-20 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Header */}

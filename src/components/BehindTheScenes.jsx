@@ -66,7 +66,13 @@ function BehindTheScenes() {
   };
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-b from-slate-50 via-gray-50 to-stone-50 relative overflow-hidden">
+      {/* Decorative Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full" style={{backgroundImage: 'radial-gradient(circle at 20% 50%, #FF6B35 1px, transparent 1px), radial-gradient(circle at 80% 80%, #8B4513 1px, transparent 1px)', backgroundSize: '50px 50px'}}></div>
+      </div>
+      <div className="absolute top-10 right-10 w-72 h-72 bg-gradient-to-br from-orange-200 to-amber-200 opacity-20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 left-10 w-72 h-72 bg-gradient-to-tr from-yellow-200 to-orange-200 opacity-20 rounded-full blur-3xl"></div>
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">

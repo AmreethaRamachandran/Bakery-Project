@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-function Sweets({ onBack }) {
-  const [activeCategory, setActiveCategory] = useState('All');
+function Sweets({ onBack, initialCategory = 'All' }) {
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
 
   const categories = [
     { name: 'Athirasam', count: 2, bgColor: 'bg-gradient-to-br from-pink-100 to-pink-200' },
@@ -106,7 +106,7 @@ function Sweets({ onBack }) {
       {/* Category Banner Image - Full Width */}
       <div className="relative h-64 md:h-80 mb-12 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=1200"
+          src="/src/images/sweets banner.png"
           alt="Sweets"
           className="w-full h-full object-cover"
         />

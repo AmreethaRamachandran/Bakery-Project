@@ -1,12 +1,14 @@
 function TasteOverGenerations() {
   return (
-    <section className="relative py-20 bg-gradient-to-br from-[#6B3410] via-[#8B4513] to-[#6B3410] text-white overflow-hidden">
-      {/* Background Pattern */}
+    <section className="relative py-20 bg-gradient-to-br from-[#6B3410] via-[#8B4513] to-[#A0522D] text-white overflow-hidden">
+      {/* Enhanced Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 border-2 border-white rounded-full"></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 border border-white rounded-full"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 border-2 border-white rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 border border-white rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-28 h-28 border border-[#FF6B35] rounded-full animate-pulse" style={{animationDelay: '1.5s'}}></div>
       </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">

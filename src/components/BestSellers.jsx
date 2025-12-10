@@ -2,74 +2,38 @@ function BestSellers() {
   const products = [
     {
       id: 1,
-      name: "Karasevu",
-      image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600&h=600&fit=crop",
+      name: "Thenkuzhal Murukku",
+      image: "/src/images/then kulal murukku.jpeg",
       price: 120.00,
-      rating: 4,
-      reviews: 61,
+      rating: 5,
+      reviews: 45,
       hasChristmasDecor: false
     },
     {
       id: 2,
-      name: "Rich Plum Cake",
-      image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop",
-      price: 240.00,
-      rating: 4,
-      reviews: 1,
-      hasChristmasDecor: true
-    },
-    {
-      id: 3,
-      name: "Karupatti Mittai",
-      image: "https://images.unsplash.com/photo-1582716401301-b2407dc7563d?w=600&h=600&fit=crop",
-      price: 150.00,
-      rating: 4,
-      reviews: 66,
-      hasChristmasDecor: false
-    },
-    {
-      id: 4,
-      name: "Kaju Katli",
-      image: "https://images.unsplash.com/photo-1610564558002-e245a7661b0d?w=600&h=600&fit=crop",
-      price: 220.00,
-      rating: 3,
-      reviews: 21,
-      hasChristmasDecor: false
-    },
-    {
-      id: 5,
-      name: "Classic Groundnut Chikki Bites",
-      image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600&h=600&fit=crop",
-      price: 75.00,
+      name: "Kaara Murukku",
+      image: "/src/images/kaara murukku.jpg",
+      price: 125.00,
       rating: 4,
       reviews: 40,
       hasChristmasDecor: false
     },
     {
-      id: 6,
-      name: "Ribbon Seeval",
-      image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600&h=600&fit=crop",
-      price: 120.00,
+      id: 3,
+      name: "Periya Athirasam",
+      image: "/src/images/periya athirasam.webp",
+      price: 150.00,
       rating: 5,
-      reviews: 20,
+      reviews: 55,
       hasChristmasDecor: false
     },
     {
-      id: 7,
-      name: "Coconut Cookies",
-      image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&h=600&fit=crop",
-      price: 110.00,
-      rating: 4,
-      reviews: 21,
-      hasChristmasDecor: false
-    },
-    {
-      id: 8,
-      name: "Laddoo / Laddu",
-      image: "https://images.unsplash.com/photo-1626074353765-517a681e40be?w=600&h=600&fit=crop",
+      id: 4,
+      name: "Ribbon Pakoda",
+      image: "/src/images/ribbon pakkoda for best sellers image.webp",
       price: 130.00,
-      rating: 4,
-      reviews: 22,
+      rating: 5,
+      reviews: 48,
       hasChristmasDecor: false
     }
   ];
@@ -116,9 +80,9 @@ function BestSellers() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
           {products.map((product) => (
-            <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 w-full max-w-sm">
               {/* Product Image */}
               <div className="relative h-64 overflow-hidden group">
                 <img 
@@ -179,11 +143,17 @@ function BestSellers() {
           ))}
         </div>
 
-        {/* View More Button */}
+        {/* View More Button or Message */}
         <div className="flex justify-center mt-12">
-          <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-gray-800 transition-all duration-300">
-            View More
-          </button>
+          {products.length > 4 ? (
+            <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-gray-800 transition-all duration-300">
+              View More
+            </button>
+          ) : (
+            <p className="text-white text-lg font-medium opacity-80">
+              All best sellers are displayed above
+            </p>
+          )}
         </div>
       </div>
 

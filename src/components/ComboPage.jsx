@@ -75,7 +75,7 @@ function ComboPage({ onBack }) {
       {/* Category Banner Image - Full Width */}
       <div className="relative h-64 md:h-80 mb-12 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=1200"
+          src="/src/images/combo banner.webp"
           alt="Combo Banner"
           className="w-full h-full object-cover"
         />

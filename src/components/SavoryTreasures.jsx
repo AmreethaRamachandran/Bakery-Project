@@ -1,88 +1,88 @@
 import { useState } from 'react';
 
-function SavoryTreasures() {
+function SavoryTreasures({ onCategoryClick }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const products = [
     {
       id: 1,
-      name: "Ennai Kadalai",
-      image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600&h=600&fit=crop",
-      price: 100.00,
-      rating: 4,
-      reviews: 20
+      name: "Thenkuzhal Murukku",
+      image: "/src/images/tkmurukku.webp",
+      price: 120.00,
+      rating: 5,
+      reviews: 45
     },
     {
       id: 2,
-      name: "Corn Chips",
-      image: "https://images.unsplash.com/photo-1613919113640-c7a8f2b19cd4?w=600&h=600&fit=crop",
-      price: 50.00,
-      rating: 5,
-      reviews: 21
+      name: "Butter Murukku",
+      image: "/src/images/butter murukku.jpg",
+      price: 130.00,
+      rating: 4.5,
+      reviews: 38
     },
     {
       id: 3,
-      name: "Bombay Mixture",
-      image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600&h=600&fit=crop",
-      price: 120.00,
-      rating: 4,
-      reviews: 20
+      name: "Kaara Murukku",
+      image: "/src/images/kaara murukku.jpg",
+      price: 125.00,
+      rating: 4.5,
+      reviews: 40
     },
     {
       id: 4,
-      name: "Kara boondi",
-      image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&h=600&fit=crop",
-      price: 120.00,
-      rating: 4,
-      reviews: 21
+      name: "Urundai Seedai",
+      image: "/src/images/urundai seedai.webp",
+      price: 150.00,
+      rating: 5,
+      reviews: 48
     },
     {
       id: 5,
-      name: "Karasevu",
-      image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600&h=600&fit=crop",
-      price: 120.00,
-      rating: 4,
-      reviews: 61
+      name: "Chinna Seedai",
+      image: "/src/images/chinna seedai.webp",
+      price: 140.00,
+      rating: 4.5,
+      reviews: 42
     },
     {
       id: 6,
-      name: "Karuppati Sevu",
-      image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600&h=600&fit=crop",
-      price: 150.00,
+      name: "Seepu Seedai",
+      image: "/src/images/seepu seedai.webp",
+      price: 145.00,
       rating: 4,
-      reviews: 28
+      reviews: 35
     },
     {
       id: 7,
-      name: "Kondai Kadalai",
-      image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600&h=600&fit=crop",
-      price: 110.00,
-      rating: 5,
-      reviews: 16
+      name: "Inippu Seedai",
+      image: "/src/images/inippu seedai.webp",
+      price: 155.00,
+      rating: 4.5,
+      reviews: 38
     },
     {
       id: 8,
-      name: "Masala Kadalai",
-      image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600&h=600&fit=crop",
-      price: 110.00,
-      rating: 4,
-      reviews: 19
+      name: "Mixture",
+      image: "/src/images/Bombay_mixture_grande.webp",
+      price: 130.00,
+      rating: 5,
+      reviews: 60
     },
     {
       id: 9,
-      name: "Milagu Sevu",
-      image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600&h=600&fit=crop",
-      price: 120.00,
-      rating: 4,
-      reviews: 43
+      name: "Ribbon Pakoda",
+      image: "/src/images/Ribbon_Pakoda_1.webp",
+      price: 130.00,
+      rating: 5,
+      reviews: 55
     },
     {
       id: 10,
-      name: "Mixture",
-      image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600&h=600&fit=crop",
-      price: 120.00,
-      rating: 4,
-      reviews: 30
+      name: "Mini Kai Murukku",
+      image: "/src/images/mini kai murukku.webp",
+      price: 110.00,
+      rating: 4.5,
+      reviews: 33
     }
   ];
 
@@ -168,7 +168,10 @@ function SavoryTreasures() {
                 <p className="text-sm mb-6 leading-relaxed">
                   Savour the crunch, relive the tradition.
                 </p>
-                <button className="px-6 py-2 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-gray-800 transition-all duration-300 self-start">
+                <button 
+                  onClick={() => onCategoryClick && onCategoryClick('Savouries')}
+                  className="px-6 py-2 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-gray-800 transition-all duration-300 self-start"
+                >
                   View More
                 </button>
               </div>
@@ -184,6 +187,7 @@ function SavoryTreasures() {
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      style={product.name === "Mixture" ? { objectPosition: 'center 60%' } : {}}
                     />
                   </div>
 

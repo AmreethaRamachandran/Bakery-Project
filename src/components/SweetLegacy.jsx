@@ -1,48 +1,48 @@
 import { useState } from 'react';
 
-function SweetLegacy() {
+function SweetLegacy({ onCategoryClick }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const products = [
     {
       id: 1,
-      name: "Karupatti Mittai",
-      image: "https://images.unsplash.com/photo-1582716401301-b2407dc7563d?w=600&h=600&fit=crop",
-      price: 150.00,
-      rating: 4,
-      reviews: 66
+      name: "Athirasam",
+      image: "https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=600&h=600&fit=crop",
+      price: 180.00,
+      rating: 5,
+      reviews: 55
     },
     {
       id: 2,
-      name: "Adhirasam",
-      image: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&h=600&fit=crop",
-      price: 130.00,
-      rating: 4,
-      reviews: 29
+      name: "Periya Athirasam",
+      image: "https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=600&h=600&fit=crop",
+      price: 200.00,
+      rating: 4.5,
+      reviews: 48
     },
     {
       id: 3,
-      name: "Badhusha",
-      image: "https://images.unsplash.com/photo-1626074353765-517a681e40be?w=600&h=600&fit=crop",
-      price: 130.00,
-      rating: 4,
-      reviews: 28
+      name: "Rava Laddu",
+      image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600&h=600&fit=crop",
+      price: 160.00,
+      rating: 5,
+      reviews: 70
     },
     {
       id: 4,
-      name: "Vellam Mittai",
-      image: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&h=600&fit=crop",
-      price: 130.00,
-      rating: 4,
-      reviews: 28
+      name: "Ulundhamavurundai",
+      image: "https://images.unsplash.com/photo-1606491048118-a5db76e49c48?w=600&h=600&fit=crop",
+      price: 170.00,
+      rating: 4.5,
+      reviews: 42
     },
     {
       id: 5,
-      name: "Wheat Halwa",
-      image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&h=600&fit=crop",
-      price: 130.00,
+      name: "Mavurundai",
+      image: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600&h=600&fit=crop",
+      price: 165.00,
       rating: 4,
-      reviews: 25
+      reviews: 38
     }
   ];
 
@@ -118,7 +118,10 @@ function SweetLegacy() {
                 <p className="text-sm mb-6 leading-relaxed">
                   Melt-in-the-mouth magic, made with love and legacy.
                 </p>
-                <button className="px-6 py-2 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-gray-800 transition-all duration-300 self-start">
+                <button 
+                  onClick={() => onCategoryClick && onCategoryClick('Sweets')}
+                  className="px-6 py-2 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-gray-800 transition-all duration-300 self-start"
+                >
                   View More
                 </button>
               </div>

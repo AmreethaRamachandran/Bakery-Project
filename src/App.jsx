@@ -6,9 +6,7 @@ import Categories from "./components/Categories";
 import BestSellers from "./components/BestSellers";
 import SavoryTreasures from "./components/SavoryTreasures";
 import SweetLegacy from "./components/SweetLegacy";
-import RoyalBites from "./components/RoyalBites";
 import ComboPack from "./components/ComboPack";
-import ShopByCollection from "./components/ShopByCollection";
 import TasteOverGenerations from "./components/TasteOverGenerations";
 import CustomerLove from "./components/CustomerLove";
 import BehindTheScenes from "./components/BehindTheScenes";
@@ -47,6 +45,24 @@ function App() {
     if (categoryName === 'Combo') {
       window.scrollTo(0, 0);
       setCurrentPage("combo");
+    } else if (categoryName === 'Murukku') {
+      window.scrollTo(0, 0);
+      setCurrentPage("murukku");
+    } else if (categoryName === 'Specials') {
+      window.scrollTo(0, 0);
+      setCurrentPage("kitchenSpecials");
+    } else if (categoryName === 'Mixture') {
+      window.scrollTo(0, 0);
+      setCurrentPage("mixture");
+    } else if (categoryName === 'Laddu') {
+      window.scrollTo(0, 0);
+      setCurrentPage("laddu");
+    } else if (categoryName === 'Savouries') {
+      window.scrollTo(0, 0);
+      setCurrentPage("savouries");
+    } else if (categoryName === 'Sweets') {
+      window.scrollTo(0, 0);
+      setCurrentPage("sweets");
     }
   };
 
@@ -85,6 +101,28 @@ function App() {
     return <SignupPage onBackToLogin={handleBackToLogin} />;
   }
 
+  // Show murukku page (filtered savouries)
+  if (currentPage === "murukku") {
+    return (
+      <div className="font-sans">
+        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
+        <Savouries onBack={handleBackToHome} initialCategory="Murukku" />
+        <Footer />
+      </div>
+    );
+  }
+
+  // Show mixture page (filtered savouries)
+  if (currentPage === "mixture") {
+    return (
+      <div className="font-sans">
+        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
+        <Savouries onBack={handleBackToHome} initialCategory="Mixture" />
+        <Footer />
+      </div>
+    );
+  }
+
   // Show savouries page
   if (currentPage === "savouries") {
     return (
@@ -102,6 +140,17 @@ function App() {
       <div className="font-sans">
         <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
         <Sweets onBack={handleBackToHome} />
+        <Footer />
+      </div>
+    );
+  }
+
+  // Show laddu page (filtered sweets)
+  if (currentPage === "laddu") {
+    return (
+      <div className="font-sans">
+        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
+        <Sweets onBack={handleBackToHome} initialCategory="Laddu" />
         <Footer />
       </div>
     );
@@ -136,12 +185,10 @@ function App() {
       <HeroSection />
       <Categories onCategoryClick={handleCategoryClick} />
       <BestSellers />
-      <SavoryTreasures />
-      <SweetLegacy />
-      <RoyalBites />
+      <SavoryTreasures onCategoryClick={handleCategoryClick} />
+      <SweetLegacy onCategoryClick={handleCategoryClick} />
       <TimelessDelights />
       <ComboPack />
-      <ShopByCollection />
       <TasteOverGenerations />
       <CustomerLove />
       <BehindTheScenes />
