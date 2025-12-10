@@ -12,9 +12,10 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
   const [showSearch, setShowSearch] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showWishlist, setShowWishlist] = useState(false);
-  // NEW STATE: State to control the Bulk Enquiry Drawer
   const [showBulkEnquiry, setShowBulkEnquiry] = useState(false);
+  const [showProfile, setShowProfile] = useState(false); // State for the Profile Drawer
 
+  // --- ANNOUNCEMENT HANDLERS ---
   const handlePrevious = () => {
     setCurrentAnnouncement((prev) => 
       prev === 0 ? announcements.length - 1 : prev - 1
@@ -27,14 +28,19 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
     );
   };
 
-  // Function to close all drawers/modals
+  // --- DRAWER HANDLER (UPDATED) ---
   const closeAllDrawers = () => {
     setShowSearch(false);
     setShowCart(false);
     setShowWishlist(false);
-    // NEW: Close Bulk Enquiry drawer
     setShowBulkEnquiry(false);
+    setShowProfile(false); // Include showProfile
   };
+  
+  // Custom brown color palette variables for clarity
+  const BROWN_PRIMARY = '#8B4513'; // Saddle Brown
+  const BROWN_LIGHT = '#A05C2F'; // Lighter Brown
+  const ACCENT_ORANGE = '#FF6B35'; // Your existing orange accent color
 
   return (
     <header className="sticky top-0 z-20 bg-white">
@@ -76,13 +82,11 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
         
         {/* Left Side - Animated Bakery Scene */}
         <div className="absolute left-2 top-1/2 -translate-y-1/2 hidden xl:block">
-          {/* Steam rising effect */}
           <div className="relative">
             <div className="absolute -top-8 left-4 w-1 h-12 bg-gradient-to-t from-gray-300 to-transparent opacity-40 animate-steam"></div>
             <div className="absolute -top-8 left-6 w-1 h-16 bg-gradient-to-t from-gray-300 to-transparent opacity-30 animate-steam" style={{ animationDelay: '0.5s' }}></div>
             <div className="absolute -top-8 left-8 w-1 h-10 bg-gradient-to-t from-gray-300 to-transparent opacity-50 animate-steam" style={{ animationDelay: '1s' }}></div>
             
-            {/* Hot bread basket */}
             <div className="relative">
               <div className="text-4xl animate-float-slow filter drop-shadow-lg">
                 🧺
@@ -96,7 +100,6 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
             </div>
           </div>
           
-          {/* Decorative elements below */}
           <div className="mt-3 space-y-2">
             <div className="flex items-center gap-1">
               <span className="text-xs text-[#8B4513] font-semibold opacity-60 animate-pulse">Fresh</span>
@@ -107,14 +110,11 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
         
         {/* Right Side - Animated Sweet Display */}
         <div className="absolute right-2 top-1/2 -translate-y-1/2 hidden xl:block">
-          {/* Rotating plate with sweets */}
           <div className="relative">
-            {/* Plate */}
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 shadow-inner flex items-center justify-center animate-spin-slow">
               <div className="w-14 h-14 rounded-full bg-gradient-to-br from-white to-gray-50 border-2 border-gray-200"></div>
             </div>
             
-            {/* Sweets on plate */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
               <div className="relative w-12 h-12">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 text-2xl animate-sweet-bounce" style={{ animationDelay: '0s' }}>
@@ -129,7 +129,6 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
               </div>
             </div>
             
-            {/* Sparkles */}
             <div className="absolute -top-1 -right-1 text-yellow-400 text-sm animate-twinkle">
               ✨
             </div>
@@ -138,7 +137,6 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
             </div>
           </div>
           
-          {/* Label below */}
           <div className="mt-3 text-center">
             <span className="text-xs text-[#8B4513] font-semibold opacity-60 animate-pulse">Delicious</span>
           </div>
@@ -315,11 +313,12 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
               )}
             </button>
             
-            {/* BULK ENQUIRY LINK - NOW OPENS DRAWER */}
+            {/* BULK ENQUIRY LINK */}
             <button 
               onClick={(e) => {
                 e.preventDefault();
-                setShowBulkEnquiry(true); // Open the Bulk Enquiry Drawer
+                closeAllDrawers(); 
+                setShowBulkEnquiry(true); 
               }}
               className={`relative group transition-colors ${currentPage === 'home' ? 'hover:text-[#FF6B35]' : 'hover:text-[#FF6B35]'}`}
             >
@@ -341,8 +340,11 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
               <span className="absolute inset-0 rounded-full bg-[#FF6B35] opacity-0 group-hover:opacity-10 blur-md transition-opacity"></span>
             </button>
 
-            {/* 👤 Profile */}
-            <button className="relative group hover:text-[#FF6B35] transition-all duration-300 transform hover:scale-110">
+            {/* 👤 Profile - REVISED: ICON ONLY, NO IMAGE, OPENS DRAWER */}
+            <button 
+              onClick={() => {closeAllDrawers(); setShowProfile(true);}} 
+              className="relative group hover:text-[#FF6B35] transition-all duration-300 transform hover:scale-110"
+            >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
@@ -376,6 +378,8 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
         </div>
       </div>
 
+      {/* --- DRAWERS (UNCHANGED) --- */}
+      
       {/* Search Drawer */}
       <div className={`fixed top-0 right-0 h-full w-[90%] sm:w-[600px] bg-white shadow-xl transition-transform duration-300 z-[60] ${showSearch ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex justify-between items-center px-6 py-6">
@@ -440,7 +444,7 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
         </div>
       </div>
 
-      {/* NEW: Bulk Enquiry Drawer */}
+      {/* Bulk Enquiry Drawer */}
       <div className={`fixed top-0 right-0 h-full w-[90%] sm:w-[600px] bg-white shadow-xl transition-transform duration-300 z-[60] ${showBulkEnquiry ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col h-full">
           <div className="px-6 py-6 border-b border-gray-200 flex justify-between items-center bg-[#8B4513]">
@@ -528,9 +532,73 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
           </div>
         </div>
       </div>
+      
+      {/* 👤 REVISED PROFILE DRAWER/SIDEBAR (Interactive Brown Menu) */}
+      <div className={`fixed top-0 right-0 h-full w-[90%] sm:w-[600px] bg-white shadow-xl transition-transform duration-300 z-[60] ${showProfile ? "translate-x-0" : "translate-x-full"}`}>
+        <div className="flex flex-col h-full">
+          {/* Drawer Header */}
+          <div className="px-6 py-6 border-b border-gray-200 flex justify-between items-center bg-white">
+            <h2 className="text-xl font-bold text-gray-800 tracking-wider">Account</h2>
+            <button onClick={() => setShowProfile(false)} className={`text-[${BROWN_PRIMARY}] hover:text-black text-2xl font-bold`}>&times;</button>
+          </div>
+          
+          {/* Profile Content - Interactive Menu */}
+          <div className="flex-grow p-6 overflow-y-auto space-y-2">
+            
+            {/* Greeting/Login Prompt */}
+            <div className={`p-4 mb-4 bg-gray-50 rounded-lg border-l-4 border-[${ACCENT_ORANGE}]`}>
+                <p className="font-semibold text-gray-800">Welcome Jane Doe!</p>
+                <p className="text-sm text-gray-500">Manage your account details and orders below.</p>
+            </div>
 
+            {/* Profile Navigation Links */}
+            <nav className="space-y-1">
+                {/* My Orders */}
+                <a href="#my-orders" className={`flex items-center p-3 text-gray-700 hover:bg-[${BROWN_PRIMARY}]/10 hover:text-[${BROWN_PRIMARY}] rounded-md transition-all duration-200`}>
+                    <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2m-7 7h3m-3 4h3"/></svg>
+                    <span className="font-medium">My Orders</span>
+                </a>
+                
+                {/* Saved Addresses */}
+                <a href="#addresses" className={`flex items-center p-3 text-gray-700 hover:bg-[${BROWN_PRIMARY}]/10 hover:text-[${BROWN_PRIMARY}] rounded-md transition-all duration-200`}>
+                    <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span className="font-medium">Saved Addresses</span>
+                </a>
+                
+                {/* Wallet / Credit (Interactive Example) */}
+                <a href="#wallet" className={`flex items-center p-3 text-gray-700 hover:bg-[${BROWN_PRIMARY}]/10 hover:text-[${BROWN_PRIMARY}] rounded-md transition-all duration-200`}>
+                    <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                    <span className="font-medium">Wallet & Credits</span>
+                </a>
+                
+                {/* Account Settings */}
+                <a href="#settings" className={`flex items-center p-3 text-gray-700 hover:bg-[${BROWN_PRIMARY}]/10 hover:text-[${BROWN_PRIMARY}] rounded-md transition-all duration-200`}>
+                    <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z"/></svg>
+                    <span className="font-medium">Account Settings</span>
+                </a>
+                
+                {/* Help/Contact */}
+                <a href="#help" className={`flex items-center p-3 text-gray-700 hover:bg-[${BROWN_PRIMARY}]/10 hover:text-[${BROWN_PRIMARY}] rounded-md transition-all duration-200`}>
+                    <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9.247a3 3 0 100 5.506 3 3 0 000-5.506z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.424 17.585A2 2 0 0017 19v2h2v-2a2 2 0 00-2-2h-1.576zM7 19v2h2v-2H7zM3 15h2m-2-4h2m-2-4h2m14 8h2m-2-4h2m-2-4h2"/></svg>
+                    <span className="font-medium">Help & Support</span>
+                </a>
+                
+            </nav>
+            
+          </div>
+          
+          {/* Footer/Auth Buttons */}
+          <div className="p-6 border-t border-gray-200 space-y-3">
+            <button className={`w-full bg-[${BROWN_PRIMARY}] text-white py-3 rounded-md font-semibold hover:bg-[${BROWN_LIGHT}] transition-colors shadow-md`}>
+                Log Out
+            </button>
+            
+          </div>
+        </div>
+      </div>
+      
       {/* Overlay */}
-      {(showSearch || showCart || showWishlist || showBulkEnquiry) && (
+      {(showSearch || showCart || showWishlist || showBulkEnquiry || showProfile) && (
         <div
           onClick={closeAllDrawers}
           className="fixed inset-0 bg-black/50 z-[50]"

@@ -18,6 +18,8 @@ import ComboPage from "./components/ComboPage";
 import Savouries from "./components/Savouries";
 import Sweets from "./components/Sweets";
 import KitchenSpecials from "./components/KitchenSpecials";
+import ReviewPage from "./components/ReviewPage";
+
 
 function App() {
   const [currentPage, setCurrentPage] = useState("login"); // Start with login page
@@ -90,6 +92,12 @@ function App() {
     window.scrollTo(0, 0);
     setCurrentPage("kitchenSpecials");
   };
+
+  const handleWriteReviewClick = () => {
+  window.scrollTo(0, 0);
+  setCurrentPage("review");
+};
+
 
   // Show login page first
   if (currentPage === "login") {
@@ -177,6 +185,28 @@ function App() {
       </div>
     );
   }
+  // Show Review Page
+if (currentPage === "review") {
+  return (
+    <div className="font-sans">
+      <Navbar 
+        onHomeClick={handleBackToHome} 
+        onLogout={handleLogout}
+        isLoggedIn={isLoggedIn}
+        onComboClick={handleNavComboClick}
+        onSavouriesClick={handleNavSavouriesClick}
+        onSweetsClick={handleNavSweetsClick}
+        onKitchenSpecialsClick={handleNavKitchenSpecialsClick}
+        currentPage={currentPage}
+      />
+
+      <ReviewPage onBackClick={handleBackToHome} />
+
+      <Footer />
+    </div>
+  );
+}
+
 
   // Show home page after login
   return (
@@ -190,7 +220,7 @@ function App() {
       <TimelessDelights />
       <ComboPack />
       <TasteOverGenerations />
-      <CustomerLove />
+      <CustomerLove onWriteReviewClick={handleWriteReviewClick} />
       <BehindTheScenes />
       <OurJourney />
       <Footer />

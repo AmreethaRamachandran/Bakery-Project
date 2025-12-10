@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-function CustomerLove() {
+function CustomerLove({ onWriteReviewClick }) {
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
@@ -172,20 +173,26 @@ function CustomerLove() {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="inline-block bg-gradient-to-r from-[#FF6B35] to-[#FFA500] p-8 rounded-2xl shadow-xl">
-            <h3 className="text-2xl font-bold text-white mb-3">
-              Share Your Experience!
-            </h3>
-            <p className="text-white/90 mb-5">
-              We value your feedback and would love to hear from you
-            </p>
-            <button className="px-8 py-3 bg-white text-[#FF6B35] rounded-lg hover:bg-gray-100 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Write a Review
-            </button>
-          </div>
-        </div>
+        {/* Call to Action - CONNECTING YOUR EXISTING HTML BLOCK */}
+<div className="text-center mt-16">
+  <div className="inline-block bg-gradient-to-r from-[#FF6B35] to-[#FFA500] p-8 rounded-2xl shadow-xl">
+    <h3 className="text-2xl font-bold text-white mb-3">
+      Share Your Experience!
+    </h3>
+    <p className="text-white/90 mb-5">
+      We value your feedback and would love to hear from you
+    </p>
+    <button 
+      // *** THIS IS THE ONLY CODE YOU MUST ADD TO YOUR BUTTON TAG ***
+      onClick={onWriteReviewClick}
+
+      // ************************************************************
+      className="px-8 py-3 bg-white text-[#FF6B35] rounded-lg hover:bg-gray-100 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+    >
+      Write a Review
+    </button>
+  </div>
+</div>
       </div>
     </section>
   );
