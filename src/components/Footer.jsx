@@ -143,7 +143,7 @@ function Footer() {
         {/* Copyright */}
         <div className="text-center text-sm border-t border-gray-600 pt-6">
           <p className="mb-2">Copyright © 2025 From Karaikudi. All rights reserved.</p>
-          <p>Designed and Developed by <a href="#" className="font-semibold hover:text-[#8B4513] transition-colors">Weone Digital</a>.</p>
+          <p>Designed and Developed by <a href="#" className="font-semibold hover:text-[#8B4513] transition-colors">Masterominds</a>.</p>
         </div>
       </div>
 
