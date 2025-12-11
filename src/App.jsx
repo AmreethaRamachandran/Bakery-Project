@@ -19,11 +19,16 @@ import Savouries from "./components/Savouries";
 import Sweets from "./components/Sweets";
 import KitchenSpecials from "./components/KitchenSpecials";
 import ReviewPage from "./components/ReviewPage";
+import ProductDetails from "./components/ProductDetails";
+import CartPage from "./components/CartPage";
+import NavbarWithCart from "./components/NavbarWithCart";
+import { CartProvider } from "./context/CartContext";
 
 
 function App() {
   const [currentPage, setCurrentPage] = useState("login"); // Start with login page
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -98,6 +103,22 @@ function App() {
   setCurrentPage("review");
 };
 
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+    window.scrollTo(0, 0);
+    setCurrentPage("productDetails");
+  };
+
+  const handleCartClick = () => {
+    window.scrollTo(0, 0);
+    setCurrentPage("cart");
+  };
+
+  const handleCheckout = () => {
+    // Handle checkout logic here
+    alert("Proceeding to checkout...");
+  };
+
 
   // Show login page first
   if (currentPage === "login") {
@@ -112,33 +133,65 @@ function App() {
   // Show murukku page (filtered savouries)
   if (currentPage === "murukku") {
     return (
-      <div className="font-sans">
-        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
-        <Savouries onBack={handleBackToHome} initialCategory="Murukku" />
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="font-sans">
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} />
+          <Savouries onBack={handleBackToHome} initialCategory="Murukku" onProductClick={handleProductClick} />
+          <Footer />
+        </div>
+      </CartProvider>
     );
   }
 
   // Show mixture page (filtered savouries)
   if (currentPage === "mixture") {
     return (
-      <div className="font-sans">
-        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
-        <Savouries onBack={handleBackToHome} initialCategory="Mixture" />
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="font-sans">
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} />
+          <Savouries onBack={handleBackToHome} initialCategory="Mixture" onProductClick={handleProductClick} />
+          <Footer />
+        </div>
+      </CartProvider>
     );
   }
 
   // Show savouries page
   if (currentPage === "savouries") {
     return (
-      <div className="font-sans">
-        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
-        <Savouries onBack={handleBackToHome} />
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="font-sans">
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} />
+          <Savouries onBack={handleBackToHome} onProductClick={handleProductClick} />
+          <Footer />
+        </div>
+      </CartProvider>
+    );
+  }
+
+  // Show product details page
+  if (currentPage === "productDetails") {
+    return (
+      <CartProvider>
+        <div className="font-sans">
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} />
+          <ProductDetails product={selectedProduct} onBack={handleBackToHome} />
+          <Footer />
+        </div>
+      </CartProvider>
+    );
+  }
+
+  // Show cart page
+  if (currentPage === "cart") {
+    return (
+      <CartProvider>
+        <div className="font-sans">
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} />
+          <CartPage onBack={handleBackToHome} onCheckout={handleCheckout} />
+          <Footer />
+        </div>
+      </CartProvider>
     );
   }
 

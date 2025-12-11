@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Savouries({ onBack, initialCategory = 'All' }) {
+function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
   const [activeCategory, setActiveCategory] = useState(initialCategory);
 
   const categories = [
@@ -278,7 +278,8 @@ function Savouries({ onBack, initialCategory = 'All' }) {
                   {savouries.filter(p => p.category === 'Murukku').map((product) => (
                     <div
                       key={product.id}
-                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20"
+                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20 cursor-pointer"
+                      onClick={() => onProductClick(product)}
                     >
                       <div className="relative overflow-hidden h-56">
                         <img
@@ -300,8 +301,14 @@ function Savouries({ onBack, initialCategory = 'All' }) {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
-                          <button className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md">
-                            Add to Cart
+                          <button 
+                            className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onProductClick(product);
+                            }}
+                          >
+                            View Details
                           </button>
                         </div>
                       </div>
@@ -321,7 +328,8 @@ function Savouries({ onBack, initialCategory = 'All' }) {
                   {savouries.filter(p => p.category === 'Seedai').map((product) => (
                     <div
                       key={product.id}
-                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20"
+                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20 cursor-pointer"
+                      onClick={() => onProductClick(product)}
                     >
                       <div className="relative overflow-hidden h-56">
                         <img
@@ -343,8 +351,14 @@ function Savouries({ onBack, initialCategory = 'All' }) {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
-                          <button className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md">
-                            Add to Cart
+                          <button 
+                            className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onProductClick(product);
+                            }}
+                          >
+                            View Details
                           </button>
                         </div>
                       </div>
@@ -364,7 +378,8 @@ function Savouries({ onBack, initialCategory = 'All' }) {
                   {savouries.filter(p => p.category === 'Mixture').map((product) => (
                     <div
                       key={product.id}
-                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20"
+                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20 cursor-pointer"
+                      onClick={() => onProductClick(product)}
                     >
                       <div className="relative overflow-hidden h-56">
                         <img
@@ -386,8 +401,14 @@ function Savouries({ onBack, initialCategory = 'All' }) {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
-                          <button className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md">
-                            Add to Cart
+                          <button 
+                            className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onProductClick(product);
+                            }}
+                          >
+                            View Details
                           </button>
                         </div>
                       </div>
@@ -402,7 +423,8 @@ function Savouries({ onBack, initialCategory = 'All' }) {
               {filteredProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20"
+                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20 cursor-pointer"
+                  onClick={() => onProductClick(product)}
                 >
                   <div className="relative overflow-hidden h-56">
                     <img
@@ -424,8 +446,14 @@ function Savouries({ onBack, initialCategory = 'All' }) {
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
-                      <button className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md">
-                        Add to Cart
+                      <button 
+                        className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onProductClick(product);
+                        }}
+                      >
+                        View Details
                       </button>
                     </div>
                   </div>

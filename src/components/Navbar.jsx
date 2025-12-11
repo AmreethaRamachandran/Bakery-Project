@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { FaShoppingCart } from 'react-icons/fa';
 
-function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, onKitchenSpecialsClick, currentPage = 'home' }) {
+function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, onKitchenSpecialsClick, onCartClick, cartCount = 0, currentPage = 'home' }) {
   const announcements = [
     { text: 'Welcome Offer Coupon Code:', code: 'WELCOME10' },
     { text: 'Free Delivery on Orders Above:', code: '₹500' },
@@ -365,13 +366,15 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
 
             {/* 🛒 Cart */}
             <button
-              onClick={() => {closeAllDrawers(); setShowCart(true);}}
+              onClick={() => {closeAllDrawers(); onCartClick && onCartClick();}}
               className="relative group hover:text-[#FF6B35] transition-all duration-300 transform hover:scale-110"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-              <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center animate-pulse">0</span>
+              <FaShoppingCart className="w-6 h-6" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-pulse font-bold">
+                  {cartCount}
+                </span>
+              )}
               <span className="absolute inset-0 rounded-full bg-[#FF6B35] opacity-0 group-hover:opacity-10 blur-md transition-opacity"></span>
             </button>
           </div>
