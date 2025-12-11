@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Sweets({ onBack, initialCategory = 'All' }) {
+function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
   const [activeCategory, setActiveCategory] = useState(initialCategory);
 
   const categories = [
@@ -15,7 +15,7 @@ function Sweets({ onBack, initialCategory = 'All' }) {
       id: 1,
       name: 'Athirasam',
       category: 'Athirasam',
-      image: 'https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=600',
+      image: '/src/images/adhirasam.jpg',
       rating: 5,
       reviews: 55,
       price: 180.00
@@ -24,7 +24,7 @@ function Sweets({ onBack, initialCategory = 'All' }) {
       id: 2,
       name: 'Periya Athirasam',
       category: 'Athirasam',
-      image: 'https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=600',
+      image: '/src/images/periya athirasam.webp',
       rating: 4.5,
       reviews: 48,
       price: 200.00
@@ -34,7 +34,7 @@ function Sweets({ onBack, initialCategory = 'All' }) {
       id: 3,
       name: 'Rava Laddu',
       category: 'Laddu',
-      image: 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600',
+      image: '/src/images/rava laddu.jpg',
       rating: 5,
       reviews: 70,
       price: 160.00
@@ -44,7 +44,7 @@ function Sweets({ onBack, initialCategory = 'All' }) {
       id: 4,
       name: 'Ulundhamavurundai',
       category: 'Urundai',
-      image: 'https://images.unsplash.com/photo-1606491048118-a5db76e49c48?w=600',
+      image: '/src/images/ulundhamaavurundaii.jpg',
       rating: 4.5,
       reviews: 42,
       price: 170.00
@@ -53,7 +53,7 @@ function Sweets({ onBack, initialCategory = 'All' }) {
       id: 5,
       name: 'Mavurundai',
       category: 'Urundai',
-      image: 'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600',
+      image: '/src/images/Maavurundai-5pcs-₹70.jpg',
       rating: 4,
       reviews: 38,
       price: 165.00
@@ -170,7 +170,8 @@ function Sweets({ onBack, initialCategory = 'All' }) {
                   {sweets.filter(p => p.category === 'Athirasam').map((product) => (
                     <div
                       key={product.id}
-                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20"
+                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20 cursor-pointer"
+                      onClick={() => onProductClick(product)}
                     >
                       <div className="relative overflow-hidden h-56">
                         <img
@@ -192,8 +193,14 @@ function Sweets({ onBack, initialCategory = 'All' }) {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
-                          <button className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md">
-                            Add to Cart
+                          <button 
+                            className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onProductClick(product);
+                            }}
+                          >
+                            View Details
                           </button>
                         </div>
                       </div>
@@ -213,7 +220,8 @@ function Sweets({ onBack, initialCategory = 'All' }) {
                   {sweets.filter(p => p.category === 'Laddu').map((product) => (
                     <div
                       key={product.id}
-                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20"
+                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20 cursor-pointer"
+                      onClick={() => onProductClick(product)}
                     >
                       <div className="relative overflow-hidden h-56">
                         <img
@@ -235,8 +243,14 @@ function Sweets({ onBack, initialCategory = 'All' }) {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
-                          <button className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md">
-                            Add to Cart
+                          <button 
+                            className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onProductClick(product);
+                            }}
+                          >
+                            View Details
                           </button>
                         </div>
                       </div>
@@ -256,7 +270,8 @@ function Sweets({ onBack, initialCategory = 'All' }) {
                   {sweets.filter(p => p.category === 'Urundai').map((product) => (
                     <div
                       key={product.id}
-                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20"
+                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20 cursor-pointer"
+                      onClick={() => onProductClick(product)}
                     >
                       <div className="relative overflow-hidden h-56">
                         <img
@@ -278,8 +293,14 @@ function Sweets({ onBack, initialCategory = 'All' }) {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
-                          <button className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md">
-                            Add to Cart
+                          <button 
+                            className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onProductClick(product);
+                            }}
+                          >
+                            View Details
                           </button>
                         </div>
                       </div>
@@ -294,7 +315,8 @@ function Sweets({ onBack, initialCategory = 'All' }) {
               {filteredProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20"
+                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20 cursor-pointer"
+                  onClick={()=>onProductClick(product)}
                 >
                   <div className="relative overflow-hidden h-56">
                     <img
@@ -316,8 +338,11 @@ function Sweets({ onBack, initialCategory = 'All' }) {
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
-                      <button className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md">
-                        Add to Cart
+                      <button 
+                        onClick={(e)=>{e.stopPropagation();onProductClick(product);}}
+                        className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md"
+                      >
+                        View Details
                       </button>
                     </div>
                   </div>

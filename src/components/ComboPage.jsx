@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function ComboPage({ onBack }) {
+function ComboPage({ onBack, onProductClick }) {
   const [activeCategory, setActiveCategory] = useState('All');
 
   const categories = [
@@ -12,16 +12,16 @@ function ComboPage({ onBack }) {
       id: 1,
       name: 'Native Snack Combo',
       category: 'Combo',
-      image: 'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600',
+      image: '/src/images/combo murukku.webp',
       rating: 5,
       reviews: 60,
       price: 500.00
     },
     {
       id: 2,
-      name: 'Chikki Treats',
+      name: 'Sweet Combo',
       category: 'Combo',
-      image: 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600',
+      image: '/src/images/combo laddu.jpg',
       rating: 4,
       reviews: 19,
       price: 145.00
@@ -127,7 +127,8 @@ function ComboPage({ onBack }) {
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-gradient-to-br from-[#FFFAF5] to-[#FFF0E1] rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20"
+              className="bg-gradient-to-br from-[#FFFAF5] to-[#FFF0E1] rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20 cursor-pointer"
+              onClick={()=>onProductClick(product)}
             >
               {/* Product Image */}
               <div className="relative h-64 overflow-hidden bg-gradient-to-br from-[#FFE8D6] to-[#FFD4A3]">
@@ -160,8 +161,11 @@ function ComboPage({ onBack }) {
                   <div className="text-2xl font-bold text-[#FF6B35]">
                     ₹{product.price.toFixed(2)}
                   </div>
-                  <button className="bg-[#8B4513] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#6B3410] transition-colors shadow-md hover:shadow-lg">
-                    Add to Cart
+                  <button 
+                    onClick={(e)=>{e.stopPropagation();onProductClick(product);}}
+                    className="bg-[#8B4513] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#6B3410] transition-colors shadow-md hover:shadow-lg"
+                  >
+                    View Details
                   </button>
                 </div>
               </div>

@@ -1,7 +1,54 @@
 import { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 
-function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, onKitchenSpecialsClick, onCartClick, cartCount = 0, currentPage = 'home' }) {
+function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, onKitchenSpecialsClick, onCartClick, onProductClick, cartCount = 0, currentPage = 'home' }) {
+  
+  // Product mapping for navbar dropdown items
+  const productMap = {
+    // Savouries - Murukku
+    'thenkuzhal-murukku': { id: 1, name: 'Thenkuzhal Murukku', category: 'Murukku', image: '/src/images/tkmurukku.webp', rating: 5, reviews: 45, price: 120.00 },
+    'butter-murukku': { id: 2, name: 'Butter Murukku', category: 'Murukku', image: '/src/images/butter murukku.jpg', rating: 4.5, reviews: 38, price: 130.00 },
+    '4-suthu-murukku': { id: 3, name: '4 Suthu Murukku', category: 'Murukku', image: '/src/images/4 suthu murukku.webp', rating: 4, reviews: 32, price: 125.00 },
+    '5-suthu-murukku': { id: 4, name: '5 Suthu Murukku', category: 'Murukku', image: '/src/images/5 suthu murukku.webp', rating: 4.5, reviews: 28, price: 125.00 },
+    '7-suthu-murukku': { id: 5, name: '7 Suthu Murukku', category: 'Murukku', image: '/src/images/7sutthumurukuu.jpg', rating: 5, reviews: 35, price: 125.00 },
+    '9-suthu-murukku': { id: 6, name: '9 Suthu Murukku', category: 'Murukku', image: '/src/images/9 suthu murukku.webp', rating: 4.5, reviews: 30, price: 125.00 },
+    '11-suthu-murukku': { id: 7, name: '11 Suthu Murukku', category: 'Murukku', image: '/src/images/11 suthu murukku.jpg', rating: 5, reviews: 40, price: 125.00 },
+    'mini-thenkuzhal': { id: 8, name: 'Mini Thenkuzhal', category: 'Murukku', image: '/src/images/mini-thenkuzhal.jpg', rating: 4, reviews: 25, price: 110.00 },
+    'kaara-murukku': { id: 9, name: 'Kaara Murukku', category: 'Murukku', image: '/src/images/kaara murukku.jpg', rating: 5, reviews: 50, price: 135.00 },
+    'tire-murukku': { id: 10, name: 'Tire Murukku', category: 'Murukku', image: '/src/images/TyreMurukku.avif', rating: 4.5, reviews: 33, price: 140.00 },
+    'mini-kai-murukku': { id: 11, name: 'Mini Kai Murukku', category: 'Murukku', image: '/src/images/mini kai murukku.webp', rating: 4, reviews: 28, price: 115.00 },
+    // Savouries - Seedai
+    'urundai-seedai': { id: 12, name: 'Urundai Seedai', category: 'Seedai', image: '/src/images/urundai seedai.webp', rating: 5, reviews: 42, price: 150.00 },
+    'chinna-seedai': { id: 13, name: 'Chinna Seedai', category: 'Seedai', image: '/src/images/chinna seedai.webp', rating: 4.5, reviews: 36, price: 145.00 },
+    'seepu-seedai': { id: 14, name: 'Seepu Seedai', category: 'Seedai', image: '/src/images/seepu seedai.webp', rating: 4, reviews: 30, price: 155.00 },
+    'inippu-seedai': { id: 15, name: 'Inippu Seedai', category: 'Seedai', image: '/src/images/inippu seedai.webp', rating: 5, reviews: 48, price: 160.00 },
+    // Savouries - Mixture
+    'mixture': { id: 16, name: 'Mixture', category: 'Mixture', image: '/src/images/Bombay_mixture_grande.webp', rating: 5, reviews: 65, price: 140.00 },
+    'kara-boondhi': { id: 17, name: 'Kara Boondhi', category: 'Mixture', image: '/src/images/KaaraBoondhi_2024-05-16T07_46_49.615Z.webp', rating: 4.5, reviews: 52, price: 135.00 },
+    // Sweets - Athirasam
+    'athirasam': { id: 1, name: 'Athirasam', category: 'Athirasam', image: '/src/images/adhirasam.jpg', rating: 5, reviews: 55, price: 180.00 },
+    'periya-athirasam': { id: 2, name: 'Periya Athirasam', category: 'Athirasam', image: '/src/images/periya athirasam.webp', rating: 4.5, reviews: 48, price: 200.00 },
+    // Sweets - Laddu
+    'rava-laddu': { id: 3, name: 'Rava Laddu', category: 'Laddu', image: '/src/images/rava laddu.jpg', rating: 5, reviews: 70, price: 160.00 },
+    // Sweets - Urundai
+    'ulundhamavurundai': { id: 4, name: 'Ulundhamavurundai', category: 'Urundai', image: '/src/images/ulundhamaavurundaii.jpg', rating: 4.5, reviews: 42, price: 170.00 },
+    'mavurundai': { id: 5, name: 'Mavurundai', category: 'Urundai', image: '/src/images/Maavurundai-5pcs-₹70.jpg', rating: 4, reviews: 38, price: 165.00 },
+    // Kitchen Specials
+    'manakolam': { id: 1, name: 'Manakolam', category: 'Kitchen Specials', image: '/src/images/manakolamm.jpg', rating: 5, reviews: 65, price: 140.00 },
+    'thattai': { id: 2, name: 'Thattai', category: 'Kitchen Specials', image: '/src/images/thattai.webp', rating: 4.5, reviews: 58, price: 135.00 },
+    'ribbon-pakkoda': { id: 3, name: 'Ribbon Pakkoda', category: 'Kitchen Specials', image: '/src/images/ribbon pakkoda for best sellers image.webp', rating: 5, reviews: 72, price: 145.00 },
+    // Combo
+    'native-snack-combo': { id: 1, name: 'Native Snack Combo', category: 'Combo', image: '/src/images/combo murukku.webp', rating: 5, reviews: 60, price: 500.00 },
+    'sweet-combo': { id: 2, name: 'Sweet Combo', category: 'Combo', image: '/src/images/combo laddu.jpg', rating: 4, reviews: 19, price: 145.00 }
+  };
+
+  const handleProductItemClick = (e, productKey) => {
+    e.preventDefault();
+    if (onProductClick && productMap[productKey]) {
+      onProductClick(productMap[productKey]);
+    }
+  };
+
   const announcements = [
     { text: 'Welcome Offer Coupon Code:', code: 'WELCOME10' },
     { text: 'Free Delivery on Orders Above:', code: '₹500' },
@@ -185,17 +232,17 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
                   <div>
                     <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">MURUKKU</h3>
                     <ul className="space-y-2">
-                      <li><a href="#thenkuzhal-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Thenkuzhal Murukku</a></li>
-                      <li><a href="#butter-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Butter Murukku</a></li>
-                      <li><a href="#4-suthu-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">4 Suthu Murukku</a></li>
-                      <li><a href="#5-suthu-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">5 Suthu Murukku</a></li>
-                      <li><a href="#7-suthu-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">7 Suthu Murukku</a></li>
-                      <li><a href="#9-suthu-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">9 Suthu Murukku</a></li>
-                      <li><a href="#11-suthu-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">11 Suthu Murukku</a></li>
-                      <li><a href="#mini-thenkuzhal" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Mini Thenkuzhal</a></li>
-                      <li><a href="#kaara-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Kaara Murukku</a></li>
-                      <li><a href="#tire-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Tire Murukku</a></li>
-                      <li><a href="#mini-kai-murukku" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Mini Kai Murukku</a></li>
+                      <li><a href="#thenkuzhal-murukku" onClick={(e) => handleProductItemClick(e, 'thenkuzhal-murukku')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Thenkuzhal Murukku</a></li>
+                      <li><a href="#butter-murukku" onClick={(e) => handleProductItemClick(e, 'butter-murukku')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Butter Murukku</a></li>
+                      <li><a href="#4-suthu-murukku" onClick={(e) => handleProductItemClick(e, '4-suthu-murukku')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">4 Suthu Murukku</a></li>
+                      <li><a href="#5-suthu-murukku" onClick={(e) => handleProductItemClick(e, '5-suthu-murukku')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">5 Suthu Murukku</a></li>
+                      <li><a href="#7-suthu-murukku" onClick={(e) => handleProductItemClick(e, '7-suthu-murukku')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">7 Suthu Murukku</a></li>
+                      <li><a href="#9-suthu-murukku" onClick={(e) => handleProductItemClick(e, '9-suthu-murukku')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">9 Suthu Murukku</a></li>
+                      <li><a href="#11-suthu-murukku" onClick={(e) => handleProductItemClick(e, '11-suthu-murukku')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">11 Suthu Murukku</a></li>
+                      <li><a href="#mini-thenkuzhal" onClick={(e) => handleProductItemClick(e, 'mini-thenkuzhal')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Mini Thenkuzhal</a></li>
+                      <li><a href="#kaara-murukku" onClick={(e) => handleProductItemClick(e, 'kaara-murukku')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Kaara Murukku</a></li>
+                      <li><a href="#tire-murukku" onClick={(e) => handleProductItemClick(e, 'tire-murukku')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Tire Murukku</a></li>
+                      <li><a href="#mini-kai-murukku" onClick={(e) => handleProductItemClick(e, 'mini-kai-murukku')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Mini Kai Murukku</a></li>
                     </ul>
                   </div>
 
@@ -203,10 +250,10 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
                   <div>
                     <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">SEEDAI</h3>
                     <ul className="space-y-2">
-                      <li><a href="#urundai-seedai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Urundai Seedai</a></li>
-                      <li><a href="#chinna-seedai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Chinna Seedai</a></li>
-                      <li><a href="#seepu-seedai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Seepu Seedai</a></li>
-                      <li><a href="#inippu-seedai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Inippu Seedai</a></li>
+                      <li><a href="#urundai-seedai" onClick={(e) => handleProductItemClick(e, 'urundai-seedai')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Urundai Seedai</a></li>
+                      <li><a href="#chinna-seedai" onClick={(e) => handleProductItemClick(e, 'chinna-seedai')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Chinna Seedai</a></li>
+                      <li><a href="#seepu-seedai" onClick={(e) => handleProductItemClick(e, 'seepu-seedai')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Seepu Seedai</a></li>
+                      <li><a href="#inippu-seedai" onClick={(e) => handleProductItemClick(e, 'inippu-seedai')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Inippu Seedai</a></li>
                     </ul>
                   </div>
 
@@ -214,8 +261,8 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
                   <div>
                     <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">MIXTURE</h3>
                     <ul className="space-y-2">
-                      <li><a href="#mixture" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Mixture</a></li>
-                      <li><a href="#kara-boondhi" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Kara Boondhi</a></li>
+                      <li><a href="#mixture" onClick={(e) => handleProductItemClick(e, 'mixture')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Mixture</a></li>
+                      <li><a href="#kara-boondhi" onClick={(e) => handleProductItemClick(e, 'kara-boondhi')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Kara Boondhi</a></li>
                     </ul>
                   </div>
                 </div>
@@ -244,8 +291,8 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
                   <div>
                     <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">ATHIRASAM</h3>
                     <ul className="space-y-2">
-                      <li><a href="#athirasam" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Athirasam</a></li>
-                      <li><a href="#periya-athirasam" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Periya Athirasam</a></li>
+                      <li><a href="#athirasam" onClick={(e) => handleProductItemClick(e, 'athirasam')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Athirasam</a></li>
+                      <li><a href="#periya-athirasam" onClick={(e) => handleProductItemClick(e, 'periya-athirasam')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Periya Athirasam</a></li>
                     </ul>
                   </div>
 
@@ -253,7 +300,7 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
                   <div>
                     <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">LADDU</h3>
                     <ul className="space-y-2">
-                      <li><a href="#rava-laddu" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Rava Laddu</a></li>
+                      <li><a href="#rava-laddu" onClick={(e) => handleProductItemClick(e, 'rava-laddu')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Rava Laddu</a></li>
                     </ul>
                   </div>
 
@@ -261,8 +308,8 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
                   <div>
                     <h3 className="font-bold text-[#8B4513] mb-3 text-sm uppercase tracking-wide">URUNDAI</h3>
                     <ul className="space-y-2">
-                      <li><a href="#ulundhamavurundai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Ulundhamavurundai</a></li>
-                      <li><a href="#mavurundai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Mavurundai</a></li>
+                      <li><a href="#ulundhamavurundai" onClick={(e) => handleProductItemClick(e, 'ulundhamavurundai')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Ulundhamavurundai</a></li>
+                      <li><a href="#mavurundai" onClick={(e) => handleProductItemClick(e, 'mavurundai')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Mavurundai</a></li>
                     </ul>
                   </div>
                 </div>
@@ -290,29 +337,41 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
               <div className="absolute top-full left-0 mt-2 w-[200px] bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] border border-gray-100">
                 <div className="p-6">
                   <ul className="space-y-2">
-                    <li><a href="#manakolam" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Manakolam</a></li>
-                    <li><a href="#thattai" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Thattai</a></li>
-                    <li><a href="#ribbon-pakkoda" className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm">Ribbon Pakkoda</a></li>
+                    <li><a href="#manakolam" onClick={(e) => handleProductItemClick(e, 'manakolam')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Manakolam</a></li>
+                    <li><a href="#thattai" onClick={(e) => handleProductItemClick(e, 'thattai')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Thattai</a></li>
+                    <li><a href="#ribbon-pakkoda" onClick={(e) => handleProductItemClick(e, 'ribbon-pakkoda')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Ribbon Pakkoda</a></li>
                   </ul>
                 </div>
               </div>
             </div>
 
-
-            <button 
-              onClick={(e) => {
-                e.preventDefault();
-                if (onComboClick) onComboClick();
-              }}
-              className={`relative group transition-colors flex items-center gap-1 ${currentPage === 'combo' ? 'text-[#FF6B35] pb-1' : 'hover:text-[#FF6B35]'}`}
-            >
-              Combo ▼
-              {currentPage === 'combo' ? (
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FF6B35] animate-pulse"></span>
-              ) : (
-                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
-              )}
-            </button>
+            {/* Combo Dropdown */}
+            <div className="relative group">
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onComboClick) onComboClick();
+                }}
+                className={`transition-colors flex items-center gap-1 ${currentPage === 'combo' ? 'text-[#FF6B35] pb-1' : 'hover:text-[#FF6B35]'}`}
+              >
+                Combo ▼
+                {currentPage === 'combo' ? (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FF6B35] animate-pulse"></span>
+                ) : (
+                  <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#FF6B35] group-hover:w-full transition-all duration-300"></span>
+                )}
+              </button>
+              
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 mt-2 w-[200px] bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] border border-gray-100">
+                <div className="p-6">
+                  <ul className="space-y-2">
+                    <li><a href="#native-snack-combo" onClick={(e) => handleProductItemClick(e, 'native-snack-combo')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Native Snack Combo</a></li>
+                    <li><a href="#sweet-combo" onClick={(e) => handleProductItemClick(e, 'sweet-combo')} className="text-gray-700 hover:text-[#FF6B35] transition-colors text-sm cursor-pointer">Sweet Combo</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             
             {/* BULK ENQUIRY LINK */}
             <button 

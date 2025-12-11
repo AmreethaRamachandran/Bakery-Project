@@ -135,7 +135,7 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} />
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
           <Savouries onBack={handleBackToHome} initialCategory="Murukku" onProductClick={handleProductClick} />
           <Footer />
         </div>
@@ -148,7 +148,7 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} />
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
           <Savouries onBack={handleBackToHome} initialCategory="Mixture" onProductClick={handleProductClick} />
           <Footer />
         </div>
@@ -161,7 +161,7 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} />
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
           <Savouries onBack={handleBackToHome} onProductClick={handleProductClick} />
           <Footer />
         </div>
@@ -174,7 +174,7 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} />
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
           <ProductDetails product={selectedProduct} onBack={handleBackToHome} />
           <Footer />
         </div>
@@ -187,7 +187,7 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} />
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
           <CartPage onBack={handleBackToHome} onCheckout={handleCheckout} />
           <Footer />
         </div>
@@ -198,44 +198,52 @@ function App() {
   // Show sweets page
   if (currentPage === "sweets") {
     return (
-      <div className="font-sans">
-        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
-        <Sweets onBack={handleBackToHome} />
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="font-sans">
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <Sweets onBack={handleBackToHome} onProductClick={handleProductClick} />
+          <Footer />
+        </div>
+      </CartProvider>
     );
   }
 
   // Show laddu page (filtered sweets)
   if (currentPage === "laddu") {
     return (
-      <div className="font-sans">
-        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
-        <Sweets onBack={handleBackToHome} initialCategory="Laddu" />
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="font-sans">
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <Sweets onBack={handleBackToHome} initialCategory="Laddu" onProductClick={handleProductClick} />
+          <Footer />
+        </div>
+      </CartProvider>
     );
   }
 
   // Show kitchen specials page
   if (currentPage === "kitchenSpecials") {
     return (
-      <div className="font-sans">
-        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
-        <KitchenSpecials onBack={handleBackToHome} />
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="font-sans">
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <KitchenSpecials onBack={handleBackToHome} onProductClick={handleProductClick} />
+          <Footer />
+        </div>
+      </CartProvider>
     );
   }
 
   // Show combo page
   if (currentPage === "combo") {
     return (
-      <div className="font-sans">
-        <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
-        <ComboPage onBack={handleBackToHome} />
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="font-sans">
+          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <ComboPage onBack={handleBackToHome} onProductClick={handleProductClick} />
+          <Footer />
+        </div>
+      </CartProvider>
     );
   }
   // Show Review Page
@@ -251,6 +259,7 @@ if (currentPage === "review") {
         onSweetsClick={handleNavSweetsClick}
         onKitchenSpecialsClick={handleNavKitchenSpecialsClick}
         currentPage={currentPage}
+        onProductClick={handleProductClick}
       />
 
       <ReviewPage onBackClick={handleBackToHome} />
@@ -264,7 +273,7 @@ if (currentPage === "review") {
   // Show home page after login
   return (
     <div className="font-sans">
-      <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} />
+      <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onProductClick={handleProductClick} />
       <HeroSection />
       <Categories onCategoryClick={handleCategoryClick} />
       <BestSellers />

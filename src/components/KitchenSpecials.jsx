@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-function KitchenSpecials({ onBack }) {
+function KitchenSpecials({ onBack, onProductClick }) {
   const kitchenSpecials = [
     {
       id: 1,
       name: 'Manakolam',
       category: 'Kitchen Specials',
-      image: 'https://images.unsplash.com/photo-1608797178974-15b35a64ede9?w=600',
+      image: '/src/images/manakolamm.jpg',
       rating: 5,
       reviews: 65,
       price: 140.00
@@ -15,7 +15,7 @@ function KitchenSpecials({ onBack }) {
       id: 2,
       name: 'Thattai',
       category: 'Kitchen Specials',
-      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600',
+      image: '/src/images/thattai.webp',
       rating: 4.5,
       reviews: 58,
       price: 135.00
@@ -24,7 +24,7 @@ function KitchenSpecials({ onBack }) {
       id: 3,
       name: 'Ribbon Pakkoda',
       category: 'Kitchen Specials',
-      image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600',
+      image: '/src/images/ribbon pakkoda for best sellers image.webp',
       rating: 5,
       reviews: 72,
       price: 145.00
@@ -90,7 +90,8 @@ function KitchenSpecials({ onBack }) {
           {kitchenSpecials.map((product) => (
             <div
               key={product.id}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20"
+              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-[#D4A574]/20 cursor-pointer"
+              onClick={()=>onProductClick(product)}
             >
               <div className="relative overflow-hidden h-56">
                 <img
@@ -112,8 +113,11 @@ function KitchenSpecials({ onBack }) {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
-                  <button className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md">
-                    Add to Cart
+                  <button 
+                    onClick={(e)=>{e.stopPropagation();onProductClick(product);}}
+                    className="bg-[#FF6B35] text-white px-4 py-2 rounded-lg hover:bg-[#8B4513] transition-colors shadow-md"
+                  >
+                    View Details
                   </button>
                 </div>
               </div>

@@ -42,7 +42,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 4,
       name: '5 Suthu Murukku',
       category: 'Murukku',
-      image: 'https://images.unsplash.com/photo-1599909533730-f9ff6c7b8b7e?w=600',
+      image: '/src/images/5 suthu murukku.webp',
       rating: 4.5,
       reviews: 28,
       price: 125.00
@@ -51,7 +51,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 5,
       name: '7 Suthu Murukku',
       category: 'Murukku',
-      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600',
+      image: '/src/images/7sutthumurukuu.jpg',
       rating: 5,
       reviews: 42,
       price: 130.00
@@ -60,7 +60,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 6,
       name: '9 Suthu Murukku',
       category: 'Murukku',
-      image: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600',
+      image: '/src/images/9 suthu murukku.webp',
       rating: 4.5,
       reviews: 35,
       price: 135.00
@@ -69,7 +69,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 7,
       name: '11 Suthu Murukku',
       category: 'Murukku',
-      image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600',
+      image: '/src/images/11 suthu murukku.jpg',
       rating: 5,
       reviews: 50,
       price: 140.00
@@ -78,7 +78,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 8,
       name: 'Mini Thenkuzhal',
       category: 'Murukku',
-      image: 'https://images.unsplash.com/photo-1599909533730-f9ff6c7b8b7e?w=600',
+      image: '/src/images/mini-thenkuzhal.jpg',
       rating: 4,
       reviews: 30,
       price: 115.00
@@ -87,7 +87,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 9,
       name: 'Kaara Murukku',
       category: 'Murukku',
-      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600',
+      image: '/src/images/kaara murukku.jpg',
       rating: 4.5,
       reviews: 40,
       price: 125.00
@@ -96,7 +96,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 10,
       name: 'Tire Murukku',
       category: 'Murukku',
-      image: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600',
+      image: '/src/images/TyreMurukku.avif',
       rating: 4,
       reviews: 25,
       price: 120.00
@@ -105,7 +105,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 11,
       name: 'Mini Kai Murukku',
       category: 'Murukku',
-      image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600',
+      image: '/src/images/mini kai murukku.webp',
       rating: 4.5,
       reviews: 33,
       price: 110.00
@@ -115,7 +115,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 12,
       name: 'Urundai Seedai',
       category: 'Seedai',
-      image: 'https://images.unsplash.com/photo-1599909533730-f9ff6c7b8b7e?w=600',
+      image: '/src/images/urundai seedai.webp',
       rating: 5,
       reviews: 48,
       price: 150.00
@@ -124,7 +124,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 13,
       name: 'Chinna Seedai',
       category: 'Seedai',
-      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600',
+      image: '/src/images/chinna seedai.webp',
       rating: 4.5,
       reviews: 42,
       price: 140.00
@@ -133,7 +133,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 14,
       name: 'Seepu Seedai',
       category: 'Seedai',
-      image: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600',
+      image: '/src/images/seepu seedai.webp',
       rating: 4,
       reviews: 35,
       price: 145.00
@@ -142,7 +142,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 15,
       name: 'Inippu Seedai',
       category: 'Seedai',
-      image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600',
+      image: '/src/images/inippu seedai.webp',
       rating: 4.5,
       reviews: 38,
       price: 155.00
@@ -152,7 +152,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 16,
       name: 'Mixture',
       category: 'Mixture',
-      image: 'https://images.unsplash.com/photo-1599909533730-f9ff6c7b8b7e?w=600',
+      image: '/src/images/Bombay_mixture_grande.webp',
       rating: 5,
       reviews: 60,
       price: 130.00
@@ -161,7 +161,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 17,
       name: 'Kara Boondhi',
       category: 'Mixture',
-      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600',
+      image: '/src/images/KaaraBoondhi_2024-05-16T07_46_49.615Z.webp',
       rating: 4.5,
       reviews: 52,
       price: 125.00
