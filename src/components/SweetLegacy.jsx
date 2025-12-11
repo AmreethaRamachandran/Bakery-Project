@@ -31,7 +31,7 @@ function SweetLegacy({ onCategoryClick }) {
     {
       id: 4,
       name: "Ulundhamavurundai",
-      image: "/src/images/ulundhamaavurundai.jpg",
+      image: "/src/images/ulundhamaavurundaii.jpg",
       price: 170.00,
       rating: 4.5,
       reviews: 42
@@ -39,7 +39,7 @@ function SweetLegacy({ onCategoryClick }) {
     {
       id: 5,
       name: "Mavurundai",
-      image: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600&h=600&fit=crop",
+      image: "/src/images/Maavurundai-5pcs-₹70.jpg",
       price: 165.00,
       rating: 4,
       reviews: 38

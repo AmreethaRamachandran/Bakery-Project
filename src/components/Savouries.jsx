@@ -15,7 +15,7 @@ function Savouries({ onBack, initialCategory = 'All' }) {
       id: 1,
       name: 'Thenkuzhal Murukku',
       category: 'Murukku',
-      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600',
+      image: '/src/images/tkmurukku.webp',
       rating: 5,
       reviews: 45,
       price: 120.00
@@ -24,7 +24,7 @@ function Savouries({ onBack, initialCategory = 'All' }) {
       id: 2,
       name: 'Butter Murukku',
       category: 'Murukku',
-      image: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600',
+      image: '/src/images/butter murukku.jpg',
       rating: 4.5,
       reviews: 38,
       price: 130.00
@@ -33,7 +33,7 @@ function Savouries({ onBack, initialCategory = 'All' }) {
       id: 3,
       name: '4 Suthu Murukku',
       category: 'Murukku',
-      image: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600',
+      image: '/src/images/4 suthu murukku.webp',
       rating: 4,
       reviews: 32,
       price: 125.00
