@@ -15,7 +15,7 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 1,
       name: 'Athirasam',
       category: 'Athirasam',
-      image: '/src/images/adhirasam.jpg',
+      image: '/images/adhirasam.jpg',
       rating: 5,
       reviews: 55,
       price: 180.00
@@ -24,7 +24,7 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 2,
       name: 'Periya Athirasam',
       category: 'Athirasam',
-      image: '/src/images/periya athirasam.webp',
+      image: '/images/periya athirasam.webp',
       rating: 4.5,
       reviews: 48,
       price: 200.00
@@ -34,7 +34,7 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 3,
       name: 'Rava Laddu',
       category: 'Laddu',
-      image: '/src/images/rava laddu.jpg',
+      image: '/images/rava laddu.jpg',
       rating: 5,
       reviews: 70,
       price: 160.00
@@ -44,7 +44,7 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 4,
       name: 'Ulundhamavurundai',
       category: 'Urundai',
-      image: '/src/images/ulundhamaavurundaii.jpg',
+      image: '/images/ulundhamaavurundaii.jpg',
       rating: 4.5,
       reviews: 42,
       price: 170.00
@@ -53,7 +53,7 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
       id: 5,
       name: 'Mavurundai',
       category: 'Urundai',
-      image: '/src/images/Maavurundai-5pcs-₹70.jpg',
+      image: '/images/Maavurundai-5pcs-₹70.jpg',
       rating: 4,
       reviews: 38,
       price: 165.00
@@ -106,7 +106,7 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
       {/* Category Banner Image - Full Width */}
       <div className="relative h-64 md:h-80 mb-12 overflow-hidden">
         <img
-          src="/src/images/sweets banner.png"
+          src="/images/sweets banner.png"
           alt="Sweets"
           className="w-full h-full object-cover"
         />

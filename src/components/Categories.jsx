@@ -3,7 +3,7 @@ function Categories({ onCategoryClick }) {
     {
       id: 1,
       name: "Combo",
-      image: "/src/images/combo image.jpg",
+      image: "/images/combo image.jpg",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200",
       imageScale: '1.2',
       imagePosition: '58% 50%'
@@ -11,25 +11,25 @@ function Categories({ onCategoryClick }) {
     {
       id: 2,
       name: "Murukku",
-      image: "/src/images/murukku.jpg",
+      image: "/images/murukku.jpg",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
       id: 3,
       name: "Specials",
-      image: "/src/images/ribbon-pakoda-521211.webp",
+      image: "/images/ribbon-pakoda-521211.webp",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
       id: 4,
       name: "Mixture",
-      image: "/src/images/Keezha_Eral_Mixture_1200x1200.jpg",
+      image: "/images/Keezha_Eral_Mixture_1200x1200.jpg",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
       id: 5,
       name: "Laddu",
-      image: "/src/images/laddoos.jpg",
+      image: "/images/laddoos.jpg",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200",
       imagePosition: 'center 40%'
     }

@@ -7,7 +7,7 @@ function SavoryTreasures({ onCategoryClick }) {
     {
       id: 1,
       name: "Thenkuzhal Murukku",
-      image: "/src/images/tkmurukku.webp",
+      image: "/images/tkmurukku.webp",
       price: 120.00,
       rating: 5,
       reviews: 45
@@ -15,7 +15,7 @@ function SavoryTreasures({ onCategoryClick }) {
     {
       id: 2,
       name: "Butter Murukku",
-      image: "/src/images/butter murukku.jpg",
+      image: "/images/butter murukku.jpg",
       price: 130.00,
       rating: 4.5,
       reviews: 38
@@ -23,7 +23,7 @@ function SavoryTreasures({ onCategoryClick }) {
     {
       id: 3,
       name: "Kaara Murukku",
-      image: "/src/images/kaara murukku.jpg",
+      image: "/images/kaara murukku.jpg",
       price: 125.00,
       rating: 4.5,
       reviews: 40
@@ -31,7 +31,7 @@ function SavoryTreasures({ onCategoryClick }) {
     {
       id: 4,
       name: "Urundai Seedai",
-      image: "/src/images/urundai seedai.webp",
+      image: "/images/urundai seedai.webp",
       price: 150.00,
       rating: 5,
       reviews: 48
@@ -39,7 +39,7 @@ function SavoryTreasures({ onCategoryClick }) {
     {
       id: 5,
       name: "Chinna Seedai",
-      image: "/src/images/chinna seedai.webp",
+      image: "/images/chinna seedai.webp",
       price: 140.00,
       rating: 4.5,
       reviews: 42
@@ -47,7 +47,7 @@ function SavoryTreasures({ onCategoryClick }) {
     {
       id: 6,
       name: "Seepu Seedai",
-      image: "/src/images/seepu seedai.webp",
+      image: "/images/seepu seedai.webp",
       price: 145.00,
       rating: 4,
       reviews: 35
@@ -55,7 +55,7 @@ function SavoryTreasures({ onCategoryClick }) {
     {
       id: 7,
       name: "Inippu Seedai",
-      image: "/src/images/inippu seedai.webp",
+      image: "/images/inippu seedai.webp",
       price: 155.00,
       rating: 4.5,
       reviews: 38
@@ -63,7 +63,7 @@ function SavoryTreasures({ onCategoryClick }) {
     {
       id: 8,
       name: "Mixture",
-      image: "/src/images/Bombay_mixture_grande.webp",
+      image: "/images/Bombay_mixture_grande.webp",
       price: 130.00,
       rating: 5,
       reviews: 60
@@ -71,7 +71,7 @@ function SavoryTreasures({ onCategoryClick }) {
     {
       id: 9,
       name: "Ribbon Pakoda",
-      image: "/src/images/Ribbon_Pakoda_1.webp",
+      image: "/images/Ribbon_Pakoda_1.webp",
       price: 130.00,
       rating: 5,
       reviews: 55
@@ -79,7 +79,7 @@ function SavoryTreasures({ onCategoryClick }) {
     {
       id: 10,
       name: "Mini Kai Murukku",
-      image: "/src/images/mini kai murukku.webp",
+      image: "/images/mini kai murukku.webp",
       price: 110.00,
       rating: 4.5,
       reviews: 33

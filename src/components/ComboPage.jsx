@@ -12,7 +12,7 @@ function ComboPage({ onBack, onProductClick }) {
       id: 1,
       name: 'Native Snack Combo',
       category: 'Combo',
-      image: '/src/images/combo murukku.webp',
+      image: '/images/combo murukku.webp',
       rating: 5,
       reviews: 60,
       price: 500.00
@@ -21,7 +21,7 @@ function ComboPage({ onBack, onProductClick }) {
       id: 2,
       name: 'Sweet Combo',
       category: 'Combo',
-      image: '/src/images/combo laddu.jpg',
+      image: '/images/combo laddu.jpg',
       rating: 4,
       reviews: 19,
       price: 145.00
@@ -75,7 +75,7 @@ function ComboPage({ onBack, onProductClick }) {
       {/* Category Banner Image - Full Width */}
       <div className="relative h-64 md:h-80 mb-12 overflow-hidden">
         <img
-          src="/src/images/combo banner.webp"
+          src="/images/combo banner.webp"
           alt="Combo Banner"
           className="w-full h-full object-cover"
         />

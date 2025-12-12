@@ -3,7 +3,7 @@ function BestSellers() {
     {
       id: 1,
       name: "Thenkuzhal Murukku",
-      image: "/src/images/then kulal murukku.jpeg",
+      image: "/images/then kulal murukku.jpeg",
       price: 120.00,
       rating: 5,
       reviews: 45,
@@ -12,7 +12,7 @@ function BestSellers() {
     {
       id: 2,
       name: "Kaara Murukku",
-      image: "/src/images/kaara murukku.jpg",
+      image: "/images/kaara murukku.jpg",
       price: 125.00,
       rating: 4,
       reviews: 40,
@@ -21,7 +21,7 @@ function BestSellers() {
     {
       id: 3,
       name: "Periya Athirasam",
-      image: "/src/images/periya athirasam.webp",
+      image: "/images/periya athirasam.webp",
       price: 150.00,
       rating: 5,
       reviews: 55,
@@ -30,7 +30,7 @@ function BestSellers() {
     {
       id: 4,
       name: "Ribbon Pakoda",
-      image: "/src/images/ribbon pakkoda for best sellers image.webp",
+      image: "/images/ribbon pakkoda for best sellers image.webp",
       price: 130.00,
       rating: 5,
       reviews: 48,

@@ -7,7 +7,7 @@ function SweetLegacy({ onCategoryClick }) {
     {
       id: 1,
       name: "Athirasam",
-      image: "/src/images/adhirasam.jpg",
+      image: "/images/adhirasam.jpg",
       price: 180.00,
       rating: 5,
       reviews: 55
@@ -15,7 +15,7 @@ function SweetLegacy({ onCategoryClick }) {
     {
       id: 2,
       name: "Periya Athirasam",
-      image: "/src/images/perya adhirasam.webp",
+      image: "/images/perya adhirasam.webp",
       price: 200.00,
       rating: 4.5,
       reviews: 48
@@ -23,7 +23,7 @@ function SweetLegacy({ onCategoryClick }) {
     {
       id: 3,
       name: "Rava Laddu",
-      image: "/src/images/rava laddu.jpg",
+      image: "/images/rava laddu.jpg",
       price: 160.00,
       rating: 5,
       reviews: 70
@@ -31,7 +31,7 @@ function SweetLegacy({ onCategoryClick }) {
     {
       id: 4,
       name: "Ulundhamavurundai",
-      image: "/src/images/ulundhamaavurundaii.jpg",
+      image: "/images/ulundhamaavurundaii.jpg",
       price: 170.00,
       rating: 4.5,
       reviews: 42
@@ -39,7 +39,7 @@ function SweetLegacy({ onCategoryClick }) {
     {
       id: 5,
       name: "Mavurundai",
-      image: "/src/images/Maavurundai-5pcs-₹70.jpg",
+      image: "/images/Maavurundai-5pcs-₹70.jpg",
       price: 165.00,
       rating: 4,
       reviews: 38

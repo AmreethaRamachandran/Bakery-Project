@@ -6,7 +6,7 @@ function KitchenSpecials({ onBack, onProductClick }) {
       id: 1,
       name: 'Manakolam',
       category: 'Kitchen Specials',
-      image: '/src/images/manakolamm.jpg',
+      image: '/images/manakolamm.jpg',
       rating: 5,
       reviews: 65,
       price: 140.00
@@ -15,7 +15,7 @@ function KitchenSpecials({ onBack, onProductClick }) {
       id: 2,
       name: 'Thattai',
       category: 'Kitchen Specials',
-      image: '/src/images/thattai.webp',
+      image: '/images/thattai.webp',
       rating: 4.5,
       reviews: 58,
       price: 135.00
@@ -24,7 +24,7 @@ function KitchenSpecials({ onBack, onProductClick }) {
       id: 3,
       name: 'Ribbon Pakkoda',
       category: 'Kitchen Specials',
-      image: '/src/images/ribbon pakkoda for best sellers image.webp',
+      image: '/images/ribbon pakkoda for best sellers image.webp',
       rating: 5,
       reviews: 72,
       price: 145.00
@@ -73,7 +73,7 @@ function KitchenSpecials({ onBack, onProductClick }) {
       {/* Category Banner Image - Full Width */}
       <div className="relative h-64 md:h-80 mb-12 overflow-hidden">
         <img
-          src="/src/images/kitchen specialls.png"
+          src="/images/kitchen specialls.png"
           alt="Kitchen Specials"
           className="w-full h-full object-cover"
         />
