@@ -1,8 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function CustomerLove({ onWriteReviewClick }) {
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile view
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const testimonials = [
     {
@@ -37,17 +46,20 @@ function CustomerLove({ onWriteReviewClick }) {
     }
   ];
 
+  const itemsToShow = isMobile ? 1 : 3;
+  const maxIndex = testimonials.length - itemsToShow;
+
   const handlePrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 3 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev >= testimonials.length - 3 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
-  const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + 3);
-  if (visibleTestimonials.length < 3) {
-    visibleTestimonials.push(...testimonials.slice(0, 3 - visibleTestimonials.length));
+  const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + itemsToShow);
+  if (visibleTestimonials.length < itemsToShow) {
+    visibleTestimonials.push(...testimonials.slice(0, itemsToShow - visibleTestimonials.length));
   }
 
   const renderStars = (rating) => {
@@ -95,38 +107,38 @@ function CustomerLove({ onWriteReviewClick }) {
         </div>
 
         {/* Testimonials Carousel */}
-        <div className="relative">
+        <div className="relative px-8 sm:px-12 md:px-0">
           {/* Previous Button */}
           <button
             onClick={handlePrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-20 w-12 h-12 bg-[#8B4513] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#6B3410] transition-all hover:scale-110"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 md:-translate-x-12 bg-[#8B4513] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#6B3410] transition-all hover:scale-110"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
           {/* Testimonials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {visibleTestimonials.map((testimonial, index) => (
               <div
                 key={`${testimonial.id}-${index}`}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative"
+                className="bg-white rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative"
               >
                 {/* Quote Icon */}
-                <div className="absolute top-6 left-6 text-[#FF6B35] opacity-20">
-                  <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+                <div className="absolute top-4 left-4 sm:top-6 sm:left-6 text-[#FF6B35] opacity-20">
+                  <svg className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
                   </svg>
                 </div>
 
                 {/* Stars */}
-                <div className="relative z-10 mt-8">
+                <div className="relative z-10 mt-6 sm:mt-7 md:mt-8">
                   {renderStars(testimonial.rating)}
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-gray-700 leading-relaxed mb-6 text-center relative z-10 min-h-[120px]">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 sm:mb-5 md:mb-6 text-center relative z-10 min-h-[100px] sm:min-h-[120px]">
                   "{testimonial.text}"
                 </p>
 
@@ -135,10 +147,10 @@ function CustomerLove({ onWriteReviewClick }) {
 
                 {/* Customer Name */}
                 <div className="text-center">
-                  <h4 className="font-bold text-[#8B4513] text-lg">
+                  <h4 className="font-bold text-[#8B4513] text-base sm:text-lg">
                     {testimonial.name}
                   </h4>
-                  <p className="text-sm text-gray-500 mt-1">Verified Customer</p>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-1">Verified Customer</p>
                 </div>
 
                 {/* Decorative Corner */}
@@ -150,17 +162,17 @@ function CustomerLove({ onWriteReviewClick }) {
           {/* Next Button */}
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-20 w-12 h-12 bg-[#8B4513] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#6B3410] transition-all hover:scale-110"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 md:translate-x-12 bg-[#8B4513] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#6B3410] transition-all hover:scale-110"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
 
         {/* Pagination Dots */}
-        <div className="flex justify-center gap-2 mt-12">
-          {Array.from({ length: testimonials.length - 2 }).map((_, index) => (
+        <div className="flex justify-center gap-2 mt-8 sm:mt-10 md:mt-12">
+          {Array.from({ length: isMobile ? testimonials.length : testimonials.length - 2 }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}

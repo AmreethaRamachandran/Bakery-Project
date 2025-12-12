@@ -67,9 +67,9 @@ function HeroSection() {
           >
             <div className={`h-full bg-gradient-to-r ${slide.bgColor}`}>
               <div className="max-w-7xl mx-auto px-4 h-full">
-                <div className="grid md:grid-cols-2 gap-10 items-center h-full py-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-10 items-center h-full py-6 sm:py-8 md:py-12">
                   {/* Text Content */}
-                  <div className="space-y-3 sm:space-y-4 md:space-y-6">
+                  <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
                     {/* Badge */}
                     <div className="inline-block">
                       <span className="px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-[#FF6B35] text-white text-[10px] sm:text-xs font-bold rounded-full uppercase tracking-wider shadow-lg animate-pulse">
@@ -102,7 +102,7 @@ function HeroSection() {
 
                   {/* Image */}
                   <div className="relative flex justify-center items-center">
-                    <div className="h-48 w-48 sm:h-64 sm:w-64 md:h-80 md:w-80 lg:h-96 lg:w-96 rounded-full overflow-hidden shadow-2xl border-4 sm:border-6 md:border-8 border-white">
+                    <div className="h-32 w-32 sm:h-48 sm:w-48 md:h-80 md:w-80 lg:h-96 lg:w-96 rounded-full overflow-hidden shadow-2xl border-2 sm:border-4 md:border-6 lg:border-8 border-white">
                       <img 
                         src={slide.image} 
                         alt={slide.title}

@@ -36,7 +36,7 @@ function Categories({ onCategoryClick }) {
   ];
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 px-4 bg-gradient-to-b from-white to-orange-50 relative overflow-hidden">
+    <section className="py-8 sm:py-12 md:py-16 px-4 bg-gradient-to-b from-white to-orange-50 relative overflow-x-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute left-0 top-1/4 w-32 h-64 opacity-10">
         <svg viewBox="0 0 200 400" className="w-full h-full text-gray-400">
@@ -59,7 +59,8 @@ function Categories({ onCategoryClick }) {
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 lg:gap-10 justify-items-center">
+        <div className="overflow-x-auto scrollbar-hide pb-4">
+          <div className="flex lg:grid lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10 justify-start lg:justify-items-center min-w-max lg:min-w-0 px-4 sm:px-0">
           {categories.map((category) => (
             <div 
               key={category.id} 
@@ -87,15 +88,16 @@ function Categories({ onCategoryClick }) {
               </h3>
             </div>
           ))}
+          </div>
         </div>
       </div>
 
       {/* Decorative Bottom Border */}
-      <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-r from-[#8B4513] via-[#6B3410] to-[#8B4513] opacity-80">
-        <div className="h-full flex items-center justify-center">
-          <div className="flex gap-4">
-            {[...Array(50)].map((_, i) => (
-              <div key={i} className="w-2 h-2 bg-white rounded-full opacity-50"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-2 sm:h-4 md:h-8 bg-gradient-to-r from-[#8B4513] via-[#6B3410] to-[#8B4513] opacity-80">
+        <div className="h-full flex items-center justify-center overflow-hidden">
+          <div className="flex gap-2 sm:gap-3 md:gap-4">
+            {[...Array(20)].map((_, i) => (
+              <div key={i} className="w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-white rounded-full opacity-50"></div>
             ))}
           </div>
         </div>

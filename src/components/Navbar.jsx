@@ -123,10 +123,10 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
       </div>
 
       {/* Main Navbar */}
-      <div className="border-b relative overflow-visible">
+      <div className="border-b relative">
         {/* Decorative Background Elements */}
-        <div className="absolute left-0 top-0 w-64 h-full bg-gradient-to-r from-[#FF6B35]/5 to-transparent pointer-events-none overflow-hidden"></div>
-        <div className="absolute right-0 top-0 w-64 h-full bg-gradient-to-l from-[#8B4513]/5 to-transparent pointer-events-none overflow-hidden"></div>
+        <div className="absolute left-0 top-0 w-64 h-full bg-gradient-to-r from-[#FF6B35]/5 to-transparent pointer-events-none"></div>
+        <div className="absolute right-0 top-0 w-64 h-full bg-gradient-to-l from-[#8B4513]/5 to-transparent pointer-events-none"></div>
         
         {/* Left Side - Animated Bakery Scene */}
         <div className="absolute left-2 top-1/2 -translate-y-1/2 hidden xl:block">
@@ -435,6 +435,42 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
                 </span>
               )}
               <span className="absolute inset-0 rounded-full bg-[#FF6B35] opacity-0 group-hover:opacity-10 blur-md transition-opacity"></span>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Menu - Horizontal Scroll */}
+        <div className="lg:hidden border-t bg-white overflow-x-auto scrollbar-hide">
+          <div className="flex items-center gap-4 px-4 py-3 min-w-max">
+            <button 
+              onClick={(e) => { e.preventDefault(); if (onSavouriesClick) onSavouriesClick(); }}
+              className={`text-sm font-medium whitespace-nowrap ${currentPage === 'savouries' ? 'text-[#FF6B35]' : 'text-gray-700 hover:text-[#FF6B35]'} transition-colors`}
+            >
+              Savouries
+            </button>
+            <button 
+              onClick={(e) => { e.preventDefault(); if (onSweetsClick) onSweetsClick(); }}
+              className={`text-sm font-medium whitespace-nowrap ${currentPage === 'sweets' ? 'text-[#FF6B35]' : 'text-gray-700 hover:text-[#FF6B35]'} transition-colors`}
+            >
+              Sweets
+            </button>
+            <button 
+              onClick={(e) => { e.preventDefault(); if (onKitchenSpecialsClick) onKitchenSpecialsClick(); }}
+              className={`text-sm font-medium whitespace-nowrap ${currentPage === 'kitchenSpecials' ? 'text-[#FF6B35]' : 'text-gray-700 hover:text-[#FF6B35]'} transition-colors`}
+            >
+              Kitchen Specials
+            </button>
+            <button 
+              onClick={(e) => { e.preventDefault(); if (onComboClick) onComboClick(); }}
+              className={`text-sm font-medium whitespace-nowrap ${currentPage === 'combo' ? 'text-[#FF6B35]' : 'text-gray-700 hover:text-[#FF6B35]'} transition-colors`}
+            >
+              Combo
+            </button>
+            <button 
+              onClick={(e) => { e.preventDefault(); closeAllDrawers(); setShowBulkEnquiry(true); }}
+              className="text-sm font-medium whitespace-nowrap text-gray-700 hover:text-[#FF6B35] transition-colors"
+            >
+              Bulk Enquiry
             </button>
           </div>
         </div>
