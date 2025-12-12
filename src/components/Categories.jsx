@@ -11,7 +11,7 @@ function Categories({ onCategoryClick }) {
     {
       id: 2,
       name: "Murukku",
-      image: "public/images/murukku.jpg",
+      image: "/images/murukku.jpg",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
