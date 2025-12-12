@@ -10,7 +10,7 @@ function HeroSection() {
       subtitle: "NEW CUSTOMER SPECIAL",
       description: "Get 10% discount on your first order. Use code: WELCOME10 at checkout. Valid on all products!",
       badge: "LIMITED TIME",
-      image: "https://images.unsplash.com/photo-1606312619070-d48b4ade4787?w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg",
       bgColor: "from-amber-50 via-amber-100 to-orange-50"
     },
     {
@@ -28,7 +28,7 @@ function HeroSection() {
       subtitle: "TODAY'S BEST DEAL",
       description: "Get flat 20% off on selected combo packs and festive special items. Use code: SAVE20. Hurry, limited stock!",
       badge: "HOT DEAL",
-      image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&h=600&fit=crop",
+      image: "https://images.pexels.com/photos/3026807/pexels-photo-3026807.jpeg",
       bgColor: "from-yellow-50 via-amber-50 to-orange-50"
     }
   ];
