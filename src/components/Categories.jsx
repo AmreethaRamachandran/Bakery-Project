@@ -3,7 +3,7 @@ function Categories({ onCategoryClick }) {
     {
       id: 1,
       name: "Combo",
-      image: "/images/combo image.jpg",
+      image: "public/images/comboimage.jpg",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200",
       imageScale: '1.2',
       imagePosition: '58% 50%'
@@ -11,19 +11,19 @@ function Categories({ onCategoryClick }) {
     {
       id: 2,
       name: "Murukku",
-      image: "/images/murukku.jpg",
+      image: "public/images/murukku.jpg",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
       id: 3,
       name: "Specials",
-      image: "/images/ribbon-pakoda-521211.webp",
+      image: "public/images/ribbon-pakoda-521211.webp",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
       id: 4,
       name: "Mixture",
-      image: "/images/Keezha_Eral_Mixture_1200x1200.jpg",
+      image: "public/images/Keezha_Eral_Mixture_1200x1200.jpg",
       bgColor: "bg-gradient-to-br from-amber-200 to-orange-200"
     },
     {
@@ -36,7 +36,7 @@ function Categories({ onCategoryClick }) {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-white to-orange-50 relative overflow-hidden">
+    <section className="py-8 sm:py-12 md:py-16 px-4 bg-gradient-to-b from-white to-orange-50 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute left-0 top-1/4 w-32 h-64 opacity-10">
         <svg viewBox="0 0 200 400" className="w-full h-full text-gray-400">
@@ -53,13 +53,13 @@ function Categories({ onCategoryClick }) {
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <p className="text-sm text-gray-600 mb-2 tracking-wide">Shop Collections</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#FF6B35] font-serif italic tracking-wide">Categories</h2>
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <p className="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2 tracking-wide">Shop Collections</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#FF6B35] font-serif italic tracking-wide">Categories</h2>
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 lg:gap-10 justify-items-center">
           {categories.map((category) => (
             <div 
               key={category.id} 
@@ -67,7 +67,7 @@ function Categories({ onCategoryClick }) {
               onClick={() => onCategoryClick && onCategoryClick(category.name)}
             >
               {/* Circle Image Container */}
-              <div className={`w-40 h-40 md:w-48 md:h-48 rounded-full ${category.bgColor} p-4 shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl overflow-hidden`}>
+              <div className={`w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full ${category.bgColor} p-2 sm:p-3 md:p-4 shadow-xl transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl overflow-hidden`}>
                 <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center">
                   <img 
                     src={category.image}
@@ -82,7 +82,7 @@ function Categories({ onCategoryClick }) {
               </div>
               
               {/* Category Name */}
-              <h3 className="mt-4 text-lg md:text-xl font-semibold text-[#FF6B35] group-hover:text-[#8B4513] transition-colors">
+              <h3 className="mt-2 sm:mt-3 md:mt-4 text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-[#FF6B35] group-hover:text-[#8B4513] transition-colors">
                 {category.name}
               </h3>
             </div>

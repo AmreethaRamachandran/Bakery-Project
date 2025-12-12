@@ -93,29 +93,29 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
   return (
     <header className="sticky top-0 z-20 bg-white">
       {/* Top Announcement Bar */}
-      <div className="bg-[#8B4513] text-white py-2 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <div className="bg-[#8B4513] text-white py-1.5 sm:py-2 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 flex items-center justify-between">
           <button 
             onClick={handlePrevious}
-            className="text-white hover:text-gray-200 hover:scale-110 transition-all duration-300"
+            className="text-white hover:text-gray-200 hover:scale-110 transition-all duration-300 flex-shrink-0"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <div className="flex items-center gap-2 text-sm relative">
+          <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm relative overflow-hidden px-2">
             <span 
               key={currentAnnouncement}
-              className="animate-[slideIn_0.5s_ease-out]"
+              className="animate-[slideIn_0.5s_ease-out] text-center truncate"
             >
-              {announcements[currentAnnouncement].text} <strong>{announcements[currentAnnouncement].code}</strong>
+              {announcements[currentAnnouncement].text} <strong className="whitespace-nowrap">{announcements[currentAnnouncement].code}</strong>
             </span>
           </div>
           <button 
             onClick={handleNext}
-            className="text-white hover:text-gray-200 hover:scale-110 transition-all duration-300"
+            className="text-white hover:text-gray-200 hover:scale-110 transition-all duration-300 flex-shrink-0"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
@@ -195,13 +195,13 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
           {/* Logo */}
           <button 
             onClick={() => onHomeClick && onHomeClick()}
-            className="flex items-center gap-2 group cursor-pointer"
+            className="flex items-center gap-2 group cursor-pointer flex-shrink-0"
           >
             <div className="relative transform transition-all duration-500 group-hover:scale-105">
               <div className="flex flex-col items-start">
-                <span className="text-4xl font-black text-white leading-none block" style={{fontFamily: 'Impact, "Franklin Gothic Bold", sans-serif', WebkitTextStroke: '3px #B91C50', textShadow: '0 0 0 #B91C50', letterSpacing: '2px'}}>from</span>
-                <span className="text-4xl font-black text-white leading-none block" style={{fontFamily: 'Impact, "Franklin Gothic Bold", sans-serif', WebkitTextStroke: '3px #B91C50', textShadow: '0 0 0 #B91C50', letterSpacing: '2px'}}>karaikudi</span>
-                <span className="text-xs text-[#8B4513] tracking-wide mt-1 font-semibold">Authentic Traditional Delights</span>
+                <span className="text-xl sm:text-3xl lg:text-4xl font-black text-white leading-none block" style={{fontFamily: 'Impact, "Franklin Gothic Bold", sans-serif', WebkitTextStroke: '2px #B91C50', textShadow: '0 0 0 #B91C50', letterSpacing: '1px'}}>from</span>
+                <span className="text-xl sm:text-3xl lg:text-4xl font-black text-white leading-none block" style={{fontFamily: 'Impact, "Franklin Gothic Bold", sans-serif', WebkitTextStroke: '2px #B91C50', textShadow: '0 0 0 #B91C50', letterSpacing: '1px'}}>karaikudi</span>
+                <span className="text-[8px] sm:text-[10px] lg:text-xs text-[#8B4513] tracking-wide mt-0.5 lg:mt-1 font-semibold">Authentic Traditional Delights</span>
               </div>
             </div>
           </button>
@@ -388,13 +388,13 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
           </nav>
 
           {/* Right Icons */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
             {/* 🔍 Search */}
             <button
               onClick={() => {closeAllDrawers(); setShowSearch(true);}}
               className="relative group hover:text-[#FF6B35] transition-all duration-300 transform hover:scale-110"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <span className="absolute inset-0 rounded-full bg-[#FF6B35] opacity-0 group-hover:opacity-10 blur-md transition-opacity"></span>
@@ -405,7 +405,7 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
               onClick={() => {closeAllDrawers(); setShowProfile(true);}} 
               className="relative group hover:text-[#FF6B35] transition-all duration-300 transform hover:scale-110"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
               <span className="absolute inset-0 rounded-full bg-[#FF6B35] opacity-0 group-hover:opacity-10 blur-md transition-opacity"></span>
@@ -416,7 +416,7 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
               onClick={() => {closeAllDrawers(); setShowWishlist(true);}}
               className="relative group hover:text-[#FF6B35] transition-all duration-300 transform hover:scale-110"
             >
-              <svg className="w-5 h-5 group-hover:fill-[#FF6B35] transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:fill-[#FF6B35] transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
               <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center animate-pulse">0</span>
@@ -428,7 +428,7 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
               onClick={() => {closeAllDrawers(); onCartClick && onCartClick();}}
               className="relative group hover:text-[#FF6B35] transition-all duration-300 transform hover:scale-110"
             >
-              <FaShoppingCart className="w-6 h-6" />
+              <FaShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />
               {cartCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-pulse font-bold">
                   {cartCount}

@@ -30,13 +30,13 @@ function Footer() {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8 md:py-12 relative z-10">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-12">
           {/* Savouries Column */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Savouries</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">Savouries</h3>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
               <li><a href="#thenkuzhal-murukku" className="hover:text-[#8B4513] transition-colors">Thenkuzhal Murukku</a></li>
               <li><a href="#butter-murukku" className="hover:text-[#8B4513] transition-colors">Butter Murukku</a></li>
               <li><a href="#4-suthu-murukku" className="hover:text-[#8B4513] transition-colors">4 Suthu Murukku</a></li>
@@ -59,8 +59,8 @@ function Footer() {
 
           {/* Sweets Column */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Sweets</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">Sweets</h3>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
               <li><a href="#athirasam" className="hover:text-[#8B4513] transition-colors">Athirasam</a></li>
               <li><a href="#periya-athirasam" className="hover:text-[#8B4513] transition-colors">Periya Athirasam</a></li>
               <li><a href="#rava-laddu" className="hover:text-[#8B4513] transition-colors">Rava Laddu</a></li>
@@ -71,8 +71,8 @@ function Footer() {
 
           {/* Information Column */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Information</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">Information</h3>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
               <li><a href="#about" className="hover:text-[#8B4513] transition-colors">About Us</a></li>
               <li><a href="#terms" className="hover:text-[#8B4513] transition-colors">Terms and Conditions</a></li>
               <li><a href="#privacy" className="hover:text-[#8B4513] transition-colors">Privacy Policy</a></li>
@@ -85,8 +85,8 @@ function Footer() {
 
           {/* My Account Column */}
           <div>
-            <h3 className="font-bold text-lg mb-4">My Account</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">My Account</h3>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
               <li><a href="#account" className="hover:text-[#8B4513] transition-colors">My Account</a></li>
               <li><a href="#orders" className="hover:text-[#8B4513] transition-colors">Order History</a></li>
               <li><a href="#wishlist" className="hover:text-[#8B4513] transition-colors">Wish List</a></li>
@@ -97,8 +97,8 @@ function Footer() {
 
           {/* Contact Us Column */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact Us</h3>
-            <div className="space-y-3 text-sm">
+            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4">Contact Us</h3>
+            <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
               <p className="leading-relaxed">
                 10, shanmugaraja road,<br />
                 Karaikudi-630002,<br />
@@ -120,29 +120,29 @@ function Footer() {
         </div>
 
         {/* FSSAI License */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-4 sm:mb-6">
           <div className="inline-block">
-            <img src="/fssai.jpg" alt="FSSAI" className="h-12 mx-auto mb-2" />
-            <p className="text-sm font-semibold">License Number: 12422032000859</p>
+            <img src="/fssai.jpg" alt="FSSAI" className="h-8 sm:h-10 md:h-12 mx-auto mb-1.5 sm:mb-2" />
+            <p className="text-xs sm:text-sm font-semibold">License Number: 12422032000859</p>
           </div>
         </div>
 
         {/* Payment Methods */}
-        <div className="text-center mb-6">
-          <p className="text-sm font-semibold mb-4">100% Secure Shopping</p>
-          <div className="flex justify-center items-center gap-3 flex-wrap">
-            <img src="/upi.png" alt="UPI" className="h-8"/>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/120px-Visa_Inc._logo.svg.png" alt="Visa" className="h-8"/>
-            <img src="/rupay.png" alt="RuPay" className="h-8"/>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/120px-Google_Pay_Logo.svg.png" alt="Google Pay" className="h-8"/>
-            <img src="/paytm.png" alt="Paytm" className="h-8"/>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-8"/>
+        <div className="text-center mb-4 sm:mb-6">
+          <p className="text-xs sm:text-sm font-semibold mb-3 sm:mb-4">100% Secure Shopping</p>
+          <div className="flex justify-center items-center gap-2 sm:gap-3 flex-wrap">
+            <img src="/upi.png" alt="UPI" className="h-6 sm:h-7 md:h-8"/>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/120px-Visa_Inc._logo.svg.png" alt="Visa" className="h-6 sm:h-7 md:h-8"/>
+            <img src="/rupay.png" alt="RuPay" className="h-6 sm:h-7 md:h-8"/>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/120px-Google_Pay_Logo.svg.png" alt="Google Pay" className="h-6 sm:h-7 md:h-8"/>
+            <img src="/paytm.png" alt="Paytm" className="h-6 sm:h-7 md:h-8"/>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-6 sm:h-7 md:h-8"/>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="text-center text-sm border-t border-gray-600 pt-6">
-          <p className="mb-2">Copyright © 2025 From Karaikudi. All rights reserved.</p>
+        <div className="text-center text-xs sm:text-sm border-t border-gray-600 pt-4 sm:pt-6">
+          <p className="mb-1.5 sm:mb-2">Copyright © 2025 From Karaikudi. All rights reserved.</p>
           <p>Designed and Developed by <a href="#" className="font-semibold hover:text-[#8B4513] transition-colors">Masterominds</a>.</p>
         </div>
       </div>
@@ -150,10 +150,10 @@ function Footer() {
       {/* Scroll to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-8 right-8 bg-white text-gray-800 p-3 rounded-full shadow-lg hover:bg-gray-100 transition-all z-50"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 bg-white text-gray-800 p-2 sm:p-2.5 md:p-3 rounded-full shadow-lg hover:bg-gray-100 transition-all z-50"
         aria-label="Scroll to top"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
       </button>

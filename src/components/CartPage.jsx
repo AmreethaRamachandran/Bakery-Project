@@ -17,27 +17,27 @@ function CartPage({ onBack, onCheckout }) {
 
   if (cartItems.length === 0) {
     return (
-      <section className="min-h-screen bg-gradient-to-b from-[#FFF8F0] via-white to-[#FFF5EB] py-12">
+      <section className="min-h-screen bg-gradient-to-b from-[#FFF8F0] via-white to-[#FFF5EB] py-6 sm:py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-4">
           <button
             onClick={onBack}
-            className="flex items-center gap-2 text-[#8B4513] hover:text-[#FF6B35] transition-colors mb-6"
+            className="flex items-center gap-1 sm:gap-2 text-[#8B4513] hover:text-[#FF6B35] transition-colors mb-4 sm:mb-6"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="font-semibold">Continue Shopping</span>
+            <span className="font-semibold text-sm sm:text-base">Continue Shopping</span>
           </button>
 
-          <div className="flex flex-col items-center justify-center py-20">
-            <div className="bg-white rounded-full p-8 shadow-lg mb-6">
-              <FaShoppingBag className="text-6xl text-gray-300" />
+          <div className="flex flex-col items-center justify-center py-10 sm:py-16 md:py-20">
+            <div className="bg-white rounded-full p-6 sm:p-7 md:p-8 shadow-lg mb-4 sm:mb-5 md:mb-6">
+              <FaShoppingBag className="text-4xl sm:text-5xl md:text-6xl text-gray-300" />
             </div>
-            <h2 className="text-3xl font-bold text-[#8B4513] mb-3">Your Cart is Empty</h2>
-            <p className="text-gray-600 mb-8">Add some delicious items to get started!</p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#8B4513] mb-2 sm:mb-3">Your Cart is Empty</h2>
+            <p className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8">Add some delicious items to get started!</p>
             <button
               onClick={onBack}
-              className="px-8 py-4 bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] text-white rounded-xl font-bold hover:shadow-xl transform hover:-translate-y-1 transition-all"
+              className="px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] text-white text-sm sm:text-base rounded-xl font-bold hover:shadow-xl transform hover:-translate-y-1 transition-all"
             >
               Start Shopping
             </button>
@@ -48,57 +48,57 @@ function CartPage({ onBack, onCheckout }) {
   }
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-[#FFF8F0] via-white to-[#FFF5EB] py-12">
+    <section className="min-h-screen bg-gradient-to-b from-[#FFF8F0] via-white to-[#FFF5EB] py-6 sm:py-8 md:py-12">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-4 sm:mb-6 md:mb-8">
           <button
             onClick={onBack}
-            className="flex items-center gap-2 text-[#8B4513] hover:text-[#FF6B35] transition-colors"
+            className="flex items-center gap-1 sm:gap-2 text-[#8B4513] hover:text-[#FF6B35] transition-colors"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="font-semibold">Continue Shopping</span>
+            <span className="font-semibold text-sm sm:text-base">Continue Shopping</span>
           </button>
-          <h1 className="text-4xl font-bold text-[#8B4513]">Shopping Cart</h1>
-          <div className="w-40"></div>
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#8B4513]">Shopping Cart</h1>
+          <div className="w-20 sm:w-32 md:w-40"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {/* Cart Items */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-[#8B4513]">
+          <div className="lg:col-span-2 space-y-3 sm:space-y-4">
+            <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-4 sm:p-5 md:p-6">
+              <div className="flex items-center justify-between mb-4 sm:mb-5 md:mb-6">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#8B4513]">
                   Cart Items ({getCartCount()})
                 </h2>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {cartItems.map((item, index) => (
                   <div
                     key={`${item.id}-${item.weight}-${index}`}
-                    className="flex gap-4 p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border border-orange-200 hover:shadow-md transition-shadow"
+                    className="flex gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg sm:rounded-xl border border-orange-200 hover:shadow-md transition-shadow"
                   >
                     {/* Product Image */}
                     <div className="flex-shrink-0">
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-24 h-24 object-cover rounded-lg shadow-md"
+                        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-cover rounded-lg shadow-md"
                       />
                     </div>
 
                     {/* Product Details */}
                     <div className="flex-grow">
-                      <h3 className="text-lg font-bold text-[#8B4513] mb-1">{item.name}</h3>
-                      <p className="text-sm text-gray-600 mb-2">{item.category}</p>
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="text-sm bg-white px-3 py-1 rounded-full border border-orange-300 font-semibold text-[#8B4513]">
+                      <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#8B4513] mb-1">{item.name}</h3>
+                      <p className="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2">{item.category}</p>
+                      <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                        <span className="text-xs sm:text-sm bg-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full border border-orange-300 font-semibold text-[#8B4513]">
                           {item.weight}
                         </span>
-                        <span className="text-lg font-bold text-[#FF6B35]">
+                        <span className="text-sm sm:text-base md:text-lg font-bold text-[#FF6B35]">
                           ₹{getItemPrice(item).toFixed(2)}
                         </span>
                       </div>

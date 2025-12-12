@@ -52,26 +52,26 @@ function KitchenSpecials({ onBack, onProductClick }) {
   return (
     <section className="bg-gradient-to-b from-[#FFF8F0] via-[#FFE8D6] to-[#FFF5EB] min-h-screen">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 pt-8">
-        <div className="flex items-center justify-between mb-8">
+      <div className="max-w-7xl mx-auto px-4 pt-4 sm:pt-6 md:pt-8">
+        <div className="flex items-center justify-between mb-4 sm:mb-6 md:mb-8">
           <button
             onClick={onBack}
-            className="flex items-center gap-2 text-[#8B4513] hover:text-[#FF6B35] transition-colors"
+            className="flex items-center gap-1 sm:gap-2 text-[#8B4513] hover:text-[#FF6B35] transition-colors flex-shrink-0"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="text-lg font-semibold">Back</span>
+            <span className="text-sm sm:text-base md:text-lg font-semibold">Back</span>
           </button>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[#6B3410] font-serif italic drop-shadow-md">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#6B3410] font-serif italic drop-shadow-md text-center">
             Kitchen Specials
           </h1>
-          <div className="w-20"></div> {/* Spacer for centering */}
+          <div className="w-12 sm:w-16 md:w-20"></div> {/* Spacer for centering */}
         </div>
       </div>
 
       {/* Category Banner Image - Full Width */}
-      <div className="relative h-64 md:h-80 mb-12 overflow-hidden">
+      <div className="relative h-40 sm:h-48 md:h-64 lg:h-80 mb-6 sm:mb-8 md:mb-12 overflow-hidden">
         <img
           src="/images/kitchen specialls.png"
           alt="Kitchen Specials"

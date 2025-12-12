@@ -55,7 +55,7 @@ function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative overflow-hidden h-[500px] md:h-[600px] isolate">
+    <section id="home" className="relative overflow-hidden h-[400px] sm:h-[500px] md:h-[600px] isolate">
       {/* Carousel Container */}
       <div className="relative h-full">
         {slides.map((slide, index) => (
@@ -69,40 +69,40 @@ function HeroSection() {
               <div className="max-w-7xl mx-auto px-4 h-full">
                 <div className="grid md:grid-cols-2 gap-10 items-center h-full py-12">
                   {/* Text Content */}
-                  <div className="space-y-6">
+                  <div className="space-y-3 sm:space-y-4 md:space-y-6">
                     {/* Badge */}
                     <div className="inline-block">
-                      <span className="px-4 py-2 bg-[#FF6B35] text-white text-xs font-bold rounded-full uppercase tracking-wider shadow-lg animate-pulse">
+                      <span className="px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-[#FF6B35] text-white text-[10px] sm:text-xs font-bold rounded-full uppercase tracking-wider shadow-lg animate-pulse">
                         {slide.badge}
                       </span>
                     </div>
                     
-                    <p className="text-sm font-semibold text-amber-700 tracking-wide uppercase">
+                    <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-amber-700 tracking-wide uppercase">
                       {slide.subtitle}
                     </p>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#8B4513] leading-tight drop-shadow-sm">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#8B4513] leading-tight drop-shadow-sm">
                       {slide.title}
                     </h1>
-                    <p className="text-gray-700 text-lg md:text-xl font-medium leading-relaxed">
+                    <p className="text-gray-700 text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed">
                       {slide.description}
                     </p>
                     
                     {/* Promotional Elements */}
-                    <div className="flex items-center gap-3 pt-4">
-                      <div className="flex items-center gap-2 text-[#FF6B35]">
-                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2 sm:pt-4">
+                      <div className="flex items-center gap-1 sm:gap-2 text-[#FF6B35]">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
-                        <span className="font-bold text-lg">Exclusive Offer</span>
+                        <span className="font-bold text-xs sm:text-sm md:text-base lg:text-lg">Exclusive Offer</span>
                       </div>
-                      <div className="h-6 w-px bg-gray-300"></div>
-                      <span className="text-gray-600 font-semibold">Limited Period Only</span>
+                      <div className="h-4 sm:h-6 w-px bg-gray-300 hidden sm:block"></div>
+                      <span className="text-gray-600 font-semibold text-xs sm:text-sm md:text-base">Limited Period Only</span>
                     </div>
                   </div>
 
                   {/* Image */}
                   <div className="relative flex justify-center items-center">
-                    <div className="h-72 w-72 md:h-96 md:w-96 rounded-full overflow-hidden shadow-2xl border-8 border-white">
+                    <div className="h-48 w-48 sm:h-64 sm:w-64 md:h-80 md:w-80 lg:h-96 lg:w-96 rounded-full overflow-hidden shadow-2xl border-4 sm:border-6 md:border-8 border-white">
                       <img 
                         src={slide.image} 
                         alt={slide.title}
@@ -119,10 +119,10 @@ function HeroSection() {
         {/* Previous Button */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all"
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-2 sm:p-3 rounded-full shadow-lg transition-all"
           aria-label="Previous slide"
         >
-          <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
@@ -130,25 +130,25 @@ function HeroSection() {
         {/* Next Button */}
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all"
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-2 sm:p-3 rounded-full shadow-lg transition-all"
           aria-label="Next slide"
         >
-          <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
       </div>
 
       {/* Dots Navigation */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2 sm:gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-3 rounded-full transition-all ${
+            className={`h-2 sm:h-2.5 md:h-3 rounded-full transition-all ${
               index === currentSlide 
-                ? 'w-8 bg-[#8B4513]' 
-                : 'w-3 bg-gray-400 hover:bg-gray-600'
+                ? 'w-6 sm:w-7 md:w-8 bg-[#8B4513]' 
+                : 'w-2 sm:w-2.5 md:w-3 bg-gray-400 hover:bg-gray-600'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

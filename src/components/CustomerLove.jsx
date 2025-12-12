@@ -69,7 +69,7 @@ function CustomerLove({ onWriteReviewClick }) {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 relative overflow-hidden">
+    <section className="py-10 sm:py-14 md:py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#FF6B35] to-[#FFA500] opacity-10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#8B4513] to-[#D2691E] opacity-10 rounded-full blur-3xl"></div>
@@ -80,17 +80,17 @@ function CustomerLove({ onWriteReviewClick }) {
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4">
-            <span className="text-[#8B4513] text-sm font-semibold tracking-widest uppercase">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <div className="inline-block mb-2 sm:mb-3 md:mb-4">
+            <span className="text-[#8B4513] text-xs sm:text-sm font-semibold tracking-widest uppercase">
               Testimonials
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#FF6B35] mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#FF6B35] mb-2 sm:mb-3 md:mb-4">
             Our Customer Love Us
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Your feedback helps us improve – we'd love to hear from you!
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4">
+            Your feedback helps us improve – we’d love to hear from you!
           </p>
         </div>
 

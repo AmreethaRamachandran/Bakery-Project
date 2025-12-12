@@ -66,7 +66,7 @@ function BehindTheScenes() {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-b from-slate-50 via-gray-50 to-stone-50 relative overflow-hidden">
+    <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-slate-50 via-gray-50 to-stone-50 relative overflow-hidden">
       {/* Decorative Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full" style={{backgroundImage: 'radial-gradient(circle at 20% 50%, #FF6B35 1px, transparent 1px), radial-gradient(circle at 80% 80%, #8B4513 1px, transparent 1px)', backgroundSize: '50px 50px'}}></div>
@@ -75,24 +75,24 @@ function BehindTheScenes() {
       <div className="absolute bottom-10 left-10 w-72 h-72 bg-gradient-to-tr from-yellow-200 to-orange-200 opacity-20 rounded-full blur-3xl"></div>
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#8B4513] mb-3">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#8B4513] mb-2 sm:mb-3">
             Behind The Scenes
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg px-4">
             Watch how we craft our delicious treats with love and tradition
           </p>
         </div>
 
         {/* Video Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-12 md:mb-16">
           {videos.map((video) => (
             <div
               key={video.id}
               className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
               {/* Video/Image */}
-              <div className="relative h-80 bg-gray-900">
+              <div className="relative h-48 sm:h-56 md:h-64 lg:h-80 bg-gray-900">
                 <img
                   src={video.image}
                   alt={video.title}

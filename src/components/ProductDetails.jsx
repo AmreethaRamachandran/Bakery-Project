@@ -55,31 +55,31 @@ function ProductDetails({ product, onBack }) {
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-[#FFF8F0] via-white to-[#FFF5EB]">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 py-4 sm:py-6 md:py-8">
         {/* Back Button */}
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-[#8B4513] hover:text-[#FF6B35] transition-colors mb-6"
+          className="flex items-center gap-1 sm:gap-2 text-[#8B4513] hover:text-[#FF6B35] transition-colors mb-4 sm:mb-6"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          <span className="font-semibold">Back to Products</span>
+          <span className="text-sm sm:text-base font-semibold">Back to Products</span>
         </button>
 
         {/* Product Details Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 mb-6 sm:mb-8 md:mb-12">
           {/* Left Side - Image */}
-          <div className="space-y-4">
-            <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden group">
+          <div className="space-y-3 sm:space-y-4">
+            <div className="relative bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden group">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-500"
               />
               <button
                 onClick={() => setIsFavorite(!isFavorite)}
-                className="absolute top-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-6 md:right-6 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
               >
                 {isFavorite ? (
                   <FaHeart className="text-red-500 text-xl" />
@@ -89,65 +89,65 @@ function ProductDetails({ product, onBack }) {
               </button>
               
               {/* Badge */}
-              <div className="absolute top-6 left-6">
-                <span className="bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-6 md:left-6">
+                <span className="bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] text-white px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg">
                   Bestseller
                 </span>
               </div>
             </div>
 
             {/* Trust Badges */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="bg-white rounded-xl p-4 text-center shadow-md">
-                <FaLeaf className="text-green-500 text-2xl mx-auto mb-2" />
-                <p className="text-xs text-gray-600 font-semibold">100% Natural</p>
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
+              <div className="bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 text-center shadow-md">
+                <FaLeaf className="text-green-500 text-lg sm:text-xl md:text-2xl mx-auto mb-1 sm:mb-2" />
+                <p className="text-[10px] sm:text-xs text-gray-600 font-semibold">100% Natural</p>
               </div>
-              <div className="bg-white rounded-xl p-4 text-center shadow-md">
-                <FaShieldAlt className="text-blue-500 text-2xl mx-auto mb-2" />
-                <p className="text-xs text-gray-600 font-semibold">Quality Assured</p>
+              <div className="bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 text-center shadow-md">
+                <FaShieldAlt className="text-blue-500 text-lg sm:text-xl md:text-2xl mx-auto mb-1 sm:mb-2" />
+                <p className="text-[10px] sm:text-xs text-gray-600 font-semibold">Quality Assured</p>
               </div>
-              <div className="bg-white rounded-xl p-4 text-center shadow-md">
-                <FaTruck className="text-orange-500 text-2xl mx-auto mb-2" />
-                <p className="text-xs text-gray-600 font-semibold">Fast Delivery</p>
+              <div className="bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 text-center shadow-md">
+                <FaTruck className="text-orange-500 text-lg sm:text-xl md:text-2xl mx-auto mb-1 sm:mb-2" />
+                <p className="text-[10px] sm:text-xs text-gray-600 font-semibold">Fast Delivery</p>
               </div>
             </div>
           </div>
 
           {/* Right Side - Details */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-5 md:space-y-6">
             {/* Product Name */}
             <div>
-              <h1 className="text-4xl font-bold text-[#8B4513] mb-2">{product.name}</h1>
-              <p className="text-gray-500 text-sm font-medium">{product.category}</p>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#8B4513] mb-1.5 sm:mb-2">{product.name}</h1>
+              <p className="text-gray-500 text-xs sm:text-sm font-medium">{product.category}</p>
             </div>
 
             {/* Rating */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <div className="flex gap-1">
                 {renderStars(product.rating)}
               </div>
-              <span className="text-[#8B4513] font-semibold">{product.rating}</span>
-              <span className="text-gray-500">({product.reviews} reviews)</span>
+              <span className="text-[#8B4513] text-sm sm:text-base font-semibold">{product.rating}</span>
+              <span className="text-gray-500 text-sm sm:text-base">({product.reviews} reviews)</span>
             </div>
 
             {/* Price */}
-            <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-6 border-2 border-orange-200">
-              <div className="flex items-baseline gap-3">
-                <span className="text-4xl font-bold text-[#FF6B35]">₹{getPrice()}</span>
-                <span className="text-gray-500 text-lg">per pack</span>
+            <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 border-2 border-orange-200">
+              <div className="flex items-baseline gap-2 sm:gap-3">
+                <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FF6B35]">₹{getPrice()}</span>
+                <span className="text-gray-500 text-sm sm:text-base md:text-lg">per pack</span>
               </div>
-              <p className="text-sm text-gray-600 mt-2">Inclusive of all taxes</p>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1.5 sm:mt-2">Inclusive of all taxes</p>
             </div>
 
             {/* Weight Selection */}
             <div>
-              <label className="block text-[#8B4513] font-semibold mb-3">
+              <label className="block text-[#8B4513] text-sm sm:text-base font-semibold mb-2 sm:mb-3">
                 Weight: <span className="text-[#FF6B35]">{selectedWeight}</span>
               </label>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <button
                   onClick={() => setSelectedWeight('250gms')}
-                  className={`py-4 px-6 rounded-xl font-semibold transition-all border-2 ${
+                  className={`py-3 sm:py-3.5 md:py-4 px-4 sm:px-5 md:px-6 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold transition-all border-2 ${
                     selectedWeight === '250gms'
                       ? 'bg-[#FF6B35] text-white border-[#FF6B35] shadow-lg scale-105'
                       : 'bg-white text-gray-700 border-gray-300 hover:border-[#FF6B35]'
@@ -157,7 +157,7 @@ function ProductDetails({ product, onBack }) {
                 </button>
                 <button
                   onClick={() => setSelectedWeight('80gms')}
-                  className={`py-4 px-6 rounded-xl font-semibold transition-all border-2 ${
+                  className={`py-3 sm:py-3.5 md:py-4 px-4 sm:px-5 md:px-6 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold transition-all border-2 ${
                     selectedWeight === '80gms'
                       ? 'bg-[#FF6B35] text-white border-[#FF6B35] shadow-lg scale-105'
                       : 'bg-white text-gray-700 border-gray-300 hover:border-[#FF6B35]'

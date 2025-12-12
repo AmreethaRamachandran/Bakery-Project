@@ -193,41 +193,41 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
   return (
     <section className="bg-gradient-to-b from-[#FFF8F0] via-[#FFE8D6] to-[#FFF5EB] min-h-screen">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 pt-8">
-        <div className="flex items-center justify-between mb-8">
+      <div className="max-w-7xl mx-auto px-4 pt-4 sm:pt-6 md:pt-8">
+        <div className="flex items-center justify-between mb-4 sm:mb-6 md:mb-8">
           <button
             onClick={onBack}
-            className="flex items-center gap-2 text-[#8B4513] hover:text-[#FF6B35] transition-colors"
+            className="flex items-center gap-1 sm:gap-2 text-[#8B4513] hover:text-[#FF6B35] transition-colors flex-shrink-0"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            <span className="text-lg font-semibold">Back</span>
+            <span className="text-sm sm:text-base md:text-lg font-semibold">Back</span>
           </button>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[#6B3410] font-serif italic drop-shadow-md">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#6B3410] font-serif italic drop-shadow-md text-center">
             Savouries Collection
           </h1>
-          <div className="w-20"></div> {/* Spacer for centering */}
+          <div className="w-12 sm:w-16 md:w-20"></div> {/* Spacer for centering */}
         </div>
       </div>
 
       {/* Category Banner Image - Full Width */}
-      <div className="relative h-64 md:h-80 mb-12 overflow-hidden">
+      <div className="relative h-40 sm:h-48 md:h-64 lg:h-80 mb-6 sm:mb-8 md:mb-12 overflow-hidden">
         <img
           src="/images/savouries.jpg"
           alt="Savouries"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent"></div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-2xl">Savouries Treasures</h2>
-          <p className="text-xl md:text-2xl drop-shadow-lg">Handcrafted with authentic flavors</p>
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 drop-shadow-2xl text-center">Savouries Treasures</h2>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl drop-shadow-lg text-center">Handcrafted with authentic flavors</p>
         </div>
       </div>
 
       {/* Category Tabs */}
-      <div className="max-w-7xl mx-auto px-4 mb-12">
-        <div className="flex flex-wrap gap-4 justify-center bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-[#D4A574]/30">
+      <div className="max-w-7xl mx-auto px-4 mb-6 sm:mb-8 md:mb-12">
+        <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 justify-center bg-white/80 backdrop-blur-sm p-2 sm:p-3 md:p-4 rounded-xl md:rounded-2xl shadow-lg border border-[#D4A574]/30">
           <button
             onClick={() => setActiveCategory('All')}
             className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${

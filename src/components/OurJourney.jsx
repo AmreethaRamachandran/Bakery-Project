@@ -1,27 +1,27 @@
 function OurJourney() {
   return (
-    <section className="relative bg-white py-16">
+    <section className="relative bg-white py-8 sm:py-12 md:py-16">
       {/* Top Banner */}
-      <div className="bg-gradient-to-r from-[#6B3410] via-[#8B4513] to-[#6B3410] py-6">
+      <div className="bg-gradient-to-r from-[#6B3410] via-[#8B4513] to-[#6B3410] py-4 sm:py-5 md:py-6">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
             {/* Safe Payments */}
             <div className="text-center md:text-left">
-              <div className="flex items-center gap-3 justify-center md:justify-start mb-2">
-                <svg className="w-8 h-8 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center gap-2 sm:gap-3 justify-center md:justify-start mb-1.5 sm:mb-2">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
-                <h3 className="text-2xl font-bold text-[#FF6B35]">100% Safe & Secure Payments</h3>
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-[#FF6B35]">100% Safe & Secure Payments</h3>
               </div>
-              <p className="text-white text-sm">Pay using secure payment methods</p>
+              <p className="text-white text-xs sm:text-sm">Pay using secure payment methods</p>
             </div>
 
             {/* Help Center */}
             <div className="text-center md:text-right">
-              <h3 className="text-xl font-bold text-[#FF6B35] mb-1">
+              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-[#FF6B35] mb-0.5 sm:mb-1">
                 Help Center - (10AM - 6PM)
               </h3>
-              <p className="text-white text-sm">
+              <p className="text-white text-xs sm:text-sm">
                 +91 95009 93465, hello@satturmittaikadai.com
               </p>
             </div>
@@ -30,27 +30,27 @@ function OurJourney() {
       </div>
 
       {/* Content Sections */}
-      <div className="max-w-6xl mx-auto px-4 py-16">
+      <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12 md:py-16">
         {/* Our Journey */}
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-1 h-12 bg-[#FF6B35] rounded-full"></div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#6B3410]">Our Journey</h2>
+        <div className="mb-8 sm:mb-12 md:mb-16">
+          <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5 md:mb-6">
+            <div className="w-1 h-8 sm:h-10 md:h-12 bg-[#FF6B35] rounded-full"></div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#6B3410]">Our Journey</h2>
           </div>
-          <p className="text-gray-700 leading-relaxed text-lg">
+          <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">
             M.S. Shanmuganadar Mittai Kadai is a legacy in itself! Over several generations, Mittai Kadai has been serving its customers with delicious Traditional Indian Sweets and Snacks Online that remain etched in their memories forever! Mittai Kadai is famous for its crispy Kaara Sevu and has its place in the Food Map of India. With taste and quality being carried over generations, we could captivate customers for our sweets and snacks online across the globe. Now, we are happily delivering fresh local flavours sweets and snacks online to the customers at the doorstep.
           </p>
         </div>
 
         {/* Being Unique */}
-        <div className="mb-16 bg-gradient-to-br from-orange-50 to-amber-50 p-8 rounded-2xl shadow-md">
-          <div className="flex items-center gap-3 mb-6">
-            <svg className="w-10 h-10 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="mb-8 sm:mb-12 md:mb-16 bg-gradient-to-br from-orange-50 to-amber-50 p-4 sm:p-6 md:p-8 rounded-xl md:rounded-2xl shadow-md">
+          <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5 md:mb-6">
+            <svg className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 text-[#FF6B35]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
             </svg>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#6B3410]">Being Unique!!!</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#6B3410]">Being Unique!!!</h2>
           </div>
-          <p className="text-gray-700 leading-relaxed text-lg mb-4">
+          <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg mb-3 sm:mb-4">
             The mantra for the successful legacy lies with the prominent care by offering our tasty products made with the best quality ingredients and ensuring hygiene in the preparation and packing of your order. We are committed to providing you with a unique shopping experience through our{' '}
             <span className="font-bold text-[#8B4513]">Traditional Indian Sweets and Snacks Online.</span>
           </p>
@@ -73,10 +73,10 @@ function OurJourney() {
         </div>
 
         {/* Decorative Elements */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-16 h-16 bg-[#FF6B35] rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="mt-8 sm:mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <div className="text-center p-4 sm:p-5 md:p-6 bg-gradient-to-br from-orange-50 to-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#FF6B35] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
               </svg>
             </div>
