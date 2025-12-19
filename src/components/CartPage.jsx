@@ -1,5 +1,7 @@
 import { FaTrash, FaShoppingBag, FaTruck, FaShieldAlt } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
+import { addDoc, collection } from "firebase/firestore";
+import { auth, db } from "../firebase/firebaseConfig";
 
 function CartPage({ onBack, onCheckout }) {
   const { cartItems, updateQuantity, removeFromCart, getCartTotal, getCartCount } = useCart();
@@ -11,6 +13,39 @@ function CartPage({ onBack, onCheckout }) {
   const getItemTotal = (item) => {
     return getItemPrice(item) * item.quantity;
   };
+
+  const handleCheckoutClick = async () => {
+  try {
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert("Please login to continue");
+      return;
+    }
+
+    const orderData = {
+      userId: user.uid,
+      userName: user.displayName || "Customer",
+      userEmail: user.email,
+      items: cartItems,
+      totalAmount: finalTotal,
+      subtotal: getCartTotal(),
+      deliveryCharge,
+      status: "placed",
+      createdAt: new Date()
+    };
+
+    await addDoc(collection(db, "orders"), orderData);
+
+    alert("Order placed successfully! 🎉");
+    onCheckout(); // navigate to next page if needed
+
+  } catch (error) {
+    console.error(error);
+    alert("Failed to place order");
+  }
+};
+
 
   const deliveryCharge = cartItems.length > 0 && getCartTotal() < 500 ? 40 : 0;
   const finalTotal = getCartTotal() + deliveryCharge;
@@ -217,11 +252,11 @@ function CartPage({ onBack, onCheckout }) {
 
               {/* Checkout Button */}
               <button
-                onClick={onCheckout}
-                className="w-full py-4 bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] text-white rounded-xl font-bold text-lg hover:shadow-xl transform hover:-translate-y-1 transition-all mb-4"
-              >
-                Proceed to Checkout
-              </button>
+  onClick={handleCheckoutClick}
+  className="w-full py-4 bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] text-white rounded-xl font-bold text-lg hover:shadow-xl transform hover:-translate-y-1 transition-all mb-4"
+>
+  Proceed to Checkout
+</button>
 
               {/* Additional Info */}
               <div className="space-y-2 text-sm text-gray-600">

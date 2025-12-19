@@ -1,45 +1,45 @@
 import { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 
-function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, onKitchenSpecialsClick, onCartClick, onProductClick, cartCount = 0, currentPage = 'home' }) {
+function Navbar({ onHomeClick, onLogout,onComboClick, onSavouriesClick, onSweetsClick, onKitchenSpecialsClick, onCartClick, onProductClick, cartCount = 0, currentPage = 'home' }) {
   
   // Product mapping for navbar dropdown items
   const productMap = {
     // Savouries - Murukku
-    'thenkuzhal-murukku': { id: 1, name: 'Thenkuzhal Murukku', category: 'Murukku', image: '/images/tkmurukku.webp', rating: 5, reviews: 45, price: 120.00, description: 'The Classic Melt-in-Your-Mouth Murukku. This is the timeless, pure white murukku that defines Chettinad snacks. Made from a fine blend of premium rice flour and urad dal, its delicate, web-like spirals are incredibly light and crispy, offering a pure, mild, and savory flavor that melts in your mouth. Zero trans fat, cholesterol-free, sugar-free, and contains dietary fibre.' },
-    'butter-murukku': { id: 2, name: 'Butter Murukku', category: 'Murukku', image: '/images/butter murukku.jpg', rating: 4.5, reviews: 38, price: 130.00, description: 'The Rich, Impossibly Crispy Indulgence. Indulge in the rich, velvety taste of our Butter Murukku. Generous amounts of butter are added to the dough, giving this snack a tender, melt-in-your-mouth quality that\'s simply unmatched. It\'s light, impossibly crispy, and buttery in all the right ways—a true crowd-pleaser loved by both kids and adults. Zero trans fat, cholesterol-free, low in sugar.' },
-    '4-suthu-murukku': { id: 3, name: '4 Suthu Murukku', category: 'Murukku', image: '/images/4 suthu murukku.webp', rating: 4, reviews: 32, price: 125.00, description: 'A traditional hand-twisted murukku with four intricate concentric rounds. Made from premium rice flour and urad dal, this artisanal snack offers a multi-layered satisfying crunch. Perfect for celebrations and special occasions, seasoned with authentic Chettinad spices.' },
-    '5-suthu-murukku': { id: 4, name: '5 Suthu Murukku', category: 'Murukku', image: '/images/5 suthu murukku.webp', rating: 4.5, reviews: 28, price: 125.00, description: 'The Grand Chettinad Classic. A true icon of Chettinad kitchens, the 5 Suthu (Five-Round) Murukku is a masterpiece of both taste and artistry. This large, impressive snack is skillfully hand-twisted into five concentric circles, creating a wonderfully complex, crunchy texture. Made from a traditional blend of rice flour and urad dal, perfectly seasoned with hints of cumin and asafoetida.' },
-    '7-suthu-murukku': { id: 5, name: '7 Suthu Murukku', category: 'Murukku', image: '/images/7sutthumurukuu.jpg', rating: 5, reviews: 35, price: 125.00, description: 'The Ultimate Festive Murukku. This is the pinnacle of traditional snack artistry. The 7 Suthu (Seven-Round) Murukku is a large, elaborate, and stunning snack typically reserved for the most auspicious occasions, like weddings and grand celebrations. Each one is a testament to the maker\'s skill, hand-twisted into seven intricate, concentric rounds. Made from the finest rice flour and urad dal, its complex structure offers a multi-layered, satisfying crunch.' },
-    '9-suthu-murukku': { id: 6, name: '9 Suthu Murukku', category: 'Murukku', image: '/images/9 suthu murukku.webp', rating: 4.5, reviews: 30, price: 125.00, description: 'An extraordinary masterpiece featuring nine concentric rounds of hand-twisted perfection. This elaborate murukku is a symbol of celebration and prosperity, crafted with exceptional skill using premium rice flour and urad dal. The intricate spiral design delivers an unmatched textured crunch in every bite.' },
-    '11-suthu-murukku': { id: 7, name: '11 Suthu Murukku', category: 'Murukku', image: '/images/11 suthu murukku.jpg', rating: 5, reviews: 40, price: 125.00, description: 'The pinnacle of murukku artistry with eleven perfectly formed concentric circles. This grand masterpiece is reserved for the most special occasions and celebrations. Each piece showcases the exceptional craftsmanship of traditional Chettinad snack makers, offering layers of crispy, golden-brown perfection.' },
-    'mini-thenkuzhal': { id: 8, name: 'Mini Thenkuzhal', category: 'Murukku', image: '/images/mini-thenkuzhal.jpg', rating: 4, reviews: 25, price: 110.00, description: 'Bite-sized perfection! These mini versions of the classic Thenkuzhal offer all the delicate, melt-in-your-mouth texture of their larger counterpart in a perfectly poppable size. Made from premium rice flour and urad dal, these delicate spirals are incredibly light and crispy with a pure, mild savory flavor.' },
-    'kaara-murukku': { id: 9, name: 'Kaara Murukku', category: 'Murukku', image: '/images/kaara murukku.jpg', rating: 5, reviews: 50, price: 135.00, description: 'The spicy variant of the classic murukku. Generously seasoned with red chili powder and traditional Chettinad spices, this fiery treat delivers a perfect balance of heat and crunch. Made from rice flour and urad dal, it\'s ideal for those who love their snacks with an extra kick.' },
-    'tire-murukku': { id: 10, name: 'Tire Murukku', category: 'Murukku', image: '/images/TyreMurukku.avif', rating: 4.5, reviews: 33, price: 140.00, description: 'Shaped like miniature tires, this unique murukku variety offers a thick, robust crunch that\'s deeply satisfying. The distinctive circular shape with intricate patterns creates multiple layers of texture. Made with premium ingredients and traditional spices for an authentic Chettinad flavor.' },
-    'mini-kai-murukku': { id: 11, name: 'Mini Kai Murukku', category: 'Murukku', image: '/images/mini kai murukku.webp', rating: 4, reviews: 28, price: 115.00, description: 'Hand-shaped mini murukku with a rustic, homemade appeal. Each piece is individually crafted, resulting in unique shapes and textures. These bite-sized treats are perfect for snacking anytime, offering the authentic taste of traditional Chettinad kitchens in every crispy morsel.' },
+    'thenkuzhal-murukku': { id: 1, name: 'Thenkuzhal Murukku', category: 'Murukku', image: '/images/tkmurukku.webp', rating: 5, reviews: 45, price: 120.00 },
+    'butter-murukku': { id: 2, name: 'Butter Murukku', category: 'Murukku', image: '/images/butter murukku.jpg', rating: 4.5, reviews: 38, price: 130.00 },
+    '4-suthu-murukku': { id: 3, name: '4 Suthu Murukku', category: 'Murukku', image: '/images/4 suthu murukku.webp', rating: 4, reviews: 32, price: 125.00 },
+    '5-suthu-murukku': { id: 4, name: '5 Suthu Murukku', category: 'Murukku', image: '/images/5 suthu murukku.webp', rating: 4.5, reviews: 28, price: 125.00 },
+    '7-suthu-murukku': { id: 5, name: '7 Suthu Murukku', category: 'Murukku', image: '/images/7sutthumurukuu.jpg', rating: 5, reviews: 35, price: 125.00 },
+    '9-suthu-murukku': { id: 6, name: '9 Suthu Murukku', category: 'Murukku', image: '/images/9 suthu murukku.webp', rating: 4.5, reviews: 30, price: 125.00 },
+    '11-suthu-murukku': { id: 7, name: '11 Suthu Murukku', category: 'Murukku', image: '/images/11 suthu murukku.jpg', rating: 5, reviews: 40, price: 125.00 },
+    'mini-thenkuzhal': { id: 8, name: 'Mini Thenkuzhal', category: 'Murukku', image: '/images/mini-thenkuzhal.jpg', rating: 4, reviews: 25, price: 110.00 },
+    'kaara-murukku': { id: 9, name: 'Kaara Murukku', category: 'Murukku', image: '/images/kaara murukku.jpg', rating: 5, reviews: 50, price: 135.00 },
+    'tire-murukku': { id: 10, name: 'Tire Murukku', category: 'Murukku', image: '/images/TyreMurukku.avif', rating: 4.5, reviews: 33, price: 140.00 },
+    'mini-kai-murukku': { id: 11, name: 'Mini Kai Murukku', category: 'Murukku', image: '/images/mini kai murukku.webp', rating: 4, reviews: 28, price: 115.00 },
     // Savouries - Seedai
-    'urundai-seedai': { id: 12, name: 'Urundai Seedai', category: 'Seedai', image: '/images/urundai seedai.webp', rating: 5, reviews: 42, price: 150.00, description: 'The Classic Round & Crispy Snack! A festive favorite, our Urundai Seedai (also known as Uppu Seedai) is the quintessential savory snack that no Krishna Jayanthi is complete without. Each perfectly round, bite-sized ball is crafted from rice flour and urad dal, seasoned with fresh coconut, cumin, and sesame seeds. Fried to a perfect golden-brown, making them incredibly light, airy, and crispy.' },
-    'chinna-seedai': { id: 13, name: 'Chinna Seedai', category: 'Seedai', image: '/images/chinna seedai.webp', rating: 4.5, reviews: 36, price: 145.00, description: 'The Classic Festive Popper! No Chettinad festival, especially Krishna Jayanthi, is complete without these tiny, savory delights. Our Chinna Seedai are famously crispy, bite-sized balls that are irresistibly poppable. Crafted from rice flour, urad dal, a hint of fresh coconut, and seasoned with cumin and sesame seeds. Fried to a perfect golden crisp, offering a light, airy crunch. Be warned: it\'s impossible to stop at just one!' },
-    'seepu-seedai': { id: 14, name: 'Seepu Seedai', category: 'Seedai', image: '/images/seepu seedai.webp', rating: 4, reviews: 30, price: 155.00, description: 'A delicate, shell-shaped festive treat that\'s as beautiful as it is delicious. These intricately formed seedai offer a lighter, more delicate crunch compared to traditional round seedai. Made from rice flour and urad dal with aromatic seasonings, they\'re perfect for special occasions and festivals.' },
-    'inippu-seedai': { id: 15, name: 'Inippu Seedai', category: 'Seedai', image: '/images/inippu seedai.webp', rating: 5, reviews: 48, price: 160.00, description: 'The sweet version of the classic seedai. These golden balls combine rice flour with jaggery and aromatic spices to create a perfect balance of sweetness and tradition. Ideal for festivals and celebrations, each bite offers a delightful sweet flavor with the characteristic crispy texture of authentic Chettinad seedai.' },
+    'urundai-seedai': { id: 12, name: 'Urundai Seedai', category: 'Seedai', image: '/images/urundai seedai.webp', rating: 5, reviews: 42, price: 150.00 },
+    'chinna-seedai': { id: 13, name: 'Chinna Seedai', category: 'Seedai', image: '/images/chinna seedai.webp', rating: 4.5, reviews: 36, price: 145.00 },
+    'seepu-seedai': { id: 14, name: 'Seepu Seedai', category: 'Seedai', image: '/images/seepu seedai.webp', rating: 4, reviews: 30, price: 155.00 },
+    'inippu-seedai': { id: 15, name: 'Inippu Seedai', category: 'Seedai', image: '/images/inippu seedai.webp', rating: 5, reviews: 48, price: 160.00 },
     // Savouries - Mixture
-    'mixture': { id: 16, name: 'Mixture', category: 'Mixture', image: '/images/Bombay_mixture_grande.webp', rating: 5, reviews: 65, price: 140.00, description: 'A vibrant medley of crunchy delights! Our signature mixture combines various savory elements including sev, peanuts, curry leaves, and traditional spices to create the perfect tea-time companion. Each handful offers a different combination of textures and flavors, making it impossible to resist reaching for more.' },
-    'kara-boondhi': { id: 17, name: 'Kara Boondhi', category: 'Mixture', image: '/images/KaaraBoondhi_2024-05-16T07_46_49.615Z.webp', rating: 4.5, reviews: 52, price: 135.00, description: 'Tiny, crispy pearls of spicy perfection! These golden boondi are generously seasoned with red chili powder and aromatic spices, creating an addictive savory snack. Made from gram flour and fried to achieve the perfect crispy texture, they\'re ideal for spice lovers and make an excellent addition to any snack platter.' },
+    'mixture': { id: 16, name: 'Mixture', category: 'Mixture', image: '/images/Bombay_mixture_grande.webp', rating: 5, reviews: 65, price: 140.00 },
+    'kara-boondhi': { id: 17, name: 'Kara Boondhi', category: 'Mixture', image: '/images/KaaraBoondhi_2024-05-16T07_46_49.615Z.webp', rating: 4.5, reviews: 52, price: 135.00 },
     // Sweets - Athirasam
-    'athirasam': { id: 1, name: 'Athirasam', category: 'Athirasam', image: '/images/adhirasam.jpg', rating: 5, reviews: 55, price: 180.00, description: 'The Authentic Chettinad Festive Sweet. A timeless delicacy that defines celebration. Our Athirasam is crafted in the traditional, unhurried way: by soaking rice, hand-pounding it into fresh flour, and blending it with a rich, dark jaggery syrup perfectly spiced with cardamom and dried ginger. Each patty is carefully shaped by hand and fried in pure ghee, resulting in a wonderfully soft, fluffy, and moist sweet that melts in your mouth.' },
-    'periya-athirasam': { id: 2, name: 'Periya Athirasam', category: 'Athirasam', image: '/images/periya athirasam.webp', rating: 4.5, reviews: 48, price: 200.00, description: 'The grand version of the classic Athirasam! These large, impressive sweet patties are perfect for grand celebrations and special occasions. Made with the same traditional recipe of hand-pounded rice flour and dark jaggery, each piece is generously sized and offers an extra indulgent experience with its soft, cake-like texture and deep caramel sweetness.' },
+    'athirasam': { id: 1, name: 'Athirasam', category: 'Athirasam', image: '/images/adhirasam.jpg', rating: 5, reviews: 55, price: 180.00 },
+    'periya-athirasam': { id: 2, name: 'Periya Athirasam', category: 'Athirasam', image: '/images/periya athirasam.webp', rating: 4.5, reviews: 48, price: 200.00 },
     // Sweets - Laddu
-    'rava-laddu': { id: 3, name: 'Rava Laddu', category: 'Laddu', image: '/images/rava laddu.jpg', rating: 5, reviews: 70, price: 160.00, description: 'Golden spheres of pure bliss! Made from roasted semolina (rava), ghee, sugar, and aromatic cardamom, these laddus offer a delightful grainy texture that melts beautifully in your mouth. Studded with cashews and raisins, each laddu is a perfect balance of sweetness and richness, making them ideal for festivals, celebrations, or as a special treat.' },
+    'rava-laddu': { id: 3, name: 'Rava Laddu', category: 'Laddu', image: '/images/rava laddu.jpg', rating: 5, reviews: 70, price: 160.00 },
     // Sweets - Urundai
-    'ulundhamavurundai': { id: 4, name: 'Ulundhamavurundai', category: 'Urundai', image: '/images/ulundhamaavurundaii.jpg', rating: 4.5, reviews: 42, price: 170.00, description: 'Traditional protein-rich sweet balls made from roasted urad dal flour and jaggery. These nutritious urundai offer a unique nutty flavor combined with the natural sweetness of jaggery. Enhanced with cardamom and sometimes studded with nuts, they\'re both delicious and wholesome—a perfect traditional energy snack.' },
-    'mavurundai': { id: 5, name: 'Mavurundai', category: 'Urundai', image: '/images/Maavurundai-5pcs-₹70.jpg', rating: 4, reviews: 38, price: 165.00, description: 'Classic rice flour sweet balls that embody traditional Chettinad sweetness. Made from freshly ground rice flour combined with jaggery and aromatic spices, these urundai have a distinct grainy texture and authentic flavor. Often prepared during festivals, they represent the timeless recipes passed down through generations.' },
+    'ulundhamavurundai': { id: 4, name: 'Ulundhamavurundai', category: 'Urundai', image: '/images/ulundhamaavurundaii.jpg', rating: 4.5, reviews: 42, price: 170.00 },
+    'mavurundai': { id: 5, name: 'Mavurundai', category: 'Urundai', image: '/images/Maavurundai-5pcs-₹70.jpg', rating: 4, reviews: 38, price: 165.00 },
     // Kitchen Specials
-    'manakolam': { id: 1, name: 'Manakolam', category: 'Kitchen Specials', image: '/images/manakolamm.jpg', rating: 5, reviews: 65, price: 140.00, description: 'A festive specialty featuring a sweet-savory combination that\'s uniquely Chettinad. These intricate, patterned treats are traditionally made for special occasions and showcase the artistry of Chettinad cuisine. Each piece is carefully crafted with rice flour, jaggery, and aromatic seasonings, offering a delightful contrast of flavors and textures.' },
-    'thattai': { id: 2, name: 'Thattai', category: 'Kitchen Specials', image: '/images/thattai.webp', rating: 4.5, reviews: 58, price: 135.00, description: 'The Classic Crispy & Savory Thattai. A crunchy, savory disc of deliciousness. Handmade to be perfectly flat and crispy, packed with the authentic flavors of roasted chana dal, peanuts, and curry leaves, all held together with a gentle hint of spice. The ultimate tea-time snack, offering a satisfying, hearty crunch with every single bite. Zero trans fat, cholesterol-free, high fibre.' },
-    'ribbon-pakkoda': { id: 3, name: 'Ribbon Pakkoda', category: 'Kitchen Specials', image: '/images/ribbon pakkoda for best sellers image.webp', rating: 5, reviews: 72, price: 145.00, description: 'Delicate ribbons of crispy, savory perfection! These intricately patterned pakodas are made from rice flour and gram flour, pressed through special moulds to create their distinctive ribbon-like appearance. Seasoned with cumin, sesame seeds, and butter, they offer an incredibly light and crispy texture that practically melts in your mouth.' },
+    'manakolam': { id: 1, name: 'Manakolam', category: 'Kitchen Specials', image: '/images/manakolamm.jpg', rating: 5, reviews: 65, price: 140.00 },
+    'thattai': { id: 2, name: 'Thattai', category: 'Kitchen Specials', image: '/images/thattai.webp', rating: 4.5, reviews: 58, price: 135.00 },
+    'ribbon-pakkoda': { id: 3, name: 'Ribbon Pakkoda', category: 'Kitchen Specials', image: '/images/ribbon pakkoda for best sellers image.webp', rating: 5, reviews: 72, price: 145.00 },
     // Combo
-    'native-snack-combo': { id: 1, name: 'Native Snack Combo', category: 'Combo', image: '/images/combo murukku.webp', rating: 5, reviews: 60, price: 500.00, description: 'A carefully curated selection of our finest traditional snacks! This combo brings together the best of Chettinad savories including various murukku varieties, seedai, and other crispy delights. Perfect for gifting or enjoying a diverse range of authentic flavors. Each item is freshly made and packed to maintain quality.' },
-    'sweet-combo': { id: 2, name: 'Sweet Combo', category: 'Combo', image: '/images/combo laddu.jpg', rating: 4, reviews: 19, price: 145.00, description: 'An assortment of traditional Chettinad sweets that celebrates the rich heritage of South Indian confectionery. This combo features popular favorites including laddus and other traditional sweets, all made with premium ingredients and time-honored recipes. Ideal for festivals, celebrations, or as a thoughtful gift to share the joy of authentic sweets.' }
+    'native-snack-combo': { id: 1, name: 'Native Snack Combo', category: 'Combo', image: '/images/combo murukku.webp', rating: 5, reviews: 60, price: 500.00 },
+    'sweet-combo': { id: 2, name: 'Sweet Combo', category: 'Combo', image: '/images/combo laddu.jpg', rating: 4, reviews: 19, price: 145.00 }
   };
 
   const handleProductItemClick = (e, productKey) => {
@@ -92,25 +92,33 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
 
   return (
     <header className="sticky top-0 z-20 bg-white">
-      {/* Top Announcement Bar - Continuous Scroll */}
-      <div className="bg-[#8B4513] text-white py-1.5 sm:py-2 overflow-hidden relative">
-        <div className="animate-scroll-left whitespace-nowrap inline-block">
-          <span className="inline-flex items-center gap-8 text-xs sm:text-sm">
-            {announcements.map((announcement, index) => (
-              <span key={index} className="inline-flex items-center gap-2">
-                <span>{announcement.text}</span>
-                <strong className="text-[#FF6B35]">{announcement.code}</strong>
-                <span className="text-gray-300">•</span>
-              </span>
-            ))}
-            {announcements.map((announcement, index) => (
-              <span key={`duplicate-${index}`} className="inline-flex items-center gap-2">
-                <span>{announcement.text}</span>
-                <strong className="text-[#FF6B35]">{announcement.code}</strong>
-                <span className="text-gray-300">•</span>
-              </span>
-            ))}
-          </span>
+      {/* Top Announcement Bar */}
+      <div className="bg-[#8B4513] text-white py-1.5 sm:py-2 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 flex items-center justify-between">
+          <button 
+            onClick={handlePrevious}
+            className="text-white hover:text-gray-200 hover:scale-110 transition-all duration-300 flex-shrink-0"
+          >
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm relative overflow-hidden px-2">
+            <span 
+              key={currentAnnouncement}
+              className="animate-[slideIn_0.5s_ease-out] text-center truncate"
+            >
+              {announcements[currentAnnouncement].text} <strong className="whitespace-nowrap">{announcements[currentAnnouncement].code}</strong>
+            </span>
+          </div>
+          <button 
+            onClick={handleNext}
+            className="text-white hover:text-gray-200 hover:scale-110 transition-all duration-300 flex-shrink-0"
+          >
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -679,10 +687,15 @@ function Navbar({ onHomeClick, onComboClick, onSavouriesClick, onSweetsClick, on
           
           {/* Footer/Auth Buttons */}
           <div className="p-6 border-t border-gray-200 space-y-3">
-            <button className={`w-full bg-[${BROWN_PRIMARY}] text-white py-3 rounded-md font-semibold hover:bg-[${BROWN_LIGHT}] transition-colors shadow-md`}>
-                Log Out
-            </button>
-            
+            <button
+  onClick={() => {
+    setShowProfile(false);
+    onLogout && onLogout();
+  }}
+  className={`w-full mt-6 bg-[${BROWN_PRIMARY}] text-white py-3 rounded-md font-semibold hover:bg-[${BROWN_LIGHT}] transition-colors shadow-md`}
+>
+  Log Out
+</button>
           </div>
         </div>
       </div>

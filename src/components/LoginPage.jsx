@@ -1,8 +1,38 @@
 import bgImage from "../assets/img.webp";
 import { useState } from "react";
 
+
+import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../firebase/firebaseConfig";
+
 export default function LoginPage({ onLogin, onSignup }) {
   const [showForgot, setShowForgot] = useState(false);
+
+ 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  
+  const handleLogin = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("Login successful!");
+      onLogin(); // navigate after login
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  // 🔁 Reset Password
+  const handleResetPassword = async () => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      alert("Password reset email sent!");
+      setShowForgot(false);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <div
@@ -32,6 +62,8 @@ export default function LoginPage({ onLogin, onSignup }) {
               className="w-full border border-[#e2c28e] p-3 rounded-xl mt-1 mb-4 text-sm
                          focus:outline-none focus:ring-2 focus:ring-[#d97706]"
               placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             <label className="text-sm font-medium text-[#5a4633]">Password</label>
@@ -40,6 +72,8 @@ export default function LoginPage({ onLogin, onSignup }) {
               className="w-full border border-[#e2c28e] p-3 rounded-xl mt-1 mb-2 text-sm
                          focus:outline-none focus:ring-2 focus:ring-[#d97706]"
               placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
 
             <p
@@ -49,8 +83,9 @@ export default function LoginPage({ onLogin, onSignup }) {
               Forgot password?
             </p>
 
+            {/* 🔥 Firebase Login */}
             <button
-              onClick={onLogin}
+              onClick={handleLogin}
               className="w-full bg-gradient-to-r from-[#c96c04] to-[#e88c14] text-white py-3 rounded-xl text-sm font-semibold hover:brightness-110 transition-all shadow-md"
             >
               SIGN IN
@@ -58,7 +93,10 @@ export default function LoginPage({ onLogin, onSignup }) {
 
             <p className="text-center mt-5 text-sm text-[#4a3d2a]">
               New customer?{" "}
-              <span onClick={onSignup} className="text-[#d97706] font-semibold cursor-pointer hover:underline">
+              <span
+                onClick={onSignup}
+                className="text-[#d97706] font-semibold cursor-pointer hover:underline"
+              >
                 Create your account
               </span>
             </p>
@@ -77,9 +115,13 @@ export default function LoginPage({ onLogin, onSignup }) {
               className="w-full border border-[#e2c28e] p-3 rounded-xl mt-1 mb-6 text-sm
                          focus:outline-none focus:ring-2 focus:ring-[#d97706]"
               placeholder="Email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
+            {/* 🔥 Firebase Reset */}
             <button
+              onClick={handleResetPassword}
               className="w-full bg-gradient-to-r from-[#c96c04] to-[#e88c14] text-white py-3 rounded-xl text-sm font-semibold hover:brightness-110 transition-all shadow-md"
             >
               RESET PASSWORD
