@@ -1,5 +1,10 @@
 import bgImage from "../assets/img.webp";
 import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import { sendPasswordResetEmail } from "firebase/auth";
+
+
 
 
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
@@ -7,6 +12,39 @@ import { auth } from "../firebase/firebaseConfig";
 
 export default function LoginPage({ onLogin, onSignup }) {
   const [showForgot, setShowForgot] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+const handleFirebaseLogin = async (e) => {
+  e.preventDefault();
+
+  if (!email || !password) {
+    alert("Please enter email and password");
+    return;
+  }
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    onLogin(); // this triggers App.jsx handleLogin
+  } catch (error) {
+    alert(error.message);
+  }
+};
+const handleResetPassword = async () => {
+  if (!email) {
+    alert("Please enter your email address");
+    return;
+  }
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+    alert("Password reset email sent. Check your inbox.");
+    setShowForgot(false);
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
 
  
   const [email, setEmail] = useState("");
@@ -85,7 +123,11 @@ export default function LoginPage({ onLogin, onSignup }) {
 
             {/* 🔥 Firebase Login */}
             <button
+<<<<<<< HEAD
               onClick={handleLogin}
+=======
+              onClick={handleFirebaseLogin}
+>>>>>>> 020b779 (Add Firebase authentication and Firestore user setup)
               className="w-full bg-gradient-to-r from-[#c96c04] to-[#e88c14] text-white py-3 rounded-xl text-sm font-semibold hover:brightness-110 transition-all shadow-md"
             >
               SIGN IN

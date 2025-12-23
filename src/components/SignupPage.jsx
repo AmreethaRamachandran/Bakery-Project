@@ -1,4 +1,5 @@
 import bgImage from "../assets/img.webp";
+<<<<<<< HEAD
 import { useState } from "react";
 
 
@@ -44,6 +45,46 @@ export default function SignupPage({ onBackToLogin }) {
       alert(error.message);
     }
   };
+=======
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase";
+import { useState } from "react";
+
+export default function SignupPage({ onBackToLogin }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+const handleSignupFirebase = async (e) => {
+  e.preventDefault();
+
+  if (!email || !password) {
+    alert("Please enter email and password");
+    return;
+  }
+
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    await setDoc(doc(db, "users", user.uid), {
+      firstName,
+      lastName,
+      email,
+      role: "customer",
+      createdAt: serverTimestamp()
+    });
+
+    alert("Account created successfully! Please login.");
+    onBackToLogin();
+  } catch (error) {
+    alert(error.message);
+  }
+};
+>>>>>>> 020b779 (Add Firebase authentication and Firestore user setup)
 
   return (
     <div
@@ -69,6 +110,8 @@ export default function SignupPage({ onBackToLogin }) {
 
         <label className="text-sm font-medium text-[#5a4633]">First Name</label>
         <input
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
           type="text"
           className="w-full border border-[#e2c28e] p-3 rounded-xl mt-1 mb-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#d97706]"
           placeholder="Enter your first name"
@@ -78,6 +121,8 @@ export default function SignupPage({ onBackToLogin }) {
 
         <label className="text-sm font-medium text-[#5a4633]">Last Name</label>
         <input
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
           type="text"
           className="w-full border border-[#e2c28e] p-3 rounded-xl mt-1 mb-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#d97706]"
           placeholder="Enter your last name"
@@ -87,6 +132,8 @@ export default function SignupPage({ onBackToLogin }) {
 
         <label className="text-sm font-medium text-[#5a4633]">Email</label>
         <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           type="email"
           className="w-full border border-[#e2c28e] p-3 rounded-xl mt-1 mb-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#d97706]"
           placeholder="Enter your email"
@@ -96,12 +143,15 @@ export default function SignupPage({ onBackToLogin }) {
 
         <label className="text-sm font-medium text-[#5a4633]">Password</label>
         <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           type="password"
           className="w-full border border-[#e2c28e] p-3 rounded-xl mt-1 mb-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#d97706]"
           placeholder="Create password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+<<<<<<< HEAD
 
         {/* 🔥 Only changed onClick */}
         <button
@@ -111,6 +161,9 @@ export default function SignupPage({ onBackToLogin }) {
           REGISTER
         </button>
 
+=======
+       <button onClick={handleSignupFirebase} className="w-full bg-gradient-to-r from-[#c96c04] to-[#e88c14] text-white py-3 rounded-xl text-sm font-semibold hover:brightness-110 transition-all shadow-md">REGISTER</button>
+>>>>>>> 020b779 (Add Firebase authentication and Firestore user setup)
         <p className="text-center mt-5 text-sm text-[#4a3d2a]">
           Already have an account?{" "}
           <span
