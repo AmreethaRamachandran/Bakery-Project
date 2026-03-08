@@ -10,8 +10,8 @@ function HeroSection() {
       subtitle: "NEW CUSTOMER SPECIAL",
       description: "Get 10% discount on your first order. Use code: WELCOME10 at checkout. Valid on all products!",
       badge: "LIMITED TIME",
-      image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg",
-      bgColor: "from-amber-50 via-amber-100 to-orange-50"
+      image: "https://www.satturmittaikadai.com/cdn/shop/files/sattur-black-sesame-chikki.webp?v=1745996140&width=360",
+      bgColor: "from-amber-50 via-amber-100 to-orange-100"
     },
     {
       id: 2,
@@ -19,8 +19,8 @@ function HeroSection() {
       subtitle: "SAVE MORE TODAY",
       description: "Shop for ₹500 or more and enjoy free home delivery. Fresh bakery items delivered right to your doorstep!",
       badge: "EVERYDAY OFFER",
-      image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=600&fit=crop",
-      bgColor: "from-orange-50 via-pink-50 to-red-50"
+      image: "https://www.satturmittaikadai.com/cdn/shop/files/karasevu.webp?v=1745996060&width=720",
+      bgColor: "from-orange-50 via-pink-50 to-red-100"
     },
     {
       id: 3,
@@ -28,132 +28,130 @@ function HeroSection() {
       subtitle: "TODAY'S BEST DEAL",
       description: "Get flat 20% off on selected combo packs and festive special items. Use code: SAVE20. Hurry, limited stock!",
       badge: "HOT DEAL",
-      image: "https://images.pexels.com/photos/3026807/pexels-photo-3026807.jpeg",
-      bgColor: "from-yellow-50 via-amber-50 to-orange-50"
+      image: "https://www.satturmittaikadai.com/cdn/shop/files/onion-murukku_bfa2d16d-6941-48fb-8f29-d7ad378e0ae4.webp?v=1763727631&width=360",
+      bgColor: "from-yellow-50 via-amber-50 to-orange-100"
     }
   ];
 
-  // Auto-slide functionality
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
-
+    }, 5000);
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const goToSlide = (index) => setCurrentSlide(index);
 
   return (
-    <section id="home" className="relative overflow-hidden h-[400px] sm:h-[500px] md:h-[600px] isolate">
+    <section id="home" className="relative w-full h-[550px] sm:h-[600px] lg:h-[700px] overflow-hidden bg-gray-50">
       {/* Carousel Container */}
-      <div className="relative h-full">
+      <div className="relative h-full w-full">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            className={`absolute inset-0 transition-all duration-1000 ease-in-out transform ${
+              index === currentSlide ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8 pointer-events-none'
             }`}
           >
-            <div className={`h-full bg-gradient-to-r ${slide.bgColor}`}>
-              <div className="max-w-7xl mx-auto px-4 h-full">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-10 items-center h-full py-6 sm:py-8 md:py-12">
-                  {/* Text Content */}
-                  <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
-                    {/* Badge */}
-                    <div className="inline-block">
-                      <span className="px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-[#FF6B35] text-white text-[10px] sm:text-xs font-bold rounded-full uppercase tracking-wider shadow-lg animate-pulse">
-                        {slide.badge}
-                      </span>
-                    </div>
-                    
-                    <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-amber-700 tracking-wide uppercase">
-                      {slide.subtitle}
-                    </p>
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#8B4513] leading-tight drop-shadow-sm">
-                      {slide.title}
-                    </h1>
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed">
-                      {slide.description}
-                    </p>
-                    
-                    {/* Promotional Elements */}
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2 sm:pt-4">
-                      <div className="flex items-center gap-1 sm:gap-2 text-[#FF6B35]">
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        <span className="font-bold text-xs sm:text-sm md:text-base lg:text-lg">Exclusive Offer</span>
-                      </div>
-                      <div className="h-4 sm:h-6 w-px bg-gray-300 hidden sm:block"></div>
-                      <span className="text-gray-600 font-semibold text-xs sm:text-sm md:text-base">Limited Period Only</span>
-                    </div>
-                  </div>
-
-                  {/* Image */}
-                  <div className="relative flex justify-center items-center">
-                    <div className="h-32 w-32 sm:h-48 sm:w-48 md:h-80 md:w-80 lg:h-96 lg:w-96 rounded-full overflow-hidden shadow-2xl border-2 sm:border-4 md:border-6 lg:border-8 border-white">
-                      <img 
-                        src={slide.image} 
-                        alt={slide.title}
-                        className="w-full h-full object-cover"
-                      />
+            {/* Background Gradient */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${slide.bgColor} opacity-60`} />
+            
+            <div className="relative h-full max-w-7xl mx-auto px-6 lg:px-12 flex items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full py-12">
+                
+                {/* Text Content - Order 2 on mobile, 1 on desktop */}
+                <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
+                  <span className="px-4 py-1.5 bg-[#FF6B35] text-white text-xs md:text-sm font-black rounded-full uppercase tracking-widest shadow-xl mb-4 animate-bounce">
+                    {slide.badge}
+                  </span>
+                  
+                  <p className="text-sm md:text-base font-bold text-amber-800 tracking-widest uppercase mb-2">
+                    {slide.subtitle}
+                  </p>
+                  
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-[#5C2E0E] leading-[1.1] mb-4">
+                    {slide.title}
+                  </h1>
+                  
+                  <p className="max-w-xl text-gray-700 text-base md:text-lg lg:text-xl font-medium leading-relaxed mb-8">
+                    {slide.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4">
+                    <div className="flex items-center gap-2 px-4 py-2 bg-white/50 backdrop-blur-md rounded-lg border border-white/40 shadow-sm">
+                      <svg className="w-5 h-5 text-[#FF6B35]" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <span className="font-bold text-sm md:text-base text-gray-800">Exclusive Offer</span>
                     </div>
                   </div>
                 </div>
+
+                {/* Image - Order 1 on mobile, 2 on desktop */}
+                <div className="order-1 lg:order-2 flex justify-center items-center relative">
+                  <div className="absolute inset-0 bg-white/20 blur-3xl rounded-full scale-75" />
+                  <div className="relative group h-48 w-48 sm:h-64 sm:w-64 md:h-80 md:w-80 lg:h-[450px] lg:w-[450px]">
+                    <div className="absolute inset-0 bg-white rounded-full shadow-2xl transition-transform duration-500 group-hover:scale-105" />
+                    <img 
+                      src={slide.image} 
+                      alt={slide.title}
+                      className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover rounded-full border-4 border-amber-100 shadow-inner animate-[float_6s_ease-in-out_infinite]"
+                    />
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         ))}
 
-        {/* Previous Button */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-2 sm:p-3 rounded-full shadow-lg transition-all"
-          aria-label="Previous slide"
-        >
-          <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-
-        {/* Next Button */}
-        <button
-          onClick={nextSlide}
-          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white p-2 sm:p-3 rounded-full shadow-lg transition-all"
-          aria-label="Next slide"
-        >
-          <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+        {/* Navigation Arrows - Hidden on smallest screens for cleaner look */}
+        <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 z-30 flex justify-between pointer-events-none">
+          <button
+            onClick={prevSlide}
+            className="pointer-events-auto p-2 md:p-4 rounded-full bg-white/30 backdrop-blur-lg hover:bg-[#8B4513] hover:text-white text-[#8B4513] shadow-xl transition-all duration-300 group"
+          >
+            <svg className="w-6 h-6 transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={nextSlide}
+            className="pointer-events-auto p-2 md:p-4 rounded-full bg-white/30 backdrop-blur-lg hover:bg-[#8B4513] hover:text-white text-[#8B4513] shadow-xl transition-all duration-300 group"
+          >
+            <svg className="w-6 h-6 transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {/* Dots Navigation */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2 sm:gap-3">
+      {/* Progress Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-4 items-center px-6 py-3 bg-black/5 backdrop-blur-md rounded-full">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 sm:h-2.5 md:h-3 rounded-full transition-all ${
-              index === currentSlide 
-                ? 'w-6 sm:w-7 md:w-8 bg-[#8B4513]' 
-                : 'w-2 sm:w-2.5 md:w-3 bg-gray-400 hover:bg-gray-600'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
+            className={`group relative h-2 transition-all duration-500 ${
+              index === currentSlide ? 'w-12 bg-[#8B4513]' : 'w-3 bg-gray-400'
+            } rounded-full`}
+            aria-label={`Slide ${index + 1}`}
+          >
+            <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-[#8B4513] text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+              0{index + 1}
+            </span>
+          </button>
         ))}
       </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+      `}</style>
     </section>
   );
 }
