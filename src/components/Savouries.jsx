@@ -214,7 +214,7 @@ function Savouries({ onBack, onProductClick, initialCategory = 'All' }) {
       {/* Category Banner Image - Full Width */}
       <div className="relative h-40 sm:h-48 md:h-64 lg:h-80 mb-6 sm:mb-8 md:mb-12 overflow-hidden">
         <img
-          src="/images/savouries.jpg"
+          src="/images/savouries banner image.png"
           alt="Savouries"
           className="w-full h-full object-cover"
         />

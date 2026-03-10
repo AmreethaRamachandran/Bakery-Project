@@ -9,40 +9,40 @@ function SweetLegacy({ onCategoryClick }) {
       name: "Athirasam",
       image: "/images/adhirasam.jpg",
       price: 180.00,
-      rating: 5,
-      reviews: 55
+      // rating: 5,
+      // reviews: 55
     },
     {
       id: 2,
       name: "Periya Athirasam",
       image: "/images/perya adhirasam.webp",
       price: 200.00,
-      rating: 4.5,
-      reviews: 48
+      // rating: 4.5,
+      // reviews: 48
     },
     {
       id: 3,
       name: "Rava Laddu",
       image: "/images/rava laddu.jpg",
       price: 160.00,
-      rating: 5,
-      reviews: 70
+      // rating: 5,
+      // reviews: 70
     },
     {
       id: 4,
       name: "Ulundhamavurundai",
       image: "/images/ulundhamaavurundaii.jpg",
       price: 170.00,
-      rating: 4.5,
-      reviews: 42
+      // rating: 4.5,
+      // reviews: 42
     },
     {
       id: 5,
       name: "Mavurundai",
       image: "/images/Maavurundai-5pcs-₹70.jpg",
       price: 165.00,
-      rating: 4,
-      reviews: 38
+      // rating: 4,
+      // reviews: 38
     }
   ];
 
@@ -57,23 +57,7 @@ function SweetLegacy({ onCategoryClick }) {
   };
 
   const renderStars = (rating) => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      if (i <= rating) {
-        stars.push(
-          <svg key={i} className="w-4 h-4 fill-current text-orange-500" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-        );
-      } else {
-        stars.push(
-          <svg key={i} className="w-4 h-4 fill-current text-gray-400" viewBox="0 0 20 20">
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-          </svg>
-        );
-      }
-    }
-    return stars;
+  // const renderStars = (rating) => null;
   };
 
   // Calculate visible products - show 5 products starting from current index

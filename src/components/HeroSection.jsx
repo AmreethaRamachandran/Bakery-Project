@@ -65,7 +65,7 @@ function HeroSection() {
               index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
-            <div className={`h-full bg-gradient-to-r ${slide.bgColor}`}>
+            <div className="h-full bg-gradient-to-r from-amber-50 via-amber-100 to-orange-50">
               <div className="max-w-7xl mx-auto px-4 h-full">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-10 items-center h-full py-6 sm:py-8 md:py-12">
                   {/* Text Content */}
@@ -76,14 +76,13 @@ function HeroSection() {
                         {slide.badge}
                       </span>
                     </div>
-                    
-                    <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-amber-700 tracking-wide uppercase">
+                    <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-primaryGreen-dark tracking-wide uppercase">
                       {slide.subtitle}
                     </p>
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#8B4513] leading-tight drop-shadow-sm">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-primaryGreen-dark leading-tight drop-shadow-sm">
                       {slide.title}
                     </h1>
-                    <p className="text-gray-700 text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed">
+                    <p className="text-primaryGreen font-medium text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
                       {slide.description}
                     </p>
                     

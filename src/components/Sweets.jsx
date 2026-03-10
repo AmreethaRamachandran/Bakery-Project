@@ -25,8 +25,8 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
       name: 'Periya Athirasam',
       category: 'Athirasam',
       image: '/images/periya athirasam.webp',
-      rating: 4.5,
-      reviews: 48,
+      // rating: 4.5,
+      // reviews: 48,
       price: 200.00
     },
     // Laddu Items
@@ -45,8 +45,8 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
       name: 'Ulundhamavurundai',
       category: 'Urundai',
       image: '/images/ulundhamaavurundaii.jpg',
-      rating: 4.5,
-      reviews: 42,
+      // rating: 4.5,
+      // reviews: 42,
       price: 170.00
     },
     {
@@ -54,29 +54,13 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
       name: 'Mavurundai',
       category: 'Urundai',
       image: '/images/Maavurundai-5pcs-₹70.jpg',
-      rating: 4,
-      reviews: 38,
+      // rating: 4,
+      // reviews: 38,
       price: 165.00
     }
   ];
 
-  const renderStars = (rating) => {
-    return (
-      <div className="flex gap-1">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <svg
-            key={star}
-            className={`w-4 h-4 ${
-              star <= rating ? 'text-[#FF6B35] fill-current' : 'text-gray-300 fill-current'
-            }`}
-            viewBox="0 0 20 20"
-          >
-            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-          </svg>
-        ))}
-      </div>
-    );
-  };
+  // Star reviews removed
 
   const filteredProducts = activeCategory === 'All' 
     ? sweets 
@@ -187,10 +171,7 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
                         <h3 className="text-base sm:text-lg font-bold text-[#6B3410] mb-1.5 sm:mb-2 group-hover:text-[#FF6B35] transition-colors">
                           {product.name}
                         </h3>
-                        <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
-                          {renderStars(product.rating)}
-                          <span className="text-xs sm:text-sm text-gray-600">({product.reviews})</span>
-                        </div>
+                        {/* Star reviews removed */}
                         <div className="flex items-center justify-between">
                           <span className="text-lg sm:text-xl md:text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
                           <button 
@@ -237,10 +218,7 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
                         <h3 className="text-lg font-bold text-[#6B3410] mb-2 group-hover:text-[#FF6B35] transition-colors">
                           {product.name}
                         </h3>
-                        <div className="flex items-center gap-2 mb-3">
-                          {renderStars(product.rating)}
-                          <span className="text-sm text-gray-600">({product.reviews})</span>
-                        </div>
+                        {/* Star reviews removed */}
                         <div className="flex items-center justify-between">
                           <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
                           <button 
@@ -289,7 +267,7 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
                         </h3>
                         <div className="flex items-center gap-2 mb-3">
                           {renderStars(product.rating)}
-                          <span className="text-sm text-gray-600">({product.reviews})</span>
+                            {/* Star reviews removed */}
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
@@ -332,10 +310,7 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
                     <h3 className="text-lg font-bold text-[#6B3410] mb-2 group-hover:text-[#FF6B35] transition-colors">
                       {product.name}
                     </h3>
-                    <div className="flex items-center gap-2 mb-3">
-                      {renderStars(product.rating)}
-                      <span className="text-sm text-gray-600">({product.reviews})</span>
-                    </div>
+                    {/* Star reviews removed */}
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
                       <button 
