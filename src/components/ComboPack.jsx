@@ -3,7 +3,7 @@ function ComboPack() {
     {
       id: 1,
       name: 'Native Snack Combo',
-      image: 'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600',
+      image: 'https://5.imimg.com/data5/SELLER/Default/2024/9/450243420/ND/DY/UZ/98165771/south-indian-snacks.jpg',
       rating: 5,
       reviews: 60,
       price: 500.00
@@ -11,7 +11,7 @@ function ComboPack() {
     {
       id: 2,
       name: 'Chikki Treats',
-      image: 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600',
+      image: 'https://static.vecteezy.com/system/resources/thumbnails/002/859/611/small/indian-snack-chakli-chakali-or-murukku-and-besan-gram-flour-sev-and-chivada-or-chiwada-on-blue-background-diwali-food-photo.jpg',
       rating: 4,
       reviews: 19,
       price: 145.00

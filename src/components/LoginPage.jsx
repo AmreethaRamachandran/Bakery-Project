@@ -1,33 +1,35 @@
-import bgImage from "../assets/img.webp";
+﻿import bgImage from "../assets/img.webp";
 import { useState } from "react";
-
-
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 
 export default function LoginPage({ onLogin, onSignup }) {
   const [showForgot, setShowForgot] = useState(false);
-
- 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      alert("Please enter email and password");
+      return;
+    }
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Login successful!");
-      onLogin(); // navigate after login
+      onLogin();
     } catch (error) {
       alert(error.message);
     }
   };
 
-  // 🔁 Reset Password
   const handleResetPassword = async () => {
+    if (!email) {
+      alert("Please enter your email address");
+      return;
+    }
     try {
       await sendPasswordResetEmail(auth, email);
-      alert("Password reset email sent!");
+      alert("Password reset email sent. Check your inbox.");
       setShowForgot(false);
     } catch (error) {
       alert(error.message);
@@ -38,6 +40,7 @@ export default function LoginPage({ onLogin, onSignup }) {
     <div
       className="min-h-screen flex items-center justify-center px-4 bg-cover bg-center relative"
       style={{
+        // eslint-disable-next-line no-undef
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -83,7 +86,6 @@ export default function LoginPage({ onLogin, onSignup }) {
               Forgot password?
             </p>
 
-            {/* 🔥 Firebase Login */}
             <button
               onClick={handleLogin}
               className="w-full bg-gradient-to-r from-[#c96c04] to-[#e88c14] text-white py-3 rounded-xl text-sm font-semibold hover:brightness-110 transition-all shadow-md"
@@ -119,7 +121,6 @@ export default function LoginPage({ onLogin, onSignup }) {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            {/* 🔥 Firebase Reset */}
             <button
               onClick={handleResetPassword}
               className="w-full bg-gradient-to-r from-[#c96c04] to-[#e88c14] text-white py-3 rounded-xl text-sm font-semibold hover:brightness-110 transition-all shadow-md"
