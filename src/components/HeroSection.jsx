@@ -45,7 +45,7 @@ function HeroSection() {
   const goToSlide = (index) => setCurrentSlide(index);
 
   return (
-    <section id="home" className="relative w-full h-[550px] sm:h-[600px] lg:h-[700px] overflow-hidden bg-gray-50">
+    <section id="home" className="relative w-full h-[550px] sm:h-[600px] lg:h-[700px] overflow-hidden bg-gray-50 z-10">
       {/* Carousel Container */}
       <div className="relative h-full w-full">
         {slides.map((slide, index) => (
@@ -129,14 +129,14 @@ function HeroSection() {
       </div>
 
       {/* Progress Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-4 items-center px-6 py-3 bg-black/5 backdrop-blur-md rounded-full">
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 flex gap-4 items-center px-6 py-3 bg-black/5 backdrop-blur-md rounded-full">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={`group relative h-2 transition-all duration-500 ${
-              index === currentSlide ? 'w-12 bg-[#8B4513]' : 'w-3 bg-gray-400'
-            } rounded-full`}
+              index === currentSlide ? 'w-12 bg-[#FF6B35]' : 'w-3 bg-white'
+            } rounded-full shadow-md`}
             aria-label={`Slide ${index + 1}`}
           >
             <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-[#8B4513] text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
@@ -145,6 +145,31 @@ function HeroSection() {
           </button>
         ))}
       </div>
+
+      {/* Decorative Wavy Bottom Border */}
+      <svg
+        className="absolute -bottom-0 left-0 w-full text-[#8B4513] z-20"
+        viewBox="0 0 1200 60"
+        preserveAspectRatio="none"
+        style={{ height: '60px' }}
+      >
+        {/* Scalloped/Wavy Bottom Design */}
+        <defs>
+          <style>{`
+            .scallop-curve { fill: currentColor; }
+          `}</style>
+        </defs>
+        <g className="scallop-curve">
+          {[...Array(40)].map((_, i) => (
+            <path
+              key={i}
+              d={`M${i * 30},0 Q${i * 30 + 15},20 ${i * 30 + 30},0 L${i * 30 + 30},60 L${i * 30},60 Z`}
+              fill="currentColor"
+              opacity="0.9"
+            />
+          ))}
+        </g>
+      </svg>
 
       <style jsx>{`
         @keyframes float {

@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { FaStar, FaHeart, FaRegHeart, FaShoppingCart, FaTruck, FaShieldAlt, FaLeaf } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
+import CheckoutModal from './CheckoutModal';
 
-function ProductDetails({ product, onBack }) {
+function ProductDetails({ product, onBack, onAddToCart }) {
   const [selectedWeight, setSelectedWeight] = useState('250gms');
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
   const [activeTab, setActiveTab] = useState('description');
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const { addToCart } = useCart();
 
   if (!product) return null;
@@ -45,12 +47,14 @@ function ProductDetails({ product, onBack }) {
 
   const handleAddToCart = () => {
     addToCart(product, quantity, selectedWeight);
-    // Optional: Show a success message or animation
+    if (onAddToCart) {
+      onAddToCart();
+    }
   };
 
   const handleBuyNow = () => {
     addToCart(product, quantity, selectedWeight);
-    // Navigate to cart page (will be handled by parent component)
+    setIsCheckoutOpen(true);
   };
 
   return (
@@ -393,6 +397,15 @@ function ProductDetails({ product, onBack }) {
           </div>
         </div>
       </div>
+
+      {/* Checkout Modal */}
+      <CheckoutModal 
+        isOpen={isCheckoutOpen} 
+        onClose={() => setIsCheckoutOpen(false)}
+        product={product}
+        quantity={quantity}
+        weight={selectedWeight}
+      />
     </section>
   );
 }

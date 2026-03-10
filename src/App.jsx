@@ -22,6 +22,7 @@ import ReviewPage from "./components/ReviewPage";
 import ProductDetails from "./components/ProductDetails";
 import CartPage from "./components/CartPage";
 import NavbarWithCart from "./components/NavbarWithCart";
+import CartDrawer from "./components/CartDrawer";
 import { CartProvider } from "./context/CartContext";
 
 
@@ -29,6 +30,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState("login"); // Start with login page
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -175,7 +177,8 @@ function App() {
       <CartProvider>
         <div className="font-sans">
           <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
-          <ProductDetails product={selectedProduct} onBack={handleBackToHome} />
+          <ProductDetails product={selectedProduct} onBack={handleBackToHome} onAddToCart={() => setIsCartDrawerOpen(true)} />
+          <CartDrawer isOpen={isCartDrawerOpen} onClose={() => setIsCartDrawerOpen(false)} />
           <Footer />
         </div>
       </CartProvider>

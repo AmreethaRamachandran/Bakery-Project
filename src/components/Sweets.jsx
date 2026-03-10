@@ -265,10 +265,6 @@ function Sweets({ onBack, onProductClick, initialCategory = 'All' }) {
                         <h3 className="text-lg font-bold text-[#6B3410] mb-2 group-hover:text-[#FF6B35] transition-colors">
                           {product.name}
                         </h3>
-                        <div className="flex items-center gap-2 mb-3">
-                          {renderStars(product.rating)}
-                            {/* Star reviews removed */}
-                        </div>
                         <div className="flex items-center justify-between">
                           <span className="text-2xl font-bold text-[#8B4513]">₹{product.price.toFixed(2)}</span>
                           <button 
