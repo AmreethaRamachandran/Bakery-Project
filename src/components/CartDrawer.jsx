@@ -14,9 +14,16 @@ function CartDrawer({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
+  // ✅ WEIGHT-AWARE: Get correct price based on weight
+  const getItemPrice = (item) => {
+    return item.weight === '80gms' ? item.price * 0.32 : item.price;
+  };
+
+  // ✅ WEIGHT-AWARE: Calculate total considering 80gms weight reduction
   const getTotalPrice = () => {
     return cartItems.reduce((total, item) => {
-      return total + (item.price * item.quantity);
+      const adjustedPrice = getItemPrice(item);
+      return total + (adjustedPrice * item.quantity);
     }, 0).toFixed(2);
   };
 
@@ -63,8 +70,9 @@ function CartDrawer({ isOpen, onClose }) {
                     <p className="text-gray-600 text-xs sm:text-sm">
                       Weight: {item.weight}
                     </p>
+                    {/* ✅ WEIGHT-AWARE: Use getItemPrice to show correct amount */}
                     <p className="text-[#FF6B35] font-bold text-sm sm:text-base mt-1">
-                      ₹{(item.price * item.quantity).toFixed(2)}
+                      ₹{(getItemPrice(item) * item.quantity).toFixed(2)}
                     </p>
 
                     {/* Quantity Controls */}
@@ -110,6 +118,7 @@ function CartDrawer({ isOpen, onClose }) {
             <div className="space-y-2">
               <div className="flex justify-between text-gray-600">
                 <span>Subtotal</span>
+                {/* ✅ WEIGHT-AWARE: Use getTotalPrice which accounts for 80gms */}
                 <span>₹{getTotalPrice()}</span>
               </div>
               <div className="flex justify-between text-gray-600">
@@ -120,6 +129,7 @@ function CartDrawer({ isOpen, onClose }) {
 
             <div className="border-t border-gray-200 pt-4 flex justify-between items-center font-bold text-lg">
               <span className="text-gray-800">Estimated total</span>
+              {/* ✅ WEIGHT-AWARE: Use getTotalPrice which accounts for 80gms */}
               <span className="text-[#FF6B35]">₹{getTotalPrice()}</span>
             </div>
 

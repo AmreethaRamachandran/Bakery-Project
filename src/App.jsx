@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/firebaseConfig";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import TimelessDelights from "./components/TimelessDelights";
@@ -25,12 +27,32 @@ import NavbarWithCart from "./components/NavbarWithCart";
 import CartDrawer from "./components/CartDrawer";
 import { CartProvider } from "./context/CartContext";
 
-
 function App() {
-  const [currentPage, setCurrentPage] = useState("login"); // Start with login page
+  const [currentPage, setCurrentPage] = useState("login");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
+  // ✅ NEW: Loading state while Firebase checks auth
+  const [isAuthLoading, setIsAuthLoading] = useState(true);
+
+  // ✅ NEW: Check Firebase auth on app load
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is logged in
+        setIsLoggedIn(true);
+        setCurrentPage("home");
+      } else {
+        // User is not logged in
+        setIsLoggedIn(false);
+        setCurrentPage("login");
+      }
+      // Finished checking auth
+      setIsAuthLoading(false);
+    });
+
+    return unsubscribe;
+  }, []);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -101,9 +123,9 @@ function App() {
   };
 
   const handleWriteReviewClick = () => {
-  window.scrollTo(0, 0);
-  setCurrentPage("review");
-};
+    window.scrollTo(0, 0);
+    setCurrentPage("review");
+  };
 
   const handleProductClick = (product) => {
     setSelectedProduct(product);
@@ -117,12 +139,51 @@ function App() {
   };
 
   const handleCheckout = () => {
-    // Handle checkout logic here
     alert("Proceeding to checkout...");
   };
 
 
-  // Show login page first
+
+  // ✅ NEW: Show loading splash while Firebase checks auth
+  if (isAuthLoading) {
+    return (
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        background: "linear-gradient(135deg, #FFF8F0, #FFF0EA)",
+        fontFamily: "'Playfair Display', serif"
+      }}>
+        <div style={{ textAlign: "center" }}>
+          <div style={{ fontSize: 48, marginBottom: 20 }}>🍰</div>
+          <div style={{ fontSize: 24, fontWeight: 700, color: "#8B4513", marginBottom: 10 }}>
+            From Karaikudi
+          </div>
+          <div style={{ fontSize: 14, color: "#888", marginBottom: 20 }}>
+            Loading your delicious experience...
+          </div>
+          <div style={{
+            width: 40,
+            height: 40,
+            border: "4px solid #FF6B35",
+            borderTop: "4px solid transparent",
+            borderRadius: "50%",
+            margin: "0 auto",
+            animation: "spin 1s linear infinite"
+          }} />
+          <style>{`
+            @keyframes spin {
+              0% { transform: rotate(0deg); }
+              100% { transform: rotate(360deg); }
+            }
+          `}</style>
+        </div>
+      </div>
+    );
+  }
+
+  // Show login page
   if (currentPage === "login") {
     return <LoginPage onLogin={handleLogin} onSignup={handleSignup} />;
   }
@@ -132,12 +193,25 @@ function App() {
     return <SignupPage onBackToLogin={handleBackToLogin} />;
   }
 
+
+
   // Show murukku page (filtered savouries)
   if (currentPage === "murukku") {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <NavbarWithCart 
+            onHomeClick={handleBackToHome} 
+            onLogout={handleLogout} 
+            isLoggedIn={isLoggedIn} 
+            onComboClick={handleNavComboClick} 
+            onSavouriesClick={handleNavSavouriesClick} 
+            onSweetsClick={handleNavSweetsClick} 
+            onKitchenSpecialsClick={handleNavKitchenSpecialsClick} 
+            currentPage={currentPage} 
+            onCartClick={handleCartClick} 
+            onProductClick={handleProductClick} 
+          />
           <Savouries onBack={handleBackToHome} initialCategory="Murukku" onProductClick={handleProductClick} />
           <Footer />
         </div>
@@ -150,7 +224,18 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <NavbarWithCart 
+            onHomeClick={handleBackToHome} 
+            onLogout={handleLogout} 
+            isLoggedIn={isLoggedIn} 
+            onComboClick={handleNavComboClick} 
+            onSavouriesClick={handleNavSavouriesClick} 
+            onSweetsClick={handleNavSweetsClick} 
+            onKitchenSpecialsClick={handleNavKitchenSpecialsClick} 
+            currentPage={currentPage} 
+            onCartClick={handleCartClick} 
+            onProductClick={handleProductClick} 
+          />
           <Savouries onBack={handleBackToHome} initialCategory="Mixture" onProductClick={handleProductClick} />
           <Footer />
         </div>
@@ -163,7 +248,18 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <NavbarWithCart 
+            onHomeClick={handleBackToHome} 
+            onLogout={handleLogout} 
+            isLoggedIn={isLoggedIn} 
+            onComboClick={handleNavComboClick} 
+            onSavouriesClick={handleNavSavouriesClick} 
+            onSweetsClick={handleNavSweetsClick} 
+            onKitchenSpecialsClick={handleNavKitchenSpecialsClick} 
+            currentPage={currentPage} 
+            onCartClick={handleCartClick} 
+            onProductClick={handleProductClick} 
+          />
           <Savouries onBack={handleBackToHome} onProductClick={handleProductClick} />
           <Footer />
         </div>
@@ -176,7 +272,18 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <NavbarWithCart 
+            onHomeClick={handleBackToHome} 
+            onLogout={handleLogout} 
+            isLoggedIn={isLoggedIn} 
+            onComboClick={handleNavComboClick} 
+            onSavouriesClick={handleNavSavouriesClick} 
+            onSweetsClick={handleNavSweetsClick} 
+            onKitchenSpecialsClick={handleNavKitchenSpecialsClick} 
+            currentPage={currentPage} 
+            onCartClick={handleCartClick} 
+            onProductClick={handleProductClick} 
+          />
           <ProductDetails product={selectedProduct} onBack={handleBackToHome} onAddToCart={() => setIsCartDrawerOpen(true)} />
           <CartDrawer isOpen={isCartDrawerOpen} onClose={() => setIsCartDrawerOpen(false)} />
           <Footer />
@@ -190,7 +297,18 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <NavbarWithCart 
+            onHomeClick={handleBackToHome} 
+            onLogout={handleLogout} 
+            isLoggedIn={isLoggedIn} 
+            onComboClick={handleNavComboClick} 
+            onSavouriesClick={handleNavSavouriesClick} 
+            onSweetsClick={handleNavSweetsClick} 
+            onKitchenSpecialsClick={handleNavKitchenSpecialsClick} 
+            currentPage={currentPage} 
+            onCartClick={handleCartClick} 
+            onProductClick={handleProductClick} 
+          />
           <CartPage onBack={handleBackToHome} onCheckout={handleCheckout} />
           <Footer />
         </div>
@@ -203,7 +321,18 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <NavbarWithCart 
+            onHomeClick={handleBackToHome} 
+            onLogout={handleLogout} 
+            isLoggedIn={isLoggedIn} 
+            onComboClick={handleNavComboClick} 
+            onSavouriesClick={handleNavSavouriesClick} 
+            onSweetsClick={handleNavSweetsClick} 
+            onKitchenSpecialsClick={handleNavKitchenSpecialsClick} 
+            currentPage={currentPage} 
+            onCartClick={handleCartClick} 
+            onProductClick={handleProductClick} 
+          />
           <Sweets onBack={handleBackToHome} onProductClick={handleProductClick} />
           <Footer />
         </div>
@@ -216,7 +345,18 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <NavbarWithCart 
+            onHomeClick={handleBackToHome} 
+            onLogout={handleLogout} 
+            isLoggedIn={isLoggedIn} 
+            onComboClick={handleNavComboClick} 
+            onSavouriesClick={handleNavSavouriesClick} 
+            onSweetsClick={handleNavSweetsClick} 
+            onKitchenSpecialsClick={handleNavKitchenSpecialsClick} 
+            currentPage={currentPage} 
+            onCartClick={handleCartClick} 
+            onProductClick={handleProductClick} 
+          />
           <Sweets onBack={handleBackToHome} initialCategory="Laddu" onProductClick={handleProductClick} />
           <Footer />
         </div>
@@ -229,7 +369,18 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <NavbarWithCart 
+            onHomeClick={handleBackToHome} 
+            onLogout={handleLogout} 
+            isLoggedIn={isLoggedIn} 
+            onComboClick={handleNavComboClick} 
+            onSavouriesClick={handleNavSavouriesClick} 
+            onSweetsClick={handleNavSweetsClick} 
+            onKitchenSpecialsClick={handleNavKitchenSpecialsClick} 
+            currentPage={currentPage} 
+            onCartClick={handleCartClick} 
+            onProductClick={handleProductClick} 
+          />
           <KitchenSpecials onBack={handleBackToHome} onProductClick={handleProductClick} />
           <Footer />
         </div>
@@ -242,41 +393,60 @@ function App() {
     return (
       <CartProvider>
         <div className="font-sans">
-          <NavbarWithCart onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onCartClick={handleCartClick} onProductClick={handleProductClick} />
+          <NavbarWithCart 
+            onHomeClick={handleBackToHome} 
+            onLogout={handleLogout} 
+            isLoggedIn={isLoggedIn} 
+            onComboClick={handleNavComboClick} 
+            onSavouriesClick={handleNavSavouriesClick} 
+            onSweetsClick={handleNavSweetsClick} 
+            onKitchenSpecialsClick={handleNavKitchenSpecialsClick} 
+            currentPage={currentPage} 
+            onCartClick={handleCartClick} 
+            onProductClick={handleProductClick} 
+          />
           <ComboPage onBack={handleBackToHome} onProductClick={handleProductClick} />
           <Footer />
         </div>
       </CartProvider>
     );
   }
+
   // Show Review Page
-if (currentPage === "review") {
-  return (
-    <div className="font-sans">
-      <Navbar 
-        onHomeClick={handleBackToHome} 
-        onLogout={handleLogout}
-        isLoggedIn={isLoggedIn}
-        onComboClick={handleNavComboClick}
-        onSavouriesClick={handleNavSavouriesClick}
-        onSweetsClick={handleNavSweetsClick}
-        onKitchenSpecialsClick={handleNavKitchenSpecialsClick}
-        currentPage={currentPage}
-        onProductClick={handleProductClick}
-      />
-
-      <ReviewPage onBackClick={handleBackToHome} />
-
-      <Footer />
-    </div>
-  );
-}
-
+  if (currentPage === "review") {
+    return (
+      <div className="font-sans">
+        <Navbar 
+          onHomeClick={handleBackToHome} 
+          onLogout={handleLogout}
+          isLoggedIn={isLoggedIn}
+          onComboClick={handleNavComboClick}
+          onSavouriesClick={handleNavSavouriesClick}
+          onSweetsClick={handleNavSweetsClick}
+          onKitchenSpecialsClick={handleNavKitchenSpecialsClick}
+          currentPage={currentPage}
+          onProductClick={handleProductClick}
+        />
+        <ReviewPage onBackClick={handleBackToHome} />
+        <Footer />
+      </div>
+    );
+  }
 
   // Show home page after login
   return (
     <div className="font-sans">
-      <Navbar onHomeClick={handleBackToHome} onLogout={handleLogout} isLoggedIn={isLoggedIn} onComboClick={handleNavComboClick} onSavouriesClick={handleNavSavouriesClick} onSweetsClick={handleNavSweetsClick} onKitchenSpecialsClick={handleNavKitchenSpecialsClick} currentPage={currentPage} onProductClick={handleProductClick} />
+      <Navbar 
+        onHomeClick={handleBackToHome} 
+        onLogout={handleLogout} 
+        isLoggedIn={isLoggedIn} 
+        onComboClick={handleNavComboClick} 
+        onSavouriesClick={handleNavSavouriesClick} 
+        onSweetsClick={handleNavSweetsClick} 
+        onKitchenSpecialsClick={handleNavKitchenSpecialsClick} 
+        currentPage={currentPage} 
+        onProductClick={handleProductClick} 
+      />
       <HeroSection />
       <Categories onCategoryClick={handleCategoryClick} />
       <BestSellers />
